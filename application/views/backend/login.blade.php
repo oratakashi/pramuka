@@ -73,9 +73,10 @@
                             url: "{{ base_url('admin/login.aspx') }}",
                             data: {
                                 'email'     : response.data.email,
-                                'id_user'  : response.data.id_user,
+                                'id_user'   : response.data.id_user,
                                 'nama'      : response.data.nama,
-                                'photo'     : response.data.photo
+                                'photo'     : response.data.photo,
+                                'lev_user'  : response.data.lev_user
                             },
                             dataType: "json",
                             success: function (response) {
