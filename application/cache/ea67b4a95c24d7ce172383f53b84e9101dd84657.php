@@ -80,8 +80,8 @@
                             dataType: "json",
                             success: function (response) {
                                 if(response.success){
-                                    console.log(response);
-                                    // window.location.replace('<?php echo e(base_url("admin/index.html")); ?>');
+                                    // console.log(response);
+                                    window.location.replace('<?php echo e(base_url("admin/index.html")); ?>');
                                 }else{
                                     $('button').attr('disabled', false);
                                     $('button').html('Sign in');

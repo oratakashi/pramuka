@@ -7,7 +7,7 @@ class User extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Usermodel');
+        $this->load->model('UserModel');
     }
     
 
@@ -24,7 +24,7 @@ class User extends CI_Controller {
                 "password" => sha1($this->input->post('password'))
             );
 
-            $data = $this->Usermodel->login($data);
+            $data = $this->UserModel->login($data);
             $result = array();
 
             if($data->num_rows()==1){
