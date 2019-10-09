@@ -1,13 +1,13 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class User extends CI_Controller {
 
     
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Adminmodel');
+        $this->load->model('Usermodel');
     }
     
 
@@ -24,7 +24,7 @@ class Admin extends CI_Controller {
                 "password" => sha1($this->input->post('password'))
             );
 
-            $data = $this->Adminmodel->login($data);
+            $data = $this->Usermodel->login($data);
             $result = array();
 
             if($data->num_rows()==1){
@@ -53,10 +53,10 @@ class Admin extends CI_Controller {
             $session = array(
                 'email' => $this->input->post('email'),
                 'nama' => $this->input->post('nama'),
-                'id_admin' => $this->input->post('id_admin'),
+                'id_user' => $this->input->post('id_user'),
                 'photo' => $this->input->post('photo')
             );
-            $this->input->set_cookie('id_admin', base64_encode($session['id_admin']), 3600*24*7);
+            $this->input->set_cookie('id_user', base64_encode($session['id_user']), 3600*24*7);
             $this->input->set_cookie('nama', base64_encode($session['nama']), 3600*24*7);
             $this->input->set_cookie('email', base64_encode($session['email']), 3600*24*7);
             $this->input->set_cookie('photo', base64_encode($session['photo']), 3600*24*7);
@@ -73,6 +73,20 @@ class Admin extends CI_Controller {
 
             echo json_encode($result);
         }
+    }
+
+    public function logout()
+    {
+        delete_cookie('id_user');
+        delete_cookie('nama');
+        delete_cookie('email');
+        delete_cookie('photo');
+
+        $this->session->sess_destroy();
+        
+        
+        redirect('admin/login.html','refresh');
+        
     }
 
 }

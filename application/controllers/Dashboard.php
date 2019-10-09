@@ -5,7 +5,7 @@ class Dashboard extends CI_Controller {
 
     public function index()
     {
-        if(empty($this->session->userdata('id_admin'))){
+        if(empty($this->session->userdata('id_user'))){
             if($this->uri->segment(2)!='login.html'){
                 redirect('admin/login.html');
             }else{

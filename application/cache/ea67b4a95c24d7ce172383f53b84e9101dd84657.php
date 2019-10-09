@@ -73,14 +73,15 @@
                             url: "<?php echo e(base_url('admin/login.aspx')); ?>",
                             data: {
                                 'email'     : response.data.email,
-                                'id_admin'  : response.data.id_admin,
+                                'id_user'  : response.data.id_user,
                                 'nama'      : response.data.nama,
                                 'photo'     : response.data.photo
                             },
                             dataType: "json",
                             success: function (response) {
                                 if(response.success){
-                                    window.location.replace('<?php echo e(base_url("admin/index.html")); ?>');
+                                    console.log(response);
+                                    // window.location.replace('<?php echo e(base_url("admin/index.html")); ?>');
                                 }else{
                                     $('button').attr('disabled', false);
                                     $('button').html('Sign in');

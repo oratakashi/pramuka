@@ -1,0 +1,395 @@
+/**** MAIN CONTENT ****/
+body {
+	background-image: url("images/bg.png");
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+
+.wrapper {
+	margin-right: auto;
+	margin-left: auto;
+/*	top: 25%; */
+	position: relative;
+	height: 100px;
+	margin-top: 50px;
+}
+
+.subtitle {
+	margin-right: auto;
+	margin-left: auto;
+	width: 210px;
+}
+
+h2 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+	font-weight: 100;
+	text-shadow: 0px 0px 1px rgba(252, 225, 225, 1);
+	line-height: 24px;
+}
+
+.title {
+	width: 380px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+h1 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 72px;
+	font-weight: 100;
+	color: rgba(255,255,255,1);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
+	line-height: 72px;
+	padding-bottom: 10px;
+}
+
+.box_top {
+	background-image: url("images/box_top.png");
+	background-repeat: no-repeat;
+	margin-right: auto;
+	margin-left: auto;
+	width: 370px;
+	height: 44px;
+}
+
+.box_content {
+	background-image: url("images/box_middle.png");
+	background-repeat: repeat-y;
+	margin-right: auto;
+	margin-left: auto;
+	width: 370px;
+	overflow: hidden;
+}
+
+.box_bottom {
+	background-image: url("images/box_bottom.png");
+	background-repeat: no-repeat;
+	margin-right: auto;
+	margin-left: auto;
+	width: 370px;
+	height: 44px;
+}
+
+h3 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 100;
+	color: #81878B;
+	letter-spacing: 2px;
+	text-align: center;
+	font-size: 18px;
+	padding-top: 20px;
+}
+
+.nospam {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+	color: #aab0b5;
+	margin-right: auto;
+	margin-left: auto;
+	width: 110px;
+	margin-top: -7px;
+}
+
+.nospam .star {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	vertical-align: middle;
+}
+
+/**** COUNTDOWN ****/
+#countdown {
+	font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
+	color: #5D6368;
+	text-shadow: 0px 0px 1px rgba(170, 176, 181, 1);
+	font-weight: 700;
+	padding-left: 23px;
+}
+
+.numbers {
+	font-size: 48px;
+	color: #5D6368;
+	background: url("images/countdown.png") no-repeat;
+}
+
+.days {
+	display: block;
+	float: left;
+	width: 75px;
+	text-align: center;
+}
+
+.hours {
+	display: block;
+	float: left;
+	width: 75px;
+	text-align: center;
+	padding-left: 10px;
+}
+
+.minutes {
+	display: block;
+	float: left;
+	width: 75px;
+	text-align: center;
+	padding-left: 10px;
+}
+
+.seconds {
+	display: block;
+	float: left;
+	width: 75px;
+	text-align: center;
+	padding-left: 10px;
+}
+
+.labels {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+#timer_days_label {
+	padding-left: 0px;
+}
+
+#timer_hours_label {
+	padding-left: 0px;
+}
+
+#timer_mins_label {
+	padding-left: 0px;
+}
+
+#timer_seconds_label {
+	padding-left: 0px;
+}
+
+/**** EMAIL SUBSCRIPTION FORM  ****/
+#subscribe {
+	width: 240px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#email_wrap {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 130px;
+	display: block;
+	clear: both;
+}
+
+#emailsub {
+	-webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.2);
+	height: 27px;
+	width: 220px;
+	border-radius: 4px;
+	color: rgba(102,102,102,1);
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 0;
+	outline: none;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	font-size: 14px;
+	font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
+	display: inline;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#emailsub:focus {
+	-webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.3);
+	box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.3);
+}
+
+.subbutton {
+	background: url('images/button.png') no-repeat -9px -6px;
+	width: 157px;
+	height: 30px;
+	background-repeat: no-repeat;
+	position: relative;
+	display: block;
+	z-index: 1;
+	bottom: 0px;
+	vertical-align: middle;
+	border-style: none; 
+	cursor:pointer;
+	
+border: none;
+	margin-bottom: 4px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Droid Sans, Arial, Helvetica, sans-serif;
+	font-weight: 700;
+	font-size: 14px;
+	color: #fff;
+	-webkit-text-shadow: .5px 0px 1px rgba(252, 225, 225, 0.6);
+	-moz-text-shadow: .5px 0px 1px rgba(252, 225, 225, 0.6);
+	-o-text-shadow: .5px 0px 1px rgba(252, 225, 225, 0.6);
+	-ms-text-shadow: .5px 0px 1px rgba(252, 225, 225, 0.6);
+	text-shadow: .5px 0px 1px rgba(252, 225, 225, 0.6);
+}
+
+.subbutton:hover {
+	background: url('images/button.png') no-repeat -186px -6px;
+	width: 157px;
+	height: 30px;
+}
+
+.subbutton:active {
+	background: url('images/button.png') no-repeat -354px -6px;
+	width: 157px;
+	height: 30px;
+}
+
+.subError {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #999;
+	margin-left: 15px;
+	font-weight: 700;
+}
+
+.subProgress {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #333;
+	margin-left: 75px;
+	font-weight: 700;
+	text-align: center;
+}
+
+/*** SHARE WIDGETS ***/
+.share {
+	padding-top: 20px;
+	padding-left: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 40px;
+}
+
+.fb,.twit,.gplus {
+	float: left;
+	width: 103px;
+	overflow: hidden;
+}
+
+.gplus {
+	padding-left: 20px;
+}
+
+.pointer {
+	background-image: url("images/pointer.png");
+	background-repeat: no-repeat;
+	margin-right: auto;
+	margin-left: auto;
+	width: 41px;
+	height: 25px;
+	z-index: 1;
+	margin-top: -5px;
+	position: relative;
+}
+
+.css_box {
+	background-color: #f7f9fa;
+	overflow: hidden;
+	width: 380px;
+	margin-right: auto;
+	margin-left: auto;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	margin-top: -1px;
+	position: relative;
+	z-index: 2;
+}
+
+
+
+
+
+/**** LATEST TWEET ****/
+#tweet_container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
+	padding-top: 40px;
+	text-align:center;
+}
+
+#latest_tweet {
+	display: inline;
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
+}
+
+#latest_tweet_icon {
+	display: inline;
+	margin-left: auto;
+	margin-right: auto;
+	margin-right: auto;
+	position: absolute;
+	margin-top: 10px;
+}
+
+#tweet {
+	font-size: 18px;
+	margin-left: auto;
+	margin-right: auto;
+	color: #aab0b5;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	padding-left: 40px;
+	text-align: center;
+	width: 500px;
+	margin-top: 70px;
+	display: inline;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight:400;
+	font-style:italic;
+}
+
+#tweet a {
+	outline: none;
+	color:#aab0b5;
+	text-decoration: none;
+}
+
+#tweet a:hover {
+	text-decoration: underline;
+}
+
+/* Smartphones (portrait and landscape) -----------*/
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	/* Styles */
+.wrapper {
+	margin-top:30px;
+}
+#tweet_container {
+	width:370px;}
+#tweet {
+	width:370px;}
+}
+
+/* iPhone 4 -----------*/
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5),only screen and (min-device-pixel-ratio : 1.5) {
+	/* Styles */
+.wrapper {
+	top: 20%;
+}
+#tweet_container {
+	width:370px;}
+#tweet {
+	width:370px;}
+
+}
+
