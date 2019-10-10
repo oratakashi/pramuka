@@ -2711,14 +2711,14 @@
 			 * sZeroRecords - assuming that is given.
 			 */
 			if ( !oLanguage.sEmptyTable && oLanguage.sZeroRecords &&
-				oDefaults.sEmptyTable === "No data available in table" )
+				oDefaults.sEmptyTable === "Tidak ada data yang ditampilkan" )
 			{
 				_fnMap( oLanguage, oLanguage, 'sZeroRecords', 'sEmptyTable' );
 			}
 		
 			/* Likewise with loading records */
 			if ( !oLanguage.sLoadingRecords && oLanguage.sZeroRecords &&
-				oDefaults.sLoadingRecords === "Loading..." )
+				oDefaults.sLoadingRecords === "Memuat..." )
 			{
 				_fnMap( oLanguage, oLanguage, 'sZeroRecords', 'sLoadingRecords' );
 			}
@@ -9254,19 +9254,19 @@
 			 * parameter - if it is not given, the value of sZeroRecords will be used
 			 * instead (either the default or given value).
 			 *  @type string
-			 *  @default No data available in table
+			 *  @default Tidak ada data yang di tampilkan
 			 *  @dtopt Language
 			 * 
 			 *  @example
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "oLanguage": {
-			 *          "sEmptyTable": "No data available in table"
+			 *          "sEmptyTable": "Tidak ada data yang di tampilkan"
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
+			"sEmptyTable": "Tidak ada data yang di tampilkan",
 		
 		
 			/**
@@ -9287,7 +9287,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
 		
 		
 			/**
@@ -9306,7 +9306,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			"sInfoEmpty": "Menampilkan 0 sampai 0 dari 0 data",
 		
 		
 			/**
@@ -9481,7 +9481,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "Pencarian:",
 		
 		
 			/**
@@ -9519,12 +9519,12 @@
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "oLanguage": {
-			 *          "sZeroRecords": "No records to display"
+			 *          "sZeroRecords": "Tidak ada data di tampilkan"
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No matching records found"
+			"sZeroRecords": "Data tidak ditemukan"
 		},
 	
 	
