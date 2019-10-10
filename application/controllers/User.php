@@ -13,7 +13,10 @@ class User extends CI_Controller {
 
     public function index()
     {
-        
+        $data = array(
+            'content' => 'user'
+        );
+        view('backend/user', $data);
     }
 
     public function validation()

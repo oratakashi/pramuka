@@ -18,7 +18,10 @@ class Dashboard extends CI_Controller {
             if($this->uri->segment(2)!='index.html'){
                 redirect('admin/index.html');
             }else{
-                view('backend/dashboard');
+                $data = array(
+                    'content' => 'dashboard'
+                );
+                view('backend/dashboard', $data);
             }
         }        
     }

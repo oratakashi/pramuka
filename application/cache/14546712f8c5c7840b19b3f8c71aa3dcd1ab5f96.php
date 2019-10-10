@@ -3,19 +3,23 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
             <li>
-                <a class="active" href="index.html">
+                <a class="
+                    <?php if($content == 'dashboard'): ?>
+                        active 
+                    <?php endif; ?>
+                " href="index.html">
                     <i class="fa fa-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
 
             <li class="sub-menu">
-                <a href="javascript:;" >
+                <a href="javascript:;" class="<?php if($content == 'user'): ?> active <?php endif; ?>">
                     <i class="fa fa-laptop"></i>
                     <span>Menu Administratif</span>
                 </a>
-                <ul class="sub">
-                    <li><a  href="user.html">Kelola Pengguna</a></li>
+                <ul class="sub active">
+                    <li class="<?php if($content == 'user'): ?> active <?php endif; ?>"><a href="user.html">Kelola Pengguna</a></li>
                 </ul>
             </li>
 

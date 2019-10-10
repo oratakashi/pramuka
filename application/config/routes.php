@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'Dashboard';
 $route['admin/login.html'] = 'Dashboard';
 $route['admin/index.html'] = 'Dashboard';
+$route['admin/user.html'] = 'User/index';
 $route['admin/validation.aspx'] = 'User/validation';
 $route['admin/login.aspx'] = 'User/login';
 $route['admin/logout.aspx'] = 'User/logout';
