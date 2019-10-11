@@ -22,21 +22,33 @@
                                         <thead>
                                             <tr>
                                                 <th>ID Pengguna</th>
-                                                <th></th>
                                                 <th>Nama Pengguna</th>
                                                 <th>Level User</th>
+                                                <th>Email</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        
+                                            @foreach ($data_user as $user)
+                                                <tr>
+                                                    <th>{{ $user['id_user'] }}</th>
+                                                    <th><img alt="" class="rounded-circle" style="height:32px; margin-right:10px" src="{{ base_url('media/photo_user/') }}{{ $user['photo'] }}"> {{ $user['nama'] }}</th>
+                                                    <th>{{ $user['lev_user'] }}</th>
+                                                    <th>{{ $user['email'] }}</th>
+                                                    <th>
+                                                        <a href="" class="btn btn-primary"><i class="fa fa-info"></i></a>
+                                                        <a href="" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                                                        <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                                    </th>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>ID Pengguna</th>
-                                                <th></th>
                                                 <th>Nama Pengguna</th>
                                                 <th>Level User</th>
+                                                <th>Email</th>
                                                 <th></th>
                                             </tr>
                                         </tfoot>

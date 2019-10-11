@@ -13,8 +13,10 @@ class User extends CI_Controller {
 
     public function index()
     {
+        $data_user = $this->UserModel->read()->result_array();
         $data = array(
-            'content' => 'user'
+            'content'   => 'user',
+            'data_user' => $data_user
         );
         view('backend/user', $data);
     }

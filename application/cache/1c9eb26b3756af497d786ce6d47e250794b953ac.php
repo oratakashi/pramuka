@@ -21,21 +21,33 @@
                                         <thead>
                                             <tr>
                                                 <th>ID Pengguna</th>
-                                                <th></th>
                                                 <th>Nama Pengguna</th>
                                                 <th>Level User</th>
+                                                <th>Email</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        
+                                            <?php $__currentLoopData = $data_user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <tr>
+                                                    <th><?php echo e($user['id_user']); ?></th>
+                                                    <th><img alt="" class="rounded-circle" style="height:32px; margin-right:10px" src="<?php echo e(base_url('media/photo_user/')); ?><?php echo e($user['photo']); ?>"> <?php echo e($user['nama']); ?></th>
+                                                    <th><?php echo e($user['lev_user']); ?></th>
+                                                    <th><?php echo e($user['email']); ?></th>
+                                                    <th>
+                                                        <a href="" class="btn btn-primary"><i class="fa fa-info"></i></a>
+                                                        <a href="" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                                                        <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                                    </th>
+                                                </tr>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>ID Pengguna</th>
-                                                <th></th>
                                                 <th>Nama Pengguna</th>
                                                 <th>Level User</th>
+                                                <th>Email</th>
                                                 <th></th>
                                             </tr>
                                         </tfoot>

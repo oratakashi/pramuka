@@ -8,6 +8,11 @@ class UserModel extends CI_Model {
         return $this->db->get_where('tb_user', $data);
     }
 
+    public function read()
+    {
+        return $this->db->get('tb_user');
+    }
+
 }
 
 /* End of file AdminModel.php */

@@ -20,6 +20,7 @@
                 </a>
                 <ul class="sub active">
                     <li class="@if ($content == 'user') active @endif"><a href="user.html">Kelola Pengguna</a></li>
+                    <li class=""><a href="user.html">Rekap Data</a></li>
                 </ul>
             </li>
 
