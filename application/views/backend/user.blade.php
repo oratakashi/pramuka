@@ -36,9 +36,9 @@
                                                     <th>{{ $user['lev_user'] }}</th>
                                                     <th>{{ $user['email'] }}</th>
                                                     <th>
-                                                        <a href="" class="btn btn-primary"><i class="fa fa-info"></i></a>
+                                                        <a href="" class="btn btn-primary"><i class="fa fa-info"></i> Detail</a>
                                                         <a href="" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-                                                        <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                                        <a href="" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
                                                     </th>
                                                 </tr>
                                             @endforeach
