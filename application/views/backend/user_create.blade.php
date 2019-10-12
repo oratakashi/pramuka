@@ -60,13 +60,59 @@
                                 <aside class="profile-info col-lg-9">
                                     <section class="card">
                                         <div class="card-body bio-graph-info">
-                                            <div class="form-group col-md-4" id="lev_user">
-                                                <h1>Pilih tipe : </h1>
-                                                <select name="lev_user" id="lev_user" class="form-control">
-                                                    <option value="">Pilih Jenis Pengguna</option>
-                                                    <option value="Administrator">Administrator</option>
-                                                    <option value="Pengurus">Pengurus</option>
-                                                </select>
+                                            <div class="row">
+                                                <div class="col-md-4" id="parent_lev_user">
+                                                    <div class="form-group">
+                                                        <label>Pilih tipe : </label>
+                                                        <select name="lev_user" id="lev_user" class="form-control">
+                                                            <option value="">Pilih Jenis Pengguna</option>
+                                                            <option value="Administrator">Administrator</option>
+                                                            <option value="Pengurus">Pengurus</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8" id="parent_kecamatan">
+                                                    <label for="">Pilih Kecamatan</label>
+                                                    <select name="kecataman" id="kecamatan" class="form-control">
+                                                        <option value="">Pilih Kecamatan</option>
+                                                        @foreach ($data_kec as $data)
+                                                            <option value="{{ $data['id_kecamatan'] }}">{{ $data['nama_kecamatan'] }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row" id="form">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="">ID Pengguna</label>
+                                                        <input type="text" required name="id_user" readonly id="id_user" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="">No Hp</label>
+                                                        <input type="text" required name="no_hp" id="" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="">Password</label>
+                                                        <input type="password" name="password" id="" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <label for="">Nama Pengguna</label>
+                                                        <input type="text" required name="nama" id="" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="">Email</label>
+                                                        <input type="text" required name="email" id="email" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="">Alamat</label>
+                                                        <input type="text" name="alamat" id="" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <input type="submit" value="Simpan" class="btn btn-success float-right">
+                                                </div>
                                             </div>
                                         </div>
                                     </section>

@@ -8,6 +8,7 @@ class User extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('UserModel');
+        $this->load->model('KecamatanModel');
     }
     
 
@@ -113,8 +114,10 @@ class User extends CI_Controller {
 
     public function view_create()
     {
+        $data_kec = $this->KecamatanModel->read()->result_array();
         $data = array(
-            "content" => 'user'
+            "content"   => 'user',
+            "data_kec"  =>  $data_kec
         );
 
         view('backend/user_create', $data);
