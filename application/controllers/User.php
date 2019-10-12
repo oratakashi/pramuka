@@ -111,6 +111,11 @@ class User extends CI_Controller {
         view('backend/user_detail', $data);
     }
 
+    public function view_create()
+    {
+        
+    }
+
 }
 
 /* End of file Users.php */

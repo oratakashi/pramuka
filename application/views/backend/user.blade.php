@@ -10,9 +10,8 @@
                     <div class="col-sm-12">
                         <section class="card">
                             <header class="card-header">
-                                {{ "Kelola Pengguna" }}
+                                {{ "Kelola Pengguna" }} <a href="{{ base_url('admin/user/create.html') }}"><button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah</button></a>
                                     <span class="tools pull-right">
-                                        <a href="" class="fa fa-plus"></a>
                                         <a href="javascript:;" class="fa fa-chevron-down"></a>
                                     </span>
                             </header>

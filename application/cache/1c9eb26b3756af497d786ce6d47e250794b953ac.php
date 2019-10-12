@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'User'); ?>
+<?php $__env->startSection('title', 'Daftar Pengguna - Pramuka Lumajang'); ?>
 
 <?php $__env->startSection('container'); ?>
 <section id="main-content">
@@ -8,10 +8,8 @@
                     <div class="col-sm-12">
                         <section class="card">
                             <header class="card-header">
-                                <?php echo e("Kelola Pengguna"); ?>
-
+                                <?php echo e("Kelola Pengguna"); ?> <a href="<?php echo e(base_url('admin/user/create.html')); ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah</button></a>
                                     <span class="tools pull-right">
-                                        <a href="" class="fa fa-plus"></a>
                                         <a href="javascript:;" class="fa fa-chevron-down"></a>
                                     </span>
                             </header>

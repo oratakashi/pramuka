@@ -7,7 +7,7 @@
                     @if ($content == 'dashboard')
                         active 
                     @endif
-                " href="index.html">
+                " href="{{base_url('admin/')}}index.html">
                     <i class="fa fa-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
@@ -19,7 +19,7 @@
                     <span>Menu Administratif</span>
                 </a>
                 <ul class="sub active">
-                    <li class="@if ($content == 'user') active @endif"><a href="user.html">Kelola Pengguna</a></li>
+                    <li class="@if ($content == 'user') active @endif"><a href="{{base_url('admin/')}}user.html">Kelola Pengguna</a></li>
                     <li class=""><a href="user.html">Rekap Data</a></li>
                 </ul>
             </li>

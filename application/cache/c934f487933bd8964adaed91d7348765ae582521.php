@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', "Dashboard"); ?>
+<?php $__env->startSection('title', "Dashboard -  Pramuka Lumajang"); ?>
 
 <?php $__env->startSection('container'); ?>
 <section id="main-content">

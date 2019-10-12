@@ -7,7 +7,7 @@
                     <?php if($content == 'dashboard'): ?>
                         active 
                     <?php endif; ?>
-                " href="index.html">
+                " href="<?php echo e(base_url('admin/')); ?>index.html">
                     <i class="fa fa-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
@@ -19,7 +19,7 @@
                     <span>Menu Administratif</span>
                 </a>
                 <ul class="sub active">
-                    <li class="<?php if($content == 'user'): ?> active <?php endif; ?>"><a href="user.html">Kelola Pengguna</a></li>
+                    <li class="<?php if($content == 'user'): ?> active <?php endif; ?>"><a href="<?php echo e(base_url('admin/')); ?>user.html">Kelola Pengguna</a></li>
                     <li class=""><a href="user.html">Rekap Data</a></li>
                 </ul>
             </li>
