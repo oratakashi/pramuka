@@ -113,7 +113,11 @@ class User extends CI_Controller {
 
     public function view_create()
     {
-        
+        $data = array(
+            "content" => 'user'
+        );
+
+        view('backend/user_create', $data);
     }
 
 }
