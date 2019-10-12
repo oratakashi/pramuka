@@ -215,6 +215,17 @@ class User extends CI_Controller {
             echo json_encode($result);
         }
     }
+
+    public function create()
+    {
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            if($_FILES['photo']['error'] === UPLOAD_ERR_OK){
+                echo "Image Alvalaibe";
+            }else{
+                echo "empty Image";
+            }
+        }
+    }
 }
 
 /* End of file Users.php */

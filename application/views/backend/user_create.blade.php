@@ -37,89 +37,89 @@
                                 <a href="javascript:;" class="fa fa-chevron-down"></a>
                             </span>
                     </header>
-                    <form action="" method="post" enctype="multipart/form-data">
-                    <div class="card-body">
-                        <div class="row">
-                                <aside class="profile-nav col-lg-3">
-                                    <section class="card">
-                                        <div class="user-heading round">
-                                            <a href="#">
-                                                <img id="photo" src="{{base_url('media/photo_user/no-pict.png')}}" alt="">
-                                            </a>
-                                            <div class="form-group">
-                                                <div class="myfileupload-buttonbar" style="margin-top:20px">
-                                                    <label class="btn btn-primary">
-                                                        <span>Upload Foto</span>
-                                                        <input id="file" type="file" name="photo" accept="image/*"  onchange="tampilkanPreview(this,'photo')" />
-                                                    </label>
+                    <form action="{{ base_url('admin/user/create.aspx') }}" method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <div class="row">
+                                    <aside class="profile-nav col-lg-3">
+                                        <section class="card">
+                                            <div class="user-heading round">
+                                                <a href="#">
+                                                    <img id="photo" src="{{base_url('media/photo_user/no-pict.png')}}" alt="">
+                                                </a>
+                                                <div class="form-group">
+                                                    <div class="myfileupload-buttonbar" style="margin-top:20px">
+                                                        <label class="btn btn-primary">
+                                                            <span>Upload Foto</span>
+                                                            <input id="file" type="file" name="photo" accept="image/*"  onchange="tampilkanPreview(this,'photo')" />
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </section>
-                                </aside>
-                                <aside class="profile-info col-lg-9">
-                                    <section class="card">
-                                        <div class="card-body bio-graph-info">
-                                            <div class="row">
-                                                <div class="col-md-4" id="parent_lev_user">
-                                                    <div class="form-group">
-                                                        <label>Pilih tipe : </label>
-                                                        <select name="lev_user" id="lev_user" class="form-control">
-                                                            <option value="">Pilih Jenis Pengguna</option>
-                                                            <option value="Administrator">Administrator</option>
-                                                            <option value="Pengurus">Pengurus</option>
+                                        </section>
+                                    </aside>
+                                    <aside class="profile-info col-lg-9">
+                                        <section class="card">
+                                            <div class="card-body bio-graph-info">
+                                                <div class="row">
+                                                    <div class="col-md-4" id="parent_lev_user">
+                                                        <div class="form-group">
+                                                            <label>Pilih tipe : </label>
+                                                            <select name="lev_user" id="lev_user" class="form-control">
+                                                                <option value="">Pilih Jenis Pengguna</option>
+                                                                <option value="Administrator">Administrator</option>
+                                                                <option value="Pengurus">Pengurus</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8" id="parent_kecamatan">
+                                                        <label for="">Pilih Kecamatan</label>
+                                                        <select name="kecataman" id="kecamatan" class="form-control">
+                                                            <option value="">Pilih Kecamatan</option>
+                                                            @foreach ($data_kec as $data)
+                                                                <option value="{{ $data['id_kecamatan'] }}">{{ $data['nama_kecamatan'] }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-8" id="parent_kecamatan">
-                                                    <label for="">Pilih Kecamatan</label>
-                                                    <select name="kecataman" id="kecamatan" class="form-control">
-                                                        <option value="">Pilih Kecamatan</option>
-                                                        @foreach ($data_kec as $data)
-                                                            <option value="{{ $data['id_kecamatan'] }}">{{ $data['nama_kecamatan'] }}</option>
-                                                        @endforeach
-                                                    </select>
+                                                <div class="row" id="form">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="">ID Pengguna</label>
+                                                            <input type="text" required name="id_user" readonly id="id_user" class="form-control">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">No Hp</label>
+                                                            <input type="text" required name="no_hp" id="" class="form-control">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Password</label>
+                                                            <input type="password" name="password" id="" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label for="">Nama Pengguna</label>
+                                                            <input type="text" required name="nama" id="" class="form-control">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Email</label>
+                                                            <input type="text" required name="email" id="email" class="form-control">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Alamat</label>
+                                                            <input type="text" name="alamat" id="" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <button type="submit" value="Simpan" class="btn btn-success float-right">Simpan</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="row" id="form">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label for="">ID Pengguna</label>
-                                                        <input type="text" required name="id_user" readonly id="id_user" class="form-control">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="">No Hp</label>
-                                                        <input type="text" required name="no_hp" id="" class="form-control">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="">Password</label>
-                                                        <input type="password" name="password" id="" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="form-group">
-                                                        <label for="">Nama Pengguna</label>
-                                                        <input type="text" required name="nama" id="" class="form-control">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="">Email</label>
-                                                        <input type="text" required name="email" id="email" class="form-control">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="">Alamat</label>
-                                                        <input type="text" name="alamat" id="" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <button type="submit" value="Simpan" class="btn btn-success float-right">Simpan</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                </aside>
+                                        </section>
+                                    </aside>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </form>
                 </section>
             </div>

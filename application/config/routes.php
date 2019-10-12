@@ -70,3 +70,4 @@ $route['admin/validation.aspx'] = 'User/validation';
 $route['admin/login.aspx'] = 'User/login';
 $route['admin/logout.aspx'] = 'User/logout';
 $route['admin/user/getId.aspx'] = 'User/getID';
+$route['admin/user/create.aspx'] = 'User/create';
