@@ -156,8 +156,9 @@
                 if($('#kecamatan').val()==''){
                     $('#form').slideUp();
                 }
+            }else{
                 $('#form').slideUp();
-                $('#parent_kecamatan').fadeIn();
+                $('#parent_kecamatan').fadeOut();
             }
         });
         $('#kecamatan').change(function (e) { 
