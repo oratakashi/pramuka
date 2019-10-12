@@ -5,7 +5,6 @@
 @section('container')
 <script>
     function tampilkanPreview(gambar,idpreview){
-        alert('Siap');
         var gb = gambar.files;
         for (var i = 0; i < gb.length; i++){
             var gbPreview = gb[i];
@@ -112,7 +111,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <input type="submit" value="Simpan" class="btn btn-success float-right">
+                                                    <button type="submit" value="Simpan" class="btn btn-success float-right"></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -127,4 +126,68 @@
         </div>
     </section>
 </section>
+
+<script>
+    $(document).ready(function () {
+        $('#form').slideUp();
+        $('#parent_kecamatan').fadeOut();
+        $('#lev_user').change(function (e) { 
+            e.preventDefault();
+            if($('#lev_user').val()=='Administrator'){
+                $.ajax({
+                    type: "post",
+                    url: "{{ base_url('admin/user/getId.aspx') }}",
+                    beforeSend: function() {
+                        $('input').attr('disabled', true);
+                        $('input').attr('placeholder', "Memuat...");
+                    },
+                    data: {
+                        "type" : "admin"
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        $('input').attr('disabled', false);
+                        $('input').attr('placeholder', "");
+                        $('#id_user').val(response.data.id_user);
+                        $('#form').slideDown();
+                    }
+                });
+                $('#parent_kecamatan').fadeOut();
+            }else if($('#lev_user').val()=='Pengurus'){
+                $('#parent_kecamatan').fadeIn();
+                if($('#kecamatan').val()==''){
+                    $('#form').slideUp();
+                }
+                $('#form').slideUp();
+                $('#parent_kecamatan').fadeIn();
+            }
+        });
+        $('#kecamatan').change(function (e) { 
+            e.preventDefault();
+            if($('#kecamatan').val()!=''){
+                $.ajax({
+                    type: "post",
+                    url: "{{ base_url('admin/user/getId.aspx') }}",
+                    beforeSend: function() {
+                        $('input').attr('disabled', true);
+                        $('input').attr('placeholder', "Memuat...");
+                    },
+                    data: {
+                        "type"          : "pengurus",
+                        "id_kecamatan"  : $('#kecamatan').val()
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        $('input').attr('disabled', false);
+                        $('input').attr('placeholder', "");
+                        $('#id_user').val(response.data.id_user);
+                        $('#form').slideDown();
+                    }
+                });
+            }else{
+                $('#form').slideUp();
+            }
+        });
+    });
+</script>
 @endsection

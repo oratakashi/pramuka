@@ -18,6 +18,15 @@ class UserModel extends CI_Model {
         $this->db->where('id_user', $id_user);
         return $this->db->get('tb_user');
     }
+
+    public function cekID($id_user)
+    {
+        $this->db->where('id_user', $id_user);
+        $id = $this->db->get('tb_user');
+        $row = $id->num_rows();
+        
+        return $row < 1;
+    }
 }
 
 /* End of file AdminModel.php */

@@ -53,12 +53,20 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+/**
+ * UI Section
+ */
 $route['admin'] = 'Dashboard';
 $route['admin/login.html'] = 'Dashboard';
 $route['admin/index.html'] = 'Dashboard';
 $route['admin/user.html'] = 'User/index';
 $route['admin/user/create.html'] = 'User/view_create';
 $route['admin/user/(:any).html'] = 'User/read/$1';
+
+/**
+ * Action Section
+ */
 $route['admin/validation.aspx'] = 'User/validation';
 $route['admin/login.aspx'] = 'User/login';
 $route['admin/logout.aspx'] = 'User/logout';
+$route['admin/user/getId.aspx'] = 'User/getID';

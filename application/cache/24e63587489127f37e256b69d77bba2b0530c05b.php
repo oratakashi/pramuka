@@ -29,6 +29,8 @@
     <link href="<?php echo e(base_url('assets/backend/')); ?>assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
     <link rel="stylesheet" href="<?php echo e(base_url('assets/backend/')); ?>assets/data-tables/DT_bootstrap.css" />
 
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/jquery.js"></script>
+
   </head>
 
   <body>
@@ -201,7 +203,6 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="<?php echo e(base_url('assets/backend/')); ?>js/jquery.js"></script>
     <script src="<?php echo e(base_url('assets/backend/')); ?>js/bootstrap.bundle.min.js"></script>
     <script class="include" type="text/javascript" src="<?php echo e(base_url('assets/backend/')); ?>js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="<?php echo e(base_url('assets/backend/')); ?>js/jquery.scrollTo.min.js"></script>

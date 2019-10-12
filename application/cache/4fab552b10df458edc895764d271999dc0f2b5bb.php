@@ -109,7 +109,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <input type="submit" value="Simpan" class="btn btn-success float-right">
+                                                    <button type="submit" value="Simpan" class="btn btn-success float-right"></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -124,5 +124,69 @@
         </div>
     </section>
 </section>
+
+<script>
+    $(document).ready(function () {
+        $('#form').slideUp();
+        $('#parent_kecamatan').fadeOut();
+        $('#lev_user').change(function (e) { 
+            e.preventDefault();
+            if($('#lev_user').val()=='Administrator'){
+                $.ajax({
+                    type: "post",
+                    url: "<?php echo e(base_url('admin/user/getId.aspx')); ?>",
+                    beforeSend: function() {
+                        $('input').attr('disabled', true);
+                        $('input').attr('placeholder', "Memuat...");
+                    },
+                    data: {
+                        "type" : "admin"
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        $('input').attr('disabled', false);
+                        $('input').attr('placeholder', "");
+                        $('#id_user').val(response.data.id_user);
+                        $('#form').slideDown();
+                    }
+                });
+                $('#parent_kecamatan').fadeOut();
+            }else if($('#lev_user').val()=='Pengurus'){
+                $('#parent_kecamatan').fadeIn();
+                if($('#kecamatan').val()==''){
+                    $('#form').slideUp();
+                }
+                $('#form').slideUp();
+                $('#parent_kecamatan').fadeIn();
+            }
+        });
+        $('#kecamatan').change(function (e) { 
+            e.preventDefault();
+            if($('#kecamatan').val()!=''){
+                $.ajax({
+                    type: "post",
+                    url: "<?php echo e(base_url('admin/user/getId.aspx')); ?>",
+                    beforeSend: function() {
+                        $('input').attr('disabled', true);
+                        $('input').attr('placeholder', "Memuat...");
+                    },
+                    data: {
+                        "type"          : "pengurus",
+                        "id_kecamatan"  : $('#kecamatan').val()
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        $('input').attr('disabled', false);
+                        $('input').attr('placeholder', "");
+                        $('#id_user').val(response.data.id_user);
+                        $('#form').slideDown();
+                    }
+                });
+            }else{
+                $('#form').slideUp();
+            }
+        });
+    });
+</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/user_create.blade.php ENDPATH**/ ?>

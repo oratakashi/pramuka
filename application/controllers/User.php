@@ -11,6 +11,9 @@ class User extends CI_Controller {
         $this->load->model('KecamatanModel');
     }
     
+    /**
+     * UI Method
+     */
 
     public function index()
     {
@@ -21,6 +24,35 @@ class User extends CI_Controller {
         );
         view('backend/user', $data);
     }
+
+    public function read()
+    {
+        $url = explode('.', $this->uri->segment(3));
+        $id_user = $url[0];
+
+        $data_user = $this->UserModel->read_id($id_user)->row_array();
+
+        $data = array(
+            'content'   => 'user',
+            'data_user' => $data_user
+        );
+        view('backend/user_detail', $data);
+    }
+
+    public function view_create()
+    {
+        $data_kec = $this->KecamatanModel->read()->result_array();
+        $data = array(
+            "content"   => 'user',
+            "data_kec"  =>  $data_kec
+        );
+
+        view('backend/user_create', $data);
+    }
+
+    /**
+     * Action Method
+     */
 
     public function validation()
     {
@@ -98,31 +130,91 @@ class User extends CI_Controller {
         
     }
 
-    public function read()
+    public function getID()
     {
-        $url = explode('.', $this->uri->segment(3));
-        $id_user = $url[0];
+        $result = array();
 
-        $data_user = $this->UserModel->read_id($id_user)->row_array();
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $id_user = "";
+            $type = $this->input->post('type');
+            if($type == 'admin'){
+                $no = 1;
+                while(true){
+                    if($no < 10){
+                        $id_user = "ID".date('Ymd').'0'.$no;
+                        if($this->UserModel->cekID($id_user)){
+                            break;
+                        }
+                    }elseif($no < 100){
+                        $id_user = "ID".date('Ymd').$no;
+                        if($this->UserModel->cekID($id_user)){
+                            break;
+                        }
+                    }else{
+                        break;
+                    }
+                    $no++;
+                }
+                $data_user = array(
+                    "id_user" => $id_user
+                );
+                $result['data'] = $data_user;
+                $result['success'] = true;
+                $result['message'] = 'Success';
+                echo json_encode($result);
+            }else{
+                $id_kecamatan = $this->input->post('id_kecamatan');
+                $no = 1;
+                
+                while(true){
+                    if($no<10){
+                        $id_user = $id_kecamatan."00000".$no;
+                        if($this->UserModel->cekID($id_user)){
+                            break;
+                        }
+                    }elseif($no < 100){
+                        $id_user = $id_kecamatan."0000".$no;
+                        if($this->UserModel->cekID($id_user)){
+                            break;
+                        }
+                    }elseif($no < 1000){
+                        $id_user = $id_kecamatan."000".$no;
+                        if($this->UserModel->cekID($id_user)){
+                            break;
+                        }
+                    }elseif($no < 10000){
+                        $id_user = $id_kecamatan."00".$no;
+                        if($this->UserModel->cekID($id_user)){
+                            break;
+                        }
+                    }elseif($no < 100000){
+                        $id_user = $id_kecamatan."0".$no;
+                        if($this->UserModel->cekID($id_user)){
+                            break;
+                        }
+                    }elseif($no < 1000000){
+                        $id_user = $id_kecamatan.$no;
+                        if($this->UserModel->cekID($id_user)){
+                            break;
+                        }
+                    }
+                    $no++;
+                }
+                $data_user = array(
+                    "id_user" => $id_user
+                );
+                $result['data'] = $data_user;
+                $result['success'] = true;
+                $result['message'] = 'Success';
+                echo json_encode($result);
+            }
+        }else{
+            $result['success'] = false;
+            $result['message'] = 'Wrong Method';
 
-        $data = array(
-            'content'   => 'user',
-            'data_user' => $data_user
-        );
-        view('backend/user_detail', $data);
+            echo json_encode($result);
+        }
     }
-
-    public function view_create()
-    {
-        $data_kec = $this->KecamatanModel->read()->result_array();
-        $data = array(
-            "content"   => 'user',
-            "data_kec"  =>  $data_kec
-        );
-
-        view('backend/user_create', $data);
-    }
-
 }
 
 /* End of file Users.php */
