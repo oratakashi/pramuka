@@ -97,6 +97,20 @@ class User extends CI_Controller {
         
     }
 
+    public function read()
+    {
+        $url = explode('.', $this->uri->segment(3));
+        $id_user = $url[0];
+
+        $data_user = $this->UserModel->read_id($id_user)->row_array();
+
+        $data = array(
+            'content'   => 'user',
+            'data_user' => $data_user
+        );
+        view('backend/user_detail', $data);
+    }
+
 }
 
 /* End of file Users.php */

@@ -35,7 +35,7 @@
                                                     <th><?php echo e($user['lev_user']); ?></th>
                                                     <th><?php echo e($user['email']); ?></th>
                                                     <th>
-                                                        <a href="" class="btn btn-primary"><i class="fa fa-info"></i> Detail</a>
+                                                        <a href="<?php echo e(base_url('admin/user/').$user['id_user']); ?>.html" class="btn btn-primary"><i class="fa fa-info"></i> Detail</a>
                                                         <a href="" class="btn btn-success"><i class="fa fa-pencil"></i></a>
                                                         <a href="" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
                                                     </th>

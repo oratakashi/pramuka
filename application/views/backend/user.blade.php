@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title', 'User')
+@section('title', 'Daftar Pengguna - Pramuka Lumajang')
 
 @section('container')
 <section id="main-content">
@@ -36,7 +36,7 @@
                                                     <th>{{ $user['lev_user'] }}</th>
                                                     <th>{{ $user['email'] }}</th>
                                                     <th>
-                                                        <a href="" class="btn btn-primary"><i class="fa fa-info"></i> Detail</a>
+                                                        <a href="{{ base_url('admin/user/').$user['id_user'] }}.html" class="btn btn-primary"><i class="fa fa-info"></i> Detail</a>
                                                         <a href="" class="btn btn-success"><i class="fa fa-pencil"></i></a>
                                                         <a href="" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
                                                     </th>

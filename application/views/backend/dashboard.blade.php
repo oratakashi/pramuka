@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', "Dashboard")
+@section('title', "Dashboard -  Pramuka Lumajang")
 
 @section('container')
 <section id="main-content">
