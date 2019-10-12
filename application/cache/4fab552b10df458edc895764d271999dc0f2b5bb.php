@@ -109,7 +109,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <button type="submit" value="Simpan" class="btn btn-success float-right"></button>
+                                                    <button type="submit" value="Simpan" class="btn btn-success float-right">Simpan</button>
                                                 </div>
                                             </div>
                                         </div>
