@@ -5,6 +5,7 @@
 @section('container')
 <script>
     function tampilkanPreview(gambar,idpreview){
+        alert('Siap');
         var gb = gambar.files;
         for (var i = 0; i < gb.length; i++){
             var gbPreview = gb[i];
