@@ -29,10 +29,10 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>ID Pengguna</th>
-                                                <th>Nama Pengguna</th>
-                                                <th>Level User</th>
-                                                <th>Email</th>
+                                                <th>ID Lagu</th>
+                                                <th>Nama File</th>
+                                                <th>Total Download</th>
+                                                <th>Pengunggah</th>
                                                 <th></th>
                                             </tr>
                                         </tfoot>

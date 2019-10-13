@@ -37,7 +37,7 @@
             </li>
 
             <li class="sub-menu">
-                <a href="javascript:;" class="<?php if($content == 'song'): ?> active <?php endif; ?>">
+                <a href="javascript:;" class="<?php if($content == 'song' || $content == 'song-add'): ?> active <?php endif; ?>">
                     <i class="fa fa-headphones"></i>
                     <span>Menu Lagu</span>
                 </a>

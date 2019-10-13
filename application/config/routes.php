@@ -77,3 +77,4 @@ $route['admin/user/(:any).html'] = 'User/read/$1';
 $route['admin/user/(:any).aspx'] = 'User/view_update/$1';
 
 $route['admin/song.html'] = 'Song/index';
+$route['admin/song/create.html'] = 'Song/view_create';
