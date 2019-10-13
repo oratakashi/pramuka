@@ -70,8 +70,10 @@ $route['admin/user/delete/(:any).aspx'] = 'User/delete/$1';
 $route['admin'] = 'Dashboard';
 $route['admin/login.html'] = 'Dashboard';
 $route['admin/index.html'] = 'Dashboard';
+
 $route['admin/user.html'] = 'User/index';
 $route['admin/user/create.html'] = 'User/view_create';
 $route['admin/user/(:any).html'] = 'User/read/$1';
 $route['admin/user/(:any).aspx'] = 'User/view_update/$1';
 
+$route['admin/song.html'] = 'Song/index';

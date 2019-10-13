@@ -37,13 +37,13 @@
             </li>
 
             <li class="sub-menu">
-                <a href="javascript:;" >
+                <a href="javascript:;" class="<?php if($content == 'song'): ?> active <?php endif; ?>">
                     <i class="fa fa-headphones"></i>
                     <span>Menu Lagu</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="grids.html">Tambah Lagu Baru</a></li>
-                    <li><a  href="calendar.html">Kelola Lagu</a></li>
+                    <li class="<?php if($content == 'song-add'): ?> active <?php endif; ?>"><a  href="<?php echo e(base_url('admin/')); ?>song/create.html">Tambah Lagu Baru</a></li>
+                    <li class="<?php if($content == 'song'): ?> active <?php endif; ?>"><a  href="<?php echo e(base_url('admin/')); ?>song.html">Kelola Lagu</a></li>
                 </ul>
             </li>
             <li class="sub-menu">
