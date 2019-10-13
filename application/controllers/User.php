@@ -17,37 +17,74 @@ class User extends CI_Controller {
 
     public function index()
     {
-        $data_user = $this->UserModel->read()->result_array();
-        $data = array(
-            'content'   => 'user',
-            'data_user' => $data_user
-        );
-        view('backend/user', $data);
+        if(!empty($this->session->userdata('id_user'))){
+            $data_user = $this->UserModel->read()->result_array();
+            $data = array(
+                'content'   => 'user',
+                'data_user' => $data_user
+            );
+            view('backend/user', $data);
+        }else{
+            redirect('admin/login.html','refresh');
+        }
     }
 
     public function read()
     {
-        $url = explode('.', $this->uri->segment(3));
-        $id_user = $url[0];
-
-        $data_user = $this->UserModel->read_id($id_user)->row_array();
-
-        $data = array(
-            'content'   => 'user',
-            'data_user' => $data_user
-        );
-        view('backend/user_detail', $data);
+        if(!empty($this->session->userdata('id_user'))){
+            $url = explode('.', $this->uri->segment(3));
+            $id_user = $url[0];
+    
+            $data_user = $this->UserModel->read_id($id_user)->row_array();
+    
+            $data = array(
+                'content'   => 'user',
+                'data_user' => $data_user
+            );
+            view('backend/user_detail', $data);
+        }else{
+            redirect('admin/login.html','refresh');
+        }
     }
 
     public function view_create()
     {
-        $data_kec = $this->KecamatanModel->read()->result_array();
-        $data = array(
-            "content"   => 'user',
-            "data_kec"  =>  $data_kec
-        );
+        if(!empty($this->session->userdata('id_user'))){
+            $data_kec = $this->KecamatanModel->read()->result_array();
+            $data = array(
+                "content"   => 'user',
+                "data_kec"  =>  $data_kec
+            );
 
-        view('backend/user_create', $data);
+            view('backend/user_create', $data);
+        }else{
+            redirect('admin/login.html','refresh');
+        }
+    }
+
+    public function view_update()
+    {
+        if(!empty($this->session->userdata('id_user'))){
+            $url = explode('.', $this->uri->segment(3));
+            $id_user = $url[0];
+            $id_kecamatan = "";
+    
+            $data_user = $this->UserModel->read_id($id_user)->row_array();
+            $data_kec = $this->KecamatanModel->read()->result_array();
+            if($data_user['lev_user']=='Pengurus'){
+                $id_kecamatan = substr($data_user['id_user'], 0, 6);
+            }
+            $data = array(
+                "content"       => 'user',
+                "data_kec"      =>  $data_kec,
+                "user"          => $data_user,
+                "id_kecamatan"  => $id_kecamatan
+            );
+
+            view('backend/user_edit', $data);
+        }else{
+            redirect('admin/login.html','refresh');
+        }
     }
 
     /**
@@ -219,10 +256,104 @@ class User extends CI_Controller {
     public function create()
     {
         if($_SERVER['REQUEST_METHOD']=='POST'){
+            $photo = "";
             if($_FILES['photo']['error'] === UPLOAD_ERR_OK){
-                echo "Image Alvalaibe";
+                $photo = $this->input->post('id_user');
+                
+                $config['upload_path']          = './media/photo_user/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['overwrite']            = true;
+                $config['file_name']            = $photo;
+                
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+                if ( ! $this->upload->do_upload('photo')){
+                    $error = array('error' => $this->upload->display_errors());
+                    print_r($error);
+                }
+                else{
+                    $upload = array('upload_data' => $this->upload->data());
+                    $photo = $upload['upload_data']['file_name'];
+                }
             }else{
-                echo "empty Image";
+                $photo = "no-pict.png";
+            }
+
+            $data = array(
+                "id_user" => $this->input->post('id_user'),
+                "nama" => $this->input->post('nama'),
+                "email" => $this->input->post('email'),
+                "password" => sha1($this->input->post('password')),
+                "lev_user" => $this->input->post('lev_user'),
+                "alamat" => $this->input->post('alamat'),
+                "no_hp" => $this->input->post('no_hp'),
+                "photo" => $photo
+            );
+
+            $this->UserModel->create($data);
+            redirect('admin/user.html','refresh');
+        }
+    }
+
+    public function update()
+    {
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $photo = "";
+            $id_user = $this->input->post('id_user');
+            $password = $this->input->post('password');
+            $data_user = $this->UserModel->read_id($id_user)->row_array();
+
+            if($password != $data_user['password']){
+                $password = sha1($password);
+            }
+
+            if($_FILES['photo']['error'] === UPLOAD_ERR_OK){
+                $photo = $this->input->post('id_user');
+                
+                $config['upload_path']          = './media/photo_user/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['overwrite']            = true;
+                $config['file_name']            = $photo;
+                
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+                if ( ! $this->upload->do_upload('photo')){
+                    $error = array('error' => $this->upload->display_errors());
+                    print_r($error);
+                }
+                else{
+                    $upload = array('upload_data' => $this->upload->data());
+                    $photo = $upload['upload_data']['file_name'];
+                }
+            }else{
+                $photo = $data_user['photo'];
+            }
+            $data = array(
+                "id_user" => $this->input->post('id_user'),
+                "nama" => $this->input->post('nama'),
+                "email" => $this->input->post('email'),
+                "password" => $password,
+                "lev_user" => $data_user['lev_user'],
+                "alamat" => $this->input->post('alamat'),
+                "no_hp" => $this->input->post('no_hp'),
+                "photo" => $photo
+            );
+
+            $this->UserModel->update($data);
+            redirect('admin/user.html','refresh');
+        }
+    }
+
+    public function delete()
+    {
+        if(!empty($this->session->userdata('id_user'))){
+            if(!empty($this->uri->segment(4))){
+                $url = explode('.', $this->uri->segment(4));
+                $id_user = $url[0];
+
+                $this->UserModel->delete($id_user);
+                
+                redirect('admin/user.html','refresh');
             }
         }
     }

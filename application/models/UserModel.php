@@ -27,6 +27,24 @@ class UserModel extends CI_Model {
         
         return $row < 1;
     }
+
+    public function create($data)
+    {
+        return $this->db->insert('tb_user', $data);
+    }
+
+    public function update($data)
+    {
+        $this->db->where('id_user', $data['id_user']);
+        unset($data['id_user']);
+        return $this->db->update('tb_user', $data);
+    }
+
+    public function delete($id_user)
+    {
+        $this->db->where('id_user', $id_user);
+        return $this->db->delete('tb_user');
+    }
 }
 
 /* End of file AdminModel.php */

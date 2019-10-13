@@ -31,13 +31,13 @@
                                             @foreach ($data_user as $user)
                                                 <tr>
                                                     <th>{{ $user['id_user'] }}</th>
-                                                    <th><img alt="" class="rounded-circle" style="height:32px; margin-right:10px" src="{{ base_url('media/photo_user/') }}{{ $user['photo'] }}"> {{ $user['nama'] }}</th>
+                                                    <th><img alt="" class="rounded-circle" style="height:32px; width:32px; margin-right:10px" src="{{ base_url('media/photo_user/') }}{{ $user['photo'] }}"> {{ $user['nama'] }}</th>
                                                     <th>{{ $user['lev_user'] }}</th>
                                                     <th>{{ $user['email'] }}</th>
                                                     <th>
                                                         <a href="{{ base_url('admin/user/').$user['id_user'] }}.html" class="btn btn-primary"><i class="fa fa-info"></i> Detail</a>
-                                                        <a href="" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-                                                        <a href="" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                                                        <a href="{{ base_url('admin/user/').$user['id_user'] }}.aspx" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                                                        <a href="{{ base_url('admin/user/delete/').$user['id_user'] }}.aspx" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
                                                     </th>
                                                 </tr>
                                             @endforeach

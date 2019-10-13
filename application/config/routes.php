@@ -54,6 +54,17 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 /**
+ * Action Section
+ */
+$route['admin/validation.aspx'] = 'User/validation';
+$route['admin/login.aspx'] = 'User/login';
+$route['admin/logout.aspx'] = 'User/logout';
+$route['admin/user/getId.aspx'] = 'User/getID';
+$route['admin/user/create.aspx'] = 'User/create';
+$route['admin/user/update.aspx'] = 'User/update';
+$route['admin/user/delete/(:any).aspx'] = 'User/delete/$1';
+
+/**
  * UI Section
  */
 $route['admin'] = 'Dashboard';
@@ -62,12 +73,5 @@ $route['admin/index.html'] = 'Dashboard';
 $route['admin/user.html'] = 'User/index';
 $route['admin/user/create.html'] = 'User/view_create';
 $route['admin/user/(:any).html'] = 'User/read/$1';
+$route['admin/user/(:any).aspx'] = 'User/view_update/$1';
 
-/**
- * Action Section
- */
-$route['admin/validation.aspx'] = 'User/validation';
-$route['admin/login.aspx'] = 'User/login';
-$route['admin/logout.aspx'] = 'User/logout';
-$route['admin/user/getId.aspx'] = 'User/getID';
-$route['admin/user/create.aspx'] = 'User/create';
