@@ -28,6 +28,33 @@
                 redirect('admin/login.html','refresh');
             }
         }
+
+        /**
+         * Action Section
+         */
+
+        public function create()
+        {
+            if($_SERVER['REQUEST_METHOD']=='POST'){
+                $filename = "";
+                if($_FILES['song']['error'] === UPLOAD_ERR_OK){
+                    $config['upload_path']          = './media/music/';
+                    $config['allowed_types']        = 'mp3|mp4';
+                    $config['overwrite']            = true;
+                    $this->load->library('upload', $config);
+                    $this->upload->initialize($config);
+                    if ( ! $this->upload->do_upload('song')){
+                        $error = array('error' => $this->upload->display_errors());
+                        print_r($error);
+                    }else{
+                        $upload = array('upload_data' => $this->upload->data());
+                        print_r($upload);
+                    }
+                }else{
+                    redirect('admin/song.html','refresh');
+                }
+            }
+        }
     
     }
     

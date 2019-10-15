@@ -15,7 +15,7 @@
                             </header>
                             <div class="card-body">
                                 <div class="adv-table">
-                                    <form action="" method="post" enctype="multipart/form-data">
+                                    <form action="<?php echo e(base_url('admin/song/upload.aspx')); ?>" method="post" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <center><label for="">Pilih File yang akan di upload</label>
                                             <div class="myfileupload-buttonbar" style="margin-top:20px">
@@ -24,6 +24,9 @@
                                                     <input id="file" type="file" name="song" accept="audio/*"  onchange="" />
                                                 </label>
                                             </div></center>
+                                        </div>
+                                        <div class="form-group">
+                                            <center><label for="" id="filename"></label></center>
                                         </div>
                                         <div class="form-group">
                                             <center><input type="submit" value="Upload Sekarang" class="btn btn-primary"></center>
@@ -36,5 +39,13 @@
                 </div>
           </section>
       </section>
+      <script>
+        $(document).ready(function(){
+            $('input[type="file"]').change(function(e){
+                var fileName = e.target.files[0].name;
+                $('#filename').html(fileName);
+            });
+        });
+      </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/song_create.blade.php ENDPATH**/ ?>
