@@ -65,6 +65,7 @@ $route['admin/user/update.aspx'] = 'User/update';
 $route['admin/user/delete/(:any).aspx'] = 'User/delete/$1';
 
 $route['admin/song/upload.aspx'] = 'Song/create';
+$route['admin/song/delete.aspx'] = 'Song/delete';
 
 
 /**
