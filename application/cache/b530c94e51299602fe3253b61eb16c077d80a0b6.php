@@ -42,7 +42,7 @@
                                                     </td>
                                                     <td>
                                                         <a href="<?php echo e(base_url('media/music/').$row['nama_file']); ?>" target="blank"><button class="btn btn-primary"><i class="fa fa-cloud-download"></i></button></a>
-                                                        <a href="<?php echo e(base_url('admin/song/delete.aspx')); ?>"><button class="btn btn-danger"><i class="fa fa-trash-o"></i></button></a>
+                                                        <a href="<?php echo e(base_url('admin/song/').$row['id_lagu'].'/delete.aspx'); ?>"><button class="btn btn-danger"><i class="fa fa-trash-o"></i></button></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

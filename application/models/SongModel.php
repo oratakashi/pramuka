@@ -15,6 +15,18 @@
             
             return $this->db->get('tb_lagu');
         }
+
+        public function read_id($id_lagu)
+        {
+            $this->db->where('id_lagu', $id_lagu);
+            return $this->db->get('tb_lagu');
+        }
+
+        public function delete($id_lagu)
+        {
+            $this->db->where('id_lagu', $id_lagu);
+            return $this->db->delete('tb_lagu');
+        }
     }
     
     /* End of file SongModel.php */

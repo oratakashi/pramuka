@@ -76,7 +76,21 @@
 
         public function delete()
         {
-            echo "Comingsoon";
+            if(!empty($this->session->userdata('id_user'))){
+                if(!empty($this->uri->segment(4))){
+                    $id_lagu = $this->uri->segment(3);
+                    $data_lagu = $this->SongModel->read_id($id_lagu)->row_array();
+
+                    if(file_exists("media/music/".$data_lagu['nama_file'])){
+                        unlink("media/music/".$data_lagu['nama_file']);
+                    }
+
+                    $this->SongModel->delete($id_lagu);
+
+                    
+                    redirect('admin/song.html','refresh');
+                }
+            }
         }
     
     }

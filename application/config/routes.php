@@ -65,7 +65,7 @@ $route['admin/user/update.aspx'] = 'User/update';
 $route['admin/user/delete/(:any).aspx'] = 'User/delete/$1';
 
 $route['admin/song/upload.aspx'] = 'Song/create';
-$route['admin/song/delete.aspx'] = 'Song/delete';
+$route['admin/song/(:any)/delete.aspx'] = 'Song/delete/$1';
 
 
 /**
@@ -82,3 +82,5 @@ $route['admin/user/(:any).aspx'] = 'User/view_update/$1';
 
 $route['admin/song.html'] = 'Song/index';
 $route['admin/song/create.html'] = 'Song/view_create';
+
+$route['admin/documents.html'] = 'Song/index';

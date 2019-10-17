@@ -53,7 +53,7 @@
                 </a>
                 <ul class="sub">
                     <li><a  href="form_component.html">Tambah Dokumen</a></li>
-                    <li><a  href="advanced_form_components.html">Kelola Dokumen</a></li>
+                    <li><a  href="documents.html">Kelola Dokumen</a></li>
                 </ul>
             </li>
             <li class="sub-menu">
