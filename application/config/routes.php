@@ -67,6 +67,7 @@ $route['admin/user/delete/(:any).aspx'] = 'User/delete/$1';
 $route['admin/song/upload.aspx'] = 'Song/create';
 $route['admin/song/(:any)/delete.aspx'] = 'Song/delete/$1';
 
+$route['admin/documents/upload.aspx'] = 'documents/create';
 
 /**
  * UI Section
@@ -83,4 +84,5 @@ $route['admin/user/(:any).aspx'] = 'User/view_update/$1';
 $route['admin/song.html'] = 'Song/index';
 $route['admin/song/create.html'] = 'Song/view_create';
 
-$route['admin/documents.html'] = 'Song/index';
+$route['admin/documents.html'] = 'Documents/index';
+$route['admin/documents/create.html'] = 'Documents/view_create';

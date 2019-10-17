@@ -47,13 +47,13 @@
                 </ul>
             </li>
             <li class="sub-menu">
-                <a href="javascript:;" >
+                <a href="javascript:;" class="<?php if($content == 'documents' || $content == 'documents-add'): ?> active <?php endif; ?>">
                     <i class="fa fa-folder"></i>
                     <span>Menu Dokumen</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="form_component.html">Tambah Dokumen</a></li>
-                    <li><a  href="advanced_form_components.html">Kelola Dokumen</a></li>
+                    <li class="<?php if($content == 'documents-add'): ?> active <?php endif; ?>"><a  href="documents/create.html">Tambah Dokumen</a></li>
+                    <li class="<?php if($content == 'documents'): ?> active <?php endif; ?>"><a  href="documents.html">Kelola Dokumen</a></li>
                 </ul>
             </li>
             <li class="sub-menu">
