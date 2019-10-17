@@ -8,18 +8,18 @@
     <meta name="description" content="">
     <meta name="author" content="Mosaddek">
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <link rel="shortcut icon" href="{{ base_url('assets/backend/') }}img/favicon.html">
+    <link rel="shortcut icon" href="<?php echo e(base_url('assets/backend/')); ?>img/favicon.html">
 
-    <title>{{ $title }}</title>
+    <title><?php echo e($title); ?></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ base_url('assets/backend/') }}css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ base_url('assets/backend/') }}css/bootstrap-reset.css" rel="stylesheet">
+    <link href="<?php echo e(base_url('assets/backend/')); ?>css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo e(base_url('assets/backend/')); ?>css/bootstrap-reset.css" rel="stylesheet">
     <!--external css-->
-    <link href="{{ base_url('assets/backend/') }}assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="<?php echo e(base_url('assets/backend/')); ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
-    <link href="{{ base_url('assets/backend/') }}css/style.css" rel="stylesheet">
-    <link href="{{ base_url('assets/backend/') }}css/style-responsive.css" rel="stylesheet" />
+    <link href="<?php echo e(base_url('assets/backend/')); ?>css/style.css" rel="stylesheet">
+    <link href="<?php echo e(base_url('assets/backend/')); ?>css/style-responsive.css" rel="stylesheet" />
 
 
 </head>
@@ -29,11 +29,11 @@
     <div class="container">
 
       <form class="form-signin" action="" method="post">
-        <h2 class="form-signin-heading">Area Administrator</h2>
+        <h2 class="form-signin-heading">Area Pengurus</h2>
         <div id="alert"></div>
         <div class="login-wrap">
             <div class="form-group">
-                <label for="">Alamat Email</label>
+                <label for="">ID Pengguna</label>
                 <input type="text" class="form-control" required id="email" name="email" placeholder="Alamat Email" autofocus>
             </div>
             <div class="form-group">
@@ -49,8 +49,8 @@
 
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="{{ base_url('assets/backend/') }}js/jquery.js"></script>
-    <script src="{{ base_url('assets/backend/') }}js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/jquery.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/bootstrap.bundle.min.js"></script>
     <script>
         $('.form-signin').submit(function (e) { 
             e.preventDefault();
@@ -59,11 +59,11 @@
             $('button').html('Tunggu Sebentar...');
             $.ajax({
                 type: "post",
-                url: "{{ base_url('admin/validation.aspx') }}",
+                url: "<?php echo e(base_url('pengurus/validation.aspx')); ?>",
                 data: {
                     "email" : $('#email').val(),
                     "password" : $('#password').val(),
-                    "type" : "admin"
+                    "type" : "pengurus"
                 },
                 dataType: "json",
                 success: function (response) {
@@ -71,7 +71,7 @@
                         console.log(response);
                         $.ajax({
                             type: "post",
-                            url: "{{ base_url('admin/login.aspx') }}",
+                            url: "<?php echo e(base_url('pengurus/login.aspx')); ?>",
                             data: {
                                 'email'     : response.data.email,
                                 'id_user'   : response.data.id_user,
@@ -83,7 +83,7 @@
                             success: function (response) {
                                 if(response.success){
                                     // console.log(response);
-                                    window.location.replace('{{ base_url("admin/index.html") }}');
+                                    window.location.replace('<?php echo e(base_url("admin/index.html")); ?>');
                                 }else{
                                     $('button').attr('disabled', false);
                                     $('button').html('Sign in');
@@ -105,3 +105,4 @@
         });
     </script>
 </html>
+<?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/pengurus/login.blade.php ENDPATH**/ ?>

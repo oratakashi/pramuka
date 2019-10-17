@@ -62,7 +62,8 @@
                 url: "<?php echo e(base_url('admin/validation.aspx')); ?>",
                 data: {
                     "email" : $('#email').val(),
-                    "password" : $('#password').val()
+                    "password" : $('#password').val(),
+                    "type" : "admin"
                 },
                 dataType: "json",
                 success: function (response) {

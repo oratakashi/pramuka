@@ -94,10 +94,20 @@ class User extends CI_Controller {
     public function validation()
     {
         if($_SERVER['REQUEST_METHOD']=='POST'){
-            $data = array(
-                "email" => $this->input->post('email'),
-                "password" => sha1($this->input->post('password'))
-            );
+            
+            $data = array();
+
+            if($this->input->post('type') == 'admin'){
+                $data = array(
+                    "email" => $this->input->post('email'),
+                    "password" => sha1($this->input->post('password'))
+                );
+            }else{
+                $data = array(
+                    "id_user" => $this->input->post('id_user'),
+                    "password" => sha1($this->input->post('password'))
+                );
+            }            
 
             $data = $this->UserModel->login($data);
             $result = array();

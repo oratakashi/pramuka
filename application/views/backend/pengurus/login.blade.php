@@ -29,12 +29,12 @@
     <div class="container">
 
       <form class="form-signin" action="" method="post">
-        <h2 class="form-signin-heading">Area Administrator</h2>
+        <h2 class="form-signin-heading">Area Pengurus</h2>
         <div id="alert"></div>
         <div class="login-wrap">
             <div class="form-group">
-                <label for="">Alamat Email</label>
-                <input type="text" class="form-control" required id="email" name="email" placeholder="Alamat Email" autofocus>
+                <label for="">ID Pengguna</label>
+                <input type="text" class="form-control" required id="id_user" name="email" placeholder="ID Pengguna" autofocus>
             </div>
             <div class="form-group">
                 <label for="">Kata Sandi</label>
@@ -59,11 +59,11 @@
             $('button').html('Tunggu Sebentar...');
             $.ajax({
                 type: "post",
-                url: "{{ base_url('admin/validation.aspx') }}",
+                url: "{{ base_url('pengurus/validation.aspx') }}",
                 data: {
-                    "email" : $('#email').val(),
+                    "id_user" : $('#id_user').val(),
                     "password" : $('#password').val(),
-                    "type" : "admin"
+                    "type" : "pengurus"
                 },
                 dataType: "json",
                 success: function (response) {
@@ -71,7 +71,7 @@
                         console.log(response);
                         $.ajax({
                             type: "post",
-                            url: "{{ base_url('admin/login.aspx') }}",
+                            url: "{{ base_url('pengurus/login.aspx') }}",
                             data: {
                                 'email'     : response.data.email,
                                 'id_user'   : response.data.id_user,
