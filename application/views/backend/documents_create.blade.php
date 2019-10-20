@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title', 'Upload Lagu - Pramuka Lumajang')
+@section('title', 'Upload Dokumen - Pramuka Lumajang')
 
 @section('container')
 <section id="main-content">

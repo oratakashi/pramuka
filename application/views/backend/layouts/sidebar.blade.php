@@ -52,18 +52,18 @@
                     <span>Menu Dokumen</span>
                 </a>
                 <ul class="sub">
-                    <li class="@if ($content == 'documents-add') active @endif"><a  href="documents/create.html">Tambah Dokumen</a></li>
-                    <li class="@if ($content == 'documents') active @endif"><a  href="documents.html">Kelola Dokumen</a></li>
+                    <li class="@if ($content == 'documents-add') active @endif"><a  href="{{base_url('admin/')}}documents/create.html">Tambah Dokumen</a></li>
+                    <li class="@if ($content == 'documents') active @endif"><a  href="{{base_url('admin/')}}documents.html">Kelola Dokumen</a></li>
                 </ul>
             </li>
             <li class="sub-menu">
-                <a href="javascript:;" >
+                <a href="javascript:;" class="@if ($content == 'products' || $content == 'products-add') active @endif">
                     <i class="fa fa-shopping-cart"></i>
                     <span>Menu Produk</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="basic_table.html">Tambah Produk baru</a></li>
-                    <li><a  href="responsive_table.html">Kelola Produk</a></li>
+                    <li class="@if ($content == 'products-add') active @endif"><a  href="products/create.html">Tambah Produk baru</a></li>
+                    <li class="@if ($content == 'products') active @endif"><a  href="products.html">Kelola Produk</a></li>
                 </ul>
             </li>
 

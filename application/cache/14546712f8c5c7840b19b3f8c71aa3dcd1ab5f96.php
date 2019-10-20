@@ -52,18 +52,18 @@
                     <span>Menu Dokumen</span>
                 </a>
                 <ul class="sub">
-                    <li class="<?php if($content == 'documents-add'): ?> active <?php endif; ?>"><a  href="documents/create.html">Tambah Dokumen</a></li>
-                    <li class="<?php if($content == 'documents'): ?> active <?php endif; ?>"><a  href="documents.html">Kelola Dokumen</a></li>
+                    <li class="<?php if($content == 'documents-add'): ?> active <?php endif; ?>"><a  href="<?php echo e(base_url('admin/')); ?>documents/create.html">Tambah Dokumen</a></li>
+                    <li class="<?php if($content == 'documents'): ?> active <?php endif; ?>"><a  href="<?php echo e(base_url('admin/')); ?>documents.html">Kelola Dokumen</a></li>
                 </ul>
             </li>
             <li class="sub-menu">
-                <a href="javascript:;" >
+                <a href="javascript:;" class="<?php if($content == 'products' || $content == 'products-add'): ?> active <?php endif; ?>">
                     <i class="fa fa-shopping-cart"></i>
                     <span>Menu Produk</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="basic_table.html">Tambah Produk baru</a></li>
-                    <li><a  href="responsive_table.html">Kelola Produk</a></li>
+                    <li class="<?php if($content == 'products-add'): ?> active <?php endif; ?>"><a  href="products/create.html">Tambah Produk baru</a></li>
+                    <li class="<?php if($content == 'products'): ?> active <?php endif; ?>"><a  href="products.html">Kelola Produk</a></li>
                 </ul>
             </li>
 

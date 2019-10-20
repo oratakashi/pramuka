@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Upload Lagu - Pramuka Lumajang'); ?>
+<?php $__env->startSection('title', 'Upload Dokumen - Pramuka Lumajang'); ?>
 
 <?php $__env->startSection('container'); ?>
 <section id="main-content">
