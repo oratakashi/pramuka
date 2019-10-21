@@ -25,14 +25,15 @@
             </li>
 
             <li class="sub-menu">
-                <a href="javascript:;" >
+                <a href="javascript:;" class="@if ($content == 'article' || $content == 'article-add' || $content == 'article-pending' || $content == 'categories') active @endif">
                     <i class="fa fa-book"></i>
                     <span>Menu Artikel</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="general.html">Tambah Artikel Baru</a></li>
-                    <li><a  href="buttons.html">Kelola Artikel</a></li>
-                    <li><a  href="modal.html">Kelola Artikel Pending</a></li>
+                    <li class="@if ($content == 'article-add') active @endif"><a  href="{{base_url('admin/article/')}}create.html">Tambah Artikel Baru</a></li>
+                    <li class="@if ($content == 'article') active @endif"><a  href="{{base_url('admin/')}}article.html"">Kelola Artikel</a></li>
+                    <li class="@if ($content == 'categories') active @endif"><a  href="{{base_url('admin/article/')}}categories.html">Kelola Kategori Artikel</a></li>
+                    <li class="@if ($content == 'article-pending') active @endif"><a  href="{{base_url('admin/article/')}}pending.html">Kelola Artikel Pending</a></li>
                 </ul>
             </li>
 
