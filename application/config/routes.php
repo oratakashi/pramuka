@@ -36,6 +36,9 @@ $route['admin/article/(:any)/delete.aspx'] = 'article/delete/$1';
 $route['admin/article/(:any)/deactivated.aspx'] = 'article/status/$1/0';
 $route['admin/article/(:any)/activated.aspx'] = 'article/status/$1/1';
 $route['admin/article/create.aspx'] = 'article/create';
+
+$route['admin/products/create.aspx'] = 'products/create';
+
 /**
  * UI Section
  */

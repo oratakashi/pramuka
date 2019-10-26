@@ -26,7 +26,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            
+                                            <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <tr>
+                                                    <td><?php echo e($row['id_product']); ?></td>
+                                                    <td><?php echo e($row['nm_product']); ?></td>
+                                                    <td><?php echo e("Rp " . number_format($row['harga'],2,',','.')); ?></td>
+                                                    <td><?php echo e($row['nama']); ?></td>
+                                                    <td>
+                                                        <a href="<?php echo e(base_url('admin/products/').$row['id_product']); ?>.html" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                                                        <a href="<?php echo e(base_url('admin/products/delete/').$row['id_product']); ?>.aspx" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>
