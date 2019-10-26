@@ -63,8 +63,8 @@
                     <span>Menu Produk</span>
                 </a>
                 <ul class="sub">
-                    <li class="<?php if($content == 'products-add'): ?> active <?php endif; ?>"><a  href="products/create.html">Tambah Produk baru</a></li>
-                    <li class="<?php if($content == 'products'): ?> active <?php endif; ?>"><a  href="products.html">Kelola Produk</a></li>
+                    <li class="<?php if($content == 'products-add'): ?> active <?php endif; ?>"><a  href="<?php echo e(base_url('admin/')); ?>products/create.html">Tambah Produk baru</a></li>
+                    <li class="<?php if($content == 'products'): ?> active <?php endif; ?>"><a  href="<?php echo e(base_url('admin/')); ?>products.html">Kelola Produk</a></li>
                 </ul>
             </li>
 

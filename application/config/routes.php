@@ -55,6 +55,7 @@ $route['admin/documents.html'] = 'Documents/index';
 $route['admin/documents/create.html'] = 'Documents/view_create';
 
 $route['admin/products.html'] = 'Products/index';
+$route['admin/products/create.html'] = 'Products/view_create';
 
 $route['admin/article.html'] = 'Article/index';
 $route['admin/article/create.html'] = 'Article/view_create';

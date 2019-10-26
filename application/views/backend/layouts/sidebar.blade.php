@@ -63,8 +63,8 @@
                     <span>Menu Produk</span>
                 </a>
                 <ul class="sub">
-                    <li class="@if ($content == 'products-add') active @endif"><a  href="products/create.html">Tambah Produk baru</a></li>
-                    <li class="@if ($content == 'products') active @endif"><a  href="products.html">Kelola Produk</a></li>
+                    <li class="@if ($content == 'products-add') active @endif"><a  href="{{base_url('admin/')}}products/create.html">Tambah Produk baru</a></li>
+                    <li class="@if ($content == 'products') active @endif"><a  href="{{base_url('admin/')}}products.html">Kelola Produk</a></li>
                 </ul>
             </li>
 

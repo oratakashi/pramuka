@@ -17,6 +17,19 @@
                 redirect('admin/login.html','refresh');
             }
         }
+
+        public function view_create()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                $data = array(
+                    'content'   => 'products-add'
+                    // 'data'      => $data_dokumen
+                );
+                view('backend/products_create', $data);
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
     
     }
     

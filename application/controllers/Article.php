@@ -167,8 +167,10 @@
                 $id_article = $this->ArticleModel->getID();
 
                 # code ...
+
+                echo $id_article;
                 
-                redirect('admin/article.html','refresh');
+                // redirect('admin/article.html','refresh');
                 
             }else{
                 redirect('admin/login.html','refresh');
