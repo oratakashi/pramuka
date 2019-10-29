@@ -25,22 +25,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!--    
-                                                Mengko Bagian Iki di Looping anggo foreach, 
-                                                Contoh e delok seng wes terimplementasi
-
-                                                Format :
-                                                id : Tahun 2 digit, bulan 2 digit sisane nomer urut
-                                                tgl : 21 Oktober 2019
-                                                nama : nama seng post
-                                                status : Aktif, Tidak Aktif, nek aktif 1 nek ga aktif 0, warna abang karo ijo
-                                             -->
+                                            @foreach ($data as $category)
                                             <tr>
-                                                <th>Lorem Ipsum</th>
+                                                <th>{{ $category['nm_kategori'] }}</th>
                                                 <td>
-                                                    <a href="{{ base_url('admin/article/categories/').'1' }}/delete.aspx" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Hapus</a>
+                                                    <a href="{{ base_url('admin/article/categories/').$category['id_kategori'] }}/delete.aspx" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Hapus</a>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                         <tfoot>
                                             <tr>

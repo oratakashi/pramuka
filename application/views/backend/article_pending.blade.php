@@ -39,18 +39,21 @@
                                                 nama : nama seng post
                                                 status : Aktif, Tidak Aktif, nek aktif 1 nek ga aktif 0, warna abang karo ijo
                                              -->
+                                             
+                                            @foreach ($data as $artikel)
                                             <tr>
-                                                <td>Lorem Ipsum</td>
-                                                <td>21 Oktober 2019</td>
-                                                <td>Administrator</td>
+                                                <td>{{ $artikel['judul'] }}</td>
+                                                <td>{{ $artikel['tgl_post'] }}</td>
+                                                <td>{{ $artikel['nama'] }}</td>
                                                 <td><span class="badge badge-warning">Pending</span></td>
-                                                <td>Lorem Ipsum</td>
+                                                <td>{{ $artikel['nm_kategori'] }}</td>
                                                 <td>
-                                                    <a href="{{ base_url('admin/article/').'19100001' }}/views.html" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> Lihat</a>
-                                                    <a href="{{ base_url('admin/article/').'19100001' }}/activated.aspx" class="btn btn-sm btn-success"><i class="fa fa-check"></i></a>
-                                                    <a href="{{ base_url('admin/article/').'19100001' }}/deactivated.aspx" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
+                                                    <a href="{{ base_url('admin/article/').$artikel['id_artikel'] }}/views.html" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> Lihat</a>
+                                                    <a href="{{ base_url('admin/article/').$artikel['id_artikel'] }}/activated.aspx" class="btn btn-sm btn-success"><i class="fa fa-check"></i></a>
+                                                    <a href="{{ base_url('admin/article/').$artikel['id_artikel'] }}/deactivated.aspx" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                         <tfoot>
                                             <tr>

@@ -30,7 +30,31 @@
     <link rel="stylesheet" href="<?php echo e(base_url('assets/backend/')); ?>assets/data-tables/DT_bootstrap.css" />
 
     <script src="<?php echo e(base_url('assets/backend/')); ?>js/jquery.js"></script>
+    <script src="<?php echo e(base_url('assets/tinymce/')); ?>tinymce.min.js"></script>
+    <script>
+        tinyMCE.init({
+            selector: ".richtext",
+            height: 350,
+            setup: function (editor) {
+                editor.on('change', function () {
+                    tinymce.triggerSave();
+                });
+            },
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste imagetools responsivefilemanager"
+            ],
+            toolbar: "insertfile undo redo | paste | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | responsivefilemanager ",
+            paste_as_text: true,
+            menubar: false,
+            statusbar: false,
 
+            external_filemanager_path:"<?php echo e(base_url()); ?>assets/filemanager/",
+            filemanager_title:"Pengelola Berkas" ,
+            external_plugins: { "filemanager" : "<?php echo e(base_url()); ?>assets//filemanager/plugin.min.js"}
+        });
+    </script>
   </head>
 
   <body>

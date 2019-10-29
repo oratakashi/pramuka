@@ -38,6 +38,8 @@ $route['admin/article/(:any)/activated.aspx'] = 'article/status/$1/1';
 $route['admin/article/create.aspx'] = 'article/create';
 
 $route['admin/products/create.aspx'] = 'products/create';
+$route['admin/products/(:any)/delete.aspx'] = 'products/delete/$1';
+$route['admin/products/(:any)/update.aspx'] = 'products/update/$1';
 
 /**
  * UI Section
@@ -59,6 +61,7 @@ $route['admin/documents/create.html'] = 'Documents/view_create';
 
 $route['admin/products.html'] = 'Products/index';
 $route['admin/products/create.html'] = 'Products/view_create';
+$route['admin/products/(:any).html'] = 'Products/view_update';
 
 $route['admin/article.html'] = 'Article/index';
 $route['admin/article/create.html'] = 'Article/view_create';

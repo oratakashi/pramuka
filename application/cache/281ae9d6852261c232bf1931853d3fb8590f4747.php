@@ -42,7 +42,7 @@
                                             <section class="card">
                                                 <div class="">
                                                     <center><a href="#">
-                                                        <img id="photo" src="<?php echo e(base_url('media/photo_user/no-pict.png')); ?>" alt="" style="width:250px;height:250px">
+                                                        <img id="photo" src="<?php echo e(base_url('media/product/no-image.jpg')); ?>" alt="" style="width:250px;height:250px">
                                                     </a></center>
                                                     <center><div class="form-group">
                                                         <div class="myfileupload-buttonbar" style="margin-top:20px">

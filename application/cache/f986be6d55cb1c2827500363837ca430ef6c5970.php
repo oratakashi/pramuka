@@ -37,18 +37,21 @@
                                                 nama : nama seng post
                                                 status : Aktif, Tidak Aktif, nek aktif 1 nek ga aktif 0, warna abang karo ijo
                                              -->
+                                             
+                                            <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artikel): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr>
-                                                <td>Lorem Ipsum</td>
-                                                <td>21 Oktober 2019</td>
-                                                <td>Administrator</td>
+                                                <td><?php echo e($artikel['judul']); ?></td>
+                                                <td><?php echo e($artikel['tgl_post']); ?></td>
+                                                <td><?php echo e($artikel['nama']); ?></td>
                                                 <td><span class="badge badge-warning">Pending</span></td>
-                                                <td>Lorem Ipsum</td>
+                                                <td><?php echo e($artikel['nm_kategori']); ?></td>
                                                 <td>
-                                                    <a href="<?php echo e(base_url('admin/article/').'19100001'); ?>/views.html" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> Lihat</a>
-                                                    <a href="<?php echo e(base_url('admin/article/').'19100001'); ?>/activated.aspx" class="btn btn-sm btn-success"><i class="fa fa-check"></i></a>
-                                                    <a href="<?php echo e(base_url('admin/article/').'19100001'); ?>/deactivated.aspx" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
+                                                    <a href="<?php echo e(base_url('admin/article/').$artikel['id_artikel']); ?>/views.html" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> Lihat</a>
+                                                    <a href="<?php echo e(base_url('admin/article/').$artikel['id_artikel']); ?>/activated.aspx" class="btn btn-sm btn-success"><i class="fa fa-check"></i></a>
+                                                    <a href="<?php echo e(base_url('admin/article/').$artikel['id_artikel']); ?>/deactivated.aspx" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
                                                 </td>
                                             </tr>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>

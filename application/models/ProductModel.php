@@ -9,6 +9,12 @@
             $this->db->join('tb_user', 'tb_user.id_user = tb_product.id_user', 'left');
             return $this->db->get('tb_product');
         }
+
+        public function read_id($id)
+        {
+            $this->db->where('id_product', $id);
+            return $this->db->get('tb_product');
+        }
         
         public function getID()
         {
@@ -55,6 +61,12 @@
         public function create($data)
         {
             return $this->db->insert('tb_product', $data);
+        }
+
+        public function delete($id)
+        {
+            $this->db->where('id_product', $id);
+            return $this->db->delete('tb_product');
         }
     }
     

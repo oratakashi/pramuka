@@ -34,7 +34,7 @@
                                                     <td><?php echo e($row['nama']); ?></td>
                                                     <td>
                                                         <a href="<?php echo e(base_url('admin/products/').$row['id_product']); ?>.html" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-                                                        <a href="<?php echo e(base_url('admin/products/delete/').$row['id_product']); ?>.aspx" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                                                        <a href="<?php echo e(base_url('admin/products/').$row['id_product']); ?>/delete.aspx" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
