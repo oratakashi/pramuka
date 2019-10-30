@@ -59,37 +59,36 @@
                                                     </div>
                                                 </section>
                                             </aside>
-                                                <aside class="profile-info col-lg-9">
-                                                    <section class="card">
-                                                        <div class="card-body bio-graph-info"> 
-                                                            <div class="row" id="form"> 
-                                                                <div class="col-md-12">
-                                                                    <div class="form-group">
-                                                                        <label for="">Judul</label>
-                                                                        <input type="text" required name="judul" id="" class="form-control">
-                                                                    </div>  
-                                                                    <div class="form-group">
-                                                                        <label for="">Kategori</label> 
-                                                                        <select name="kategori" id="" class="form-control">
-                                                                            <option value="">Pilih Kategori</option>
-                                                                            @foreach ($data_kat as $data)
-                                                                                <option value="{{ $data['id_kategori'] }}">{{ $data['nm_kategori'] }}</option>
-                                                                            @endforeach
-                                                                        </select>
-                                                                    </div>  
-                                                                    <div class="form-group">
-                                                                        <label for="">Isi Artikel</label>
-                                                                        <textarea name="isi_artikel" class="richtext form-controls" id="" cols="100%" rows="200"></textarea>
-                                                                    </div> 
-                                                                </div>
-                                                                <div class="col-md-12">
-                                                                    <button type="submit" value="Simpan" class="btn btn-success float-right">Simpan</button>
-                                                                </div>
+                                            <aside class="profile-info col-lg-9">
+                                                <section class="card">
+                                                    <div class="card-body bio-graph-info"> 
+                                                        <div class="row" id="form"> 
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label for="">Judul</label>
+                                                                    <input type="text" required name="judul" id="" class="form-control">
+                                                                </div>  
+                                                                <div class="form-group">
+                                                                    <label for="">Kategori</label> 
+                                                                    <select name="kategori" id="" class="form-control">
+                                                                        <option value="">Pilih Kategori</option>
+                                                                        @foreach ($data_kat as $data)
+                                                                            <option value="{{ $data['id_kategori'] }}">{{ $data['nm_kategori'] }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>  
+                                                                <div class="form-group">
+                                                                    <label for="">Isi Artikel</label>
+                                                                    <textarea name="isi_artikel" class="richtext form-controls" id="" cols="100%" rows="200"></textarea>
+                                                                </div> 
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <button type="submit" value="Simpan" class="btn btn-success float-right">Simpan</button>
                                                             </div>
                                                         </div>
-                                                    </section>
-                                                </aside>
-                                            </div>
+                                                    </div>
+                                                </section>
+                                            </aside>
                                         </div>
                                     </div>
                                 </form>

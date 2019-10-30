@@ -27,8 +27,8 @@
                                                 <p><?php echo e($data_user['lev_user']); ?></p>
                                             </div>
                                             <ul class="nav nav-pills nav-stacked">
-                                                <li class="active nav-item"><a class="nav-link" href="profile.html"> <i class="fa fa-user"></i> Profile</a></li>
-                                                <li class="nav-item"><a class="nav-link" href="javascript:null"> <i class="fa fa-book"></i> Artikel <span class="badge badge-danger pull-right r-activity">9</span></a></li>
+                                                <li class="active nav-item"><a class="nav-link" href="<?php echo e(base_url('admin/user/').$data_user['id_user']); ?>.html"> <i class="fa fa-user"></i> Profile</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="javascript:null"> <i class="fa fa-book"></i> Artikel <span class="badge badge-danger pull-right r-activity"><?php echo e($jml_post); ?></span></a></li>
                                             </ul>
                                         </section>
                                     </aside>

@@ -45,6 +45,13 @@ class UserModel extends CI_Model {
         $this->db->where('id_user', $id_user);
         return $this->db->delete('tb_user');
     }
+
+    public function hitung_pengurus()
+    {
+        $this->db->where('lev_user', "Pengurus");
+        $this->db->select('count(*) as jml');
+        return $this->db->get('tb_user');
+    }
 }
 
 /* End of file AdminModel.php */

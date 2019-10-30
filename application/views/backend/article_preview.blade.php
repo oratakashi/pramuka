@@ -22,9 +22,7 @@
                                 <h3 style="margin-top:20px">{{ $data_article['judul'] }}</h3>
                                 <span style="margin-top:10px" class="text-primary">{{ $data_article['tgl_post'] }}</span>
                                 <div style="margin-top:30px">
-                                    <p>
-                                       {{ $data_article['artikel'] }}
-                                    </p>
+                                    @php echo $data_article['artikel'] @endphp
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">

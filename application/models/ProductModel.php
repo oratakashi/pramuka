@@ -68,6 +68,13 @@
             $this->db->where('id_product', $id);
             return $this->db->delete('tb_product');
         }
+
+        public function update($data)
+        {
+            $this->db->where('id_product', $data['id_product']);
+            unset($data['id_product']);
+            return $this->db->update('tb_product', $data);
+        }
     }
     
     /* End of file ProductModel.php */

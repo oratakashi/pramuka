@@ -9,6 +9,7 @@ class User extends CI_Controller {
         parent::__construct();
         $this->load->model('UserModel');
         $this->load->model('KecamatanModel');
+        $this->load->model('ArticleModel');
     }
     
     /**
@@ -36,10 +37,12 @@ class User extends CI_Controller {
             $id_user = $url[0];
     
             $data_user = $this->UserModel->read_id($id_user)->row_array();
+            $jml_article = $this->ArticleModel->hitung_jml($id_user)->row_array();
     
             $data = array(
                 'content'   => 'user',
-                'data_user' => $data_user
+                'data_user' => $data_user,
+                'jml_post'  => $jml_article['jml']
             );
             view('backend/user_detail', $data);
         }else{

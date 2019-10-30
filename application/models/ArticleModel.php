@@ -102,6 +102,21 @@
             $this->db->where('id_kategori', $id_kategori);
             return $this->db->delete('tb_kategori');
         } 
+
+        public function hitung_jml($id)
+        {
+            $this->db->where('id_user', $id);
+            $this->db->select('count(*) as jml');
+            return $this->db->get('tb_artikel');
+        }
+
+        public function rank_dashboard()
+        {
+            $this->db->where('lev_user', "Pengurus");
+            $this->db->select('*, (SELECT count(*) from tb_artikel where tb_artikel.id_user=tb_user.id_user and tb_artikel.status = 1) as jml');
+            
+            return $this->db->get('tb_user');     
+        }
     }
     
     /* End of file ArticleModel.php */

@@ -83,7 +83,7 @@
                 }else{
                     $photo = "no-image.jpg";
                 }
-                $slug = str_replace(" ", "-", strtolower($this->input->post('nama')));
+                $slug = slug($this->input->post('nama'));
                 $data = array(
                     "id_product" => $id_product,
                     "nm_product" => $this->input->post('nama'),
@@ -150,8 +150,23 @@
                             $photo = $upload['upload_data']['file_name'];
                         }
                     }else{
-                        $photo = "no-image.jpg";
+                        $photo = $data_product['foto'];
                     }
+
+                    $slug = slug($this->input->post('nama'));
+                    $data = array(
+                        "id_product" => $id_product,
+                        "nm_product" => $this->input->post('nama'),
+                        "slug"       => $slug,
+                        "harga"      => $this->input->post('harga'), 
+                        "foto"       => $photo,
+                        "deskripsi"      => $this->input->post('deskripsi')
+                    );
+
+                    $this->ProductModel->update($data);
+
+                    
+                    redirect('admin/products.html','refresh');
                 }
             }
          }

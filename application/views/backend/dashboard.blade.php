@@ -13,9 +13,9 @@
                     </div>
                     <div class="value">
                         <h1 class="count">
-                            0
+                            {{ $user }}
                         </h1>
-                        <p>New Users</p>
+                        <p>Total Pengurus</p>
                     </div>
                 </section>
             </div>
@@ -81,115 +81,34 @@
                 <section class="card">
                     <div class="card-body progress-card">
                         <div class="task-progress">
-                            <h1>Work Progress</h1>
-                            <p>Anjelina Joli</p>
-                        </div>
-                        <div class="task-option">
-                            <select class="styled">
-                                <option>Anjelina Joli</option>
-                                <option>Tom Crouse</option>
-                                <option>Jhon Due</option>
-                            </select>
+                            <h1>Ranking Pengurus</h1>
+                            <p>Rangking di hitung berdasarkan jumlah terbanyak posting artikel</p>
                         </div>
                     </div>
                     <table class="table table-hover personal-task">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Nama</th>
+                                <th>Jumlah Artikel</th>
+                                <th></th>
+                            </tr>
+                        </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                Target Sell
-                            </td>
-                            <td>
-                                <span class="badge badge-pill badge-danger">75%</span>
-                            </td>
-                            <td>
-                            <div id="work-progress1"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>
-                                Product Delivery
-                            </td>
-                            <td>
-                                <span class="badge badge-pill badge-success">43%</span>
-                            </td>
-                            <td>
-                                <div id="work-progress2"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>
-                                Payment Collection
-                            </td>
-                            <td>
-                                <span class="badge badge-pill badge-info">67%</span>
-                            </td>
-                            <td>
-                                <div id="work-progress3"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>
-                                Work Progress
-                            </td>
-                            <td>
-                                <span class="badge badge-pill badge-warning">30%</span>
-                            </td>
-                            <td>
-                                <div id="work-progress4"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>
-                                Delivery Pending
-                            </td>
-                            <td>
-                                <span class="badge badge-pill badge-primary">15%</span>
-                            </td>
-                            <td>
-                                <div id="work-progress5"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>
-                                Delivery Pending
-                            </td>
-                            <td>
-                                <span class="badge badge-pill badge-primary">15%</span>
-                            </td>
-                            <td>
-                                <div id="work-progress5"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>
-                                Delivery Pending
-                            </td>
-                            <td>
-                                <span class="badge badge-pill badge-primary">15%</span>
-                            </td>
-                            <td>
-                                <div id="work-progress5"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>
-                                Delivery Pending
-                            </td>
-                            <td>
-                                <span class="badge badge-pill badge-primary">15%</span>
-                            </td>
-                            <td>
-                                <div id="work-progress5"></div>
-                            </td>
-                        </tr>
+                            @foreach($rank as $row)
+                                <tr>
+                                    <td>{{ $loop->index + 1 }}</td>
+                                    <td>
+                                        {{ $row['nama'] }}
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-pill badge-danger">{{ $row['jml'] }} Artikel</span>
+                                    </td>
+                                    <td>
+                                    <div id="work-progress1"></div>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </section>
