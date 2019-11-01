@@ -65,6 +65,22 @@ class Dashboard extends CI_Controller {
 
         return $total_size." ".$ext;
     }
+
+    public function view_summary()
+    {
+        if(!empty($this->session->userdata('id_user'))){
+            if($this->session->userdata('lev_user') == 'Administrator'){
+                $data_rank = $this->ArticleModel->rank_dashboard()->result_array();
+                $data = array(
+                    'rank'      => $data_rank,
+                    "content"   => 'summary'
+                ); 
+                view('backend/summary', $data);
+            }
+        }else{
+            redirect('admin/login.html','refresh');
+        }
+    }
 }
 
 /* End of file Dashboard.php */

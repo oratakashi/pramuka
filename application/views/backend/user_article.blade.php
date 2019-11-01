@@ -57,7 +57,11 @@
                                                                     <?php } else if($row['status'] == "0"){ ?>
                                                                         <span class="badge badge-danger">Tidak Aktif</span>
                                                                     <?php } else if($row['status'] == "2"){ ?>
-                                                                        <span class="badge badge-warning">Menunggu Persetujuan</span>
+                                                                        <?php if($_SESSION['lev_user'] == 'Administrator'){ ?>
+                                                                        <a href="{{ base_url('admin/article/pending.html') }}"><span class="badge badge-warning">Menunggu Persetujuan</span></a>
+                                                                        <?php } else { ?>
+                                                                            <span class="badge badge-warning">Menunggu Persetujuan</span>
+                                                                        <?php } ?>
                                                                     <?php } ?>
                                                                 </tr>
                                                             @endforeach

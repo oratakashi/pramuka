@@ -47,6 +47,7 @@ $route['admin/products/(:any)/update.aspx'] = 'products/update/$1';
 $route['admin'] = 'Dashboard';
 $route['admin/login.html'] = 'Dashboard';
 $route['admin/index.html'] = 'Dashboard';
+$route['admin/summary.html'] = 'Dashboard/view_summary';
 
 $route['admin/user.html'] = 'User/index';
 $route['admin/user/create.html'] = 'User/view_create';
@@ -71,6 +72,7 @@ $route['admin/article/categories.html'] = 'Article/categories';
 $route['admin/article/categories/create.html'] = 'Article/view_category_create';
 $route['admin/article/(:any)/views.html'] = 'Article/preview/$1';
 $route['admin/article/(:any).html'] = 'Article/view_update/$1';
+
 /**
  * Pengurus
  */

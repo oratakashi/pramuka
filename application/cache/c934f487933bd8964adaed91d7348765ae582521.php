@@ -109,7 +109,7 @@
                                         <span class="badge badge-pill badge-danger"><?php echo e($row['jml']); ?> Artikel</span>
                                     </td>
                                     <td>
-                                    <div id="work-progress1"></div>
+                                        <div id="work-progress1"></div>
                                     </td>
                                 </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

@@ -105,7 +105,7 @@
                                         <span class="badge badge-pill badge-danger">{{ $row['jml'] }} Artikel</span>
                                     </td>
                                     <td>
-                                    <div id="work-progress1"></div>
+                                        <div id="work-progress1"></div>
                                     </td>
                                 </tr>
                             @endforeach
