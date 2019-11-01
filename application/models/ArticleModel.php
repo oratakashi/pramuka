@@ -114,8 +114,16 @@
         {
             $this->db->where('lev_user', "Pengurus");
             $this->db->select('*, (SELECT count(*) from tb_artikel where tb_artikel.id_user=tb_user.id_user and tb_artikel.status = 1) as jml');
+            $this->db->order_by('jml', 'desc');
             
             return $this->db->get('tb_user');     
+        }
+
+        public function hitung_pending()
+        {
+            $this->db->where('status', 2);
+            $this->db->select('count(*) as jml');
+            return $this->db->get('tb_artikel');
         }
     }
     
