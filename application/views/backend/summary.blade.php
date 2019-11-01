@@ -25,39 +25,10 @@
                                   </li>
                               </ul>
                               <div class="tab-content" id="myTabContent">
-                                  <div class="tab-pane fade show active" id="periode" role="tabpanel" aria-labelledby="periode-tab">Home text goes here...</div>
+                                  @include('backend.summary.periode')
                                   <div class="tab-pane fade" id="bulan" role="tabpanel" aria-labelledby="bulan-tab">Profile text goes here...</div>
                                   <div class="tab-pane fade" id="tahun" role="tabpanel" aria-labelledby="tahun-tab">Contact text goes here...</div>
-                                  <div class="tab-pane fade" id="all" role="tabpanel" aria-labelledby="all-tab">
-                                    <div class="adv-table">
-                                        <table  class="display table table-bordered table-striped" id="dynamic-table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Rank</th>
-                                                    <th>Nama</th>
-                                                    <th>Jumlah Artikel</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($rank as $row)
-                                                    <tr>
-                                                        <td>{{ $loop->index + 1 }}</td>
-                                                        <td>{{ $row['nama'] }}</td>
-                                                        <td>{{ $row['jml'] }} Artikel</td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>Rank</th>
-                                                    <th>Nama</th>
-                                                    <th>Jumlah Artikel</th>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
-                                    <p class="text-danger">Rangking di hitung berdasarkan jumlah terbanyak posting artikel dan dalam status aktif</p>
-                                  </div>
+                                  @include('backend.summary.all')
                               </div>
                             </div>
                         </section>
@@ -65,7 +36,5 @@
                 </div>
           </section>
       </section>
-      <script>
-      
-      </script>
+      @include('backend.summary.periode_script')
 @endsection

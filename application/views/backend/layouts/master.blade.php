@@ -28,9 +28,11 @@
     <link href="{{ base_url('assets/backend/') }}assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
     <link href="{{ base_url('assets/backend/') }}assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ base_url('assets/backend/') }}assets/data-tables/DT_bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="{{ base_url('assets/backend/') }}assets/bootstrap-datepicker/css/datepicker.css" />
 
     <script src="{{ base_url('assets/backend/') }}js/jquery.js"></script>
     <script src="{{ base_url('assets/tinymce/') }}tinymce.min.js"></script>
+    <script type="text/javascript" src="{{ base_url('assets/backend/') }}assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <script>
         tinyMCE.init({
             selector: ".richtext",
@@ -217,7 +219,7 @@
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              2018 &copy; FlatLab by VectorLab.
+              {{ date('Y') }} &copy; PramukaLumajang
               <a href="#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
