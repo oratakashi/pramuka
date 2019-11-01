@@ -50,6 +50,28 @@ class User extends CI_Controller {
         }
     }
 
+    public function view_article()
+    {
+        if(!empty($this->session->userdata('id_user'))){
+            $url = explode('.', $this->uri->segment(3));
+            $id_user = $url[0];
+            
+            $data_user = $this->UserModel->read_id($id_user)->row_array();
+            $data_article = $this->ArticleModel->read_user($id_user)->result_array();
+            $jml_article = $this->ArticleModel->hitung_jml($id_user)->row_array();
+    
+            $data = array(
+                'content'   => 'user',
+                'data_user' => $data_user,
+                'data_article' => $data_article,
+                'jml_post'  => $jml_article['jml']
+            );
+            view('backend/user_article', $data);
+        }else{
+            redirect('admin/login.html','refresh');
+        }
+    }
+
     public function view_create()
     {
         if(!empty($this->session->userdata('id_user'))){

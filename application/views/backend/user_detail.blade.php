@@ -29,7 +29,7 @@
                                             </div>
                                             <ul class="nav nav-pills nav-stacked">
                                                 <li class="active nav-item"><a class="nav-link" href="{{base_url('admin/user/').$data_user['id_user']}}.html"> <i class="fa fa-user"></i> Profile</a></li>
-                                                <li class="nav-item"><a class="nav-link" href="javascript:null"> <i class="fa fa-book"></i> Artikel <span class="badge badge-danger pull-right r-activity">{{ $jml_post }}</span></a></li>
+                                                <li class="nav-item"><a class="nav-link" href="{{base_url('admin/user/').$data_user['id_user']}}/article.html"> <i class="fa fa-book"></i> Artikel <span class="badge badge-danger pull-right r-activity">{{ $jml_post }}</span></a></li>
                                             </ul>
                                         </section>
                                     </aside>

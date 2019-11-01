@@ -32,6 +32,14 @@
             $this->db->where('id_artikel', $id);
             return $this->db->get('tb_artikel');
         } 
+
+        public function read_user($id)
+        {
+            $this->db->where('tb_artikel.id_user', $id);
+            $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_artikel.id_kategori', 'left');
+            return $this->db->get('tb_artikel');
+        }
+
         public function update($data, $id)
         { 
             $this->db->where('id_artikel', $data['id_artikel']);
