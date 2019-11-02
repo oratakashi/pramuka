@@ -24,7 +24,7 @@
                               </ul>
                               <div class="tab-content" id="myTabContent">
                                   <?php echo $__env->make('backend.summary.periode', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                                  <div class="tab-pane fade" id="bulan" role="tabpanel" aria-labelledby="bulan-tab">Profile text goes here...</div>
+                                  <?php echo $__env->make('backend.summary.bulan', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                                   <div class="tab-pane fade" id="tahun" role="tabpanel" aria-labelledby="tahun-tab">Contact text goes here...</div>
                                   <?php echo $__env->make('backend.summary.all', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                               </div>
@@ -35,5 +35,6 @@
           </section>
       </section>
       <?php echo $__env->make('backend.summary.periode_script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+      <?php echo $__env->make('backend.summary.bulan_script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/summary.blade.php ENDPATH**/ ?>

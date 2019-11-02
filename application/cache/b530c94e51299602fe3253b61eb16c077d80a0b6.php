@@ -15,7 +15,7 @@
                             </header>
                             <div class="card-body">
                                 <div class="adv-table">
-                                    <table  class="display table table-bordered table-striped" id="dynamic-table">
+                                    <table  class="table table-bordered table-striped" id="dynamic-table">
                                         <thead>
                                             <tr>
                                                 <th>Nama File</th>

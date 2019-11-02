@@ -89,3 +89,11 @@ $route['pengurus/logout.aspx'] = 'User/logout';
 $route['pengurus'] = 'Pengurus';
 $route['pengurus/login.html'] = 'Pengurus';
 $route['pengurus/index.html'] = 'Pengurus';
+
+
+/**
+ * Web Service
+ */
+
+$route['api/article/periode/(:any)/(:any)'] = 'Webservice/getArticlePeriodic/$1/$2';
+$route['api/article/bulan/(:any)'] = 'Webservice/getArticleMonth/$1';
