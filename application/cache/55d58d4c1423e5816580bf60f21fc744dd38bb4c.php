@@ -3,7 +3,12 @@
         $('#bulan-table').DataTable();
         $('#bulan').change(function (e) { 
             e.preventDefault();
-            getMonth($(this).find('option:selected').val());
+            if($(this).find('option:selected').val() != ''){
+                getMonth($(this).find('option:selected').val());
+            }else{
+                $('#bulan-table').DataTable().clear().destroy();
+                $('#bulan-table').DataTable();
+            }
         });
     });
     function getMonth (month) {  

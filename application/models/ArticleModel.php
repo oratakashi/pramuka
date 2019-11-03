@@ -152,6 +152,15 @@
             
             return $this->db->get('tb_user');
         }
+
+        public function rank_year($tahun)
+        {
+            $this->db->where('tb_user.lev_user', "Pengurus");
+            $this->db->select("tb_user.nama, concat((SELECT count(*) from tb_artikel where tb_artikel.id_user=tb_user.id_user and YEAR(tb_artikel.tgl_post) = $tahun), ' Artikel') as jml");
+            $this->db->order_by('jml', 'desc');
+            
+            return $this->db->get('tb_user');
+        }
     }
     
     /* End of file ArticleModel.php */

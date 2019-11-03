@@ -44,6 +44,19 @@
                 "status"    => 200
             ));
         }
+
+        public function getArticleYear()
+        {
+            $tahun = $this->uri->segment(4);
+
+            $data = $this->ArticleModel->rank_year($tahun)->result_array();
+
+            echo json_encode(array(
+                "data"    => $data,
+                "success"   => true,
+                "status"    => 200
+            ));
+        }
     }
     
     /* End of file Webservice.php */

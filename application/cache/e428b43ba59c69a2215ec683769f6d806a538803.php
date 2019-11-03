@@ -1,5 +1,5 @@
 <div class="tab-pane fade" id="bulan" role="tabpanel" aria-labelledby="bulan-tab">
-<form action="" method="post" id="form-periode" style="margin-top:30px;margin-bottom:30px">
+    <form action="" method="post" id="form-periode" style="margin-top:30px;margin-bottom:30px">
         <div class="row">
             <div class="col-md-4">
                 <label for="">Menampilkan Rekap Bulan : </label>

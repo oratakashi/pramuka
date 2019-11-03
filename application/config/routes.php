@@ -97,3 +97,4 @@ $route['pengurus/index.html'] = 'Pengurus';
 
 $route['api/article/periode/(:any)/(:any)'] = 'Webservice/getArticlePeriodic/$1/$2';
 $route['api/article/bulan/(:any)'] = 'Webservice/getArticleMonth/$1';
+$route['api/article/tahun/(:any)'] = 'Webservice/getArticleYear/$1';

@@ -1,21 +1,21 @@
 <script>
     $(document).ready(function () {
-        $('#bulan-table').DataTable();
-        $('#bulan').change(function (e) { 
+        $('#tahun-table').DataTable();
+        $('#tahun').change(function (e) { 
             e.preventDefault();
             if($(this).find('option:selected').val() != ''){
-                getMonth($(this).find('option:selected').val());
+                getYear($(this).find('option:selected').val());
             }else{
-                $('#bulan-table').DataTable().clear().destroy();
-                $('#bulan-table').DataTable();
+                $('#tahun-table').DataTable().clear().destroy();
+                $('#tahun-table').DataTable();
             }
         });
     });
-    function getMonth (month) {  
-        $('#bulan-table').DataTable().clear().destroy();
-        var t = $('#bulan-table').DataTable({
+    function getYear (year) {  
+        $('#tahun-table').DataTable().clear().destroy();
+        var t = $('#tahun-table').DataTable({
             "ajax": {
-                url: "{{ base_url('api/article/bulan/') }}"+month,
+                url: "<?php echo e(base_url('api/article/tahun/')); ?>"+year,
                 type: "get",
                 dataSrc: 'data'
             },
@@ -37,4 +37,4 @@
             } );
         } ).draw();
     }
-</script>
+</script><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/summary/tahun_script.blade.php ENDPATH**/ ?>

@@ -27,7 +27,7 @@
                               <div class="tab-content" id="myTabContent">
                                   @include('backend.summary.periode')
                                   @include('backend.summary.bulan')
-                                  <div class="tab-pane fade" id="tahun" role="tabpanel" aria-labelledby="tahun-tab">Contact text goes here...</div>
+                                  @include('backend.summary.tahun')
                                   @include('backend.summary.all')
                               </div>
                             </div>
@@ -38,4 +38,5 @@
       </section>
       @include('backend.summary.periode_script')
       @include('backend.summary.bulan_script')
+      @include('backend.summary.tahun_script')
 @endsection
