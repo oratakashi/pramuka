@@ -3,7 +3,7 @@
 @section('title', 'Tambah Artikel - Pramuka Lumajang')
 
 @section('container')
-<script>
+    <script>
         function tampilkanPreview(gambar,idpreview){
             var gb = gambar.files;
             for (var i = 0; i < gb.length; i++){

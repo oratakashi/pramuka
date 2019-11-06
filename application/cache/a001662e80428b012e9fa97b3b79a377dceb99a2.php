@@ -23,9 +23,6 @@
                     <li><a href="<?php echo e(base_url('admin/logout.aspx')); ?>"><i class="fa fa-sign-out"></i> Log Out</a></li>
                 </ul>
             </li>
-            <li class="sb-toggle-right">
-                <i class="fa  fa-align-right"></i>
-            </li>
             <!-- user login dropdown end -->
         </ul>
         <!--search & user info end-->

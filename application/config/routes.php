@@ -41,6 +41,8 @@ $route['admin/products/create.aspx'] = 'products/create';
 $route['admin/products/(:any)/delete.aspx'] = 'products/delete/$1';
 $route['admin/products/(:any)/update.aspx'] = 'products/update/$1';
 
+$route['admin/slider/create.aspx'] = 'slider/create';
+
 /**
  * UI Section
  */
@@ -72,6 +74,10 @@ $route['admin/article/categories.html'] = 'Article/categories';
 $route['admin/article/categories/create.html'] = 'Article/view_category_create';
 $route['admin/article/(:any)/views.html'] = 'Article/preview/$1';
 $route['admin/article/(:any).html'] = 'Article/view_update/$1';
+
+
+$route['admin/slider.html'] = 'Slider/index';
+$route['admin/slider/create.html'] = 'Slider/view_create';
 
 /**
  * Pengurus

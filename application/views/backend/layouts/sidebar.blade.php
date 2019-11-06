@@ -14,13 +14,13 @@
             </li>
 
             <li class="sub-menu">
-                <a href="javascript:;" class="@if ($content == 'user' || $content == 'summary') active @endif">
+                <a href="javascript:;" class="@if ($content == 'user' || $content == 'summary' || $content == 'slider') active @endif">
                     <i class="fa fa-laptop"></i>
                     <span>Menu Administratif</span>
                 </a>
                 <ul class="sub active">
                     <li class="@if ($content == 'user') active @endif"><a href="{{base_url('admin/')}}user.html">Kelola Pengguna</a></li>
-                    <li class=""><a href="user.html">Informasi Website</a></li>
+                    <li class="@if ($content == 'slider') active @endif"><a href="{{base_url('admin/')}}slider.html">Informasi Website</a></li>
                     <li class="@if ($content == 'summary') active @endif"><a href="{{ base_url('admin/') }}summary.html">Rekap Data</a></li>
                 </ul>
             </li>
