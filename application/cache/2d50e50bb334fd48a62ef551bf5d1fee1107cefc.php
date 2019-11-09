@@ -19,16 +19,27 @@
                                         <thead>
                                             <tr>
                                                 <th>Gambar</th>
-                                                <th>Judul</th>
+                                                <th>Keterangan</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <tr>
+                                                <td>
+                                                    <img src="<?php echo e(base_url('media/slider/').$row['image']); ?>" style="width:120px;height:80px" alt="">
+                                                </td>
+                                                <td><?php echo e($row['title']); ?></td>
+                                                <td>
+                                                    <a href="<?php echo e(base_url('admin/slider/').$row['id_slider']); ?>/delete.aspx" class="btn btn-danger"><i class="fa fa-trash-o"></i> Hapus</a>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>Gambar</th>
-                                                <th>Judul</th>
+                                                <th>Keterangan</th>
                                                 <th></th>
                                             </tr>
                                         </tfoot>

@@ -91,6 +91,8 @@
                     redirect('admin/documents.html','refresh');
                     
                 }
+            }else{
+                redirect('admin/login.html','refresh');
             }
          }
     }

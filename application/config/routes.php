@@ -42,6 +42,7 @@ $route['admin/products/(:any)/delete.aspx'] = 'products/delete/$1';
 $route['admin/products/(:any)/update.aspx'] = 'products/update/$1';
 
 $route['admin/slider/create.aspx'] = 'slider/create';
+$route['admin/slider/(:any)/delete.aspx'] = 'slider/delete/$1';
 
 /**
  * UI Section

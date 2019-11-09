@@ -47,7 +47,7 @@
                                                 <div class="myfileupload-buttonbar" style="margin-top:20px">
                                                     <label class="btn btn-primary">
                                                         <span>Pilih Gambar</span>
-                                                        <input id="file" type="file" name="song" accept="image/*"  onchange="tampilkanPreview(this,'photo')"/>
+                                                        <input id="file" type="file" name="photo" accept="image/*"  onchange="tampilkanPreview(this,'photo')"/>
                                                     </label>
                                                 </div></center>
                                             </div>
