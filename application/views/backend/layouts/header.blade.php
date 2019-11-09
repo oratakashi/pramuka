@@ -17,7 +17,7 @@
                 </a>
                 <ul class="dropdown-menu extended logout dropdown-menu-right">
                     <div class="log-arrow-up"></div>
-                    <li><a href="#"><i class=" fa fa-user"></i>Profile</a></li>
+                    <li><a href="{{ base_url('admin/profile.html') }}"><i class=" fa fa-user"></i>Profile</a></li>
                     <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                     <li><a href="#"><i class="fa fa-key"></i> Change Password</a></li>
                     <li><a href="{{ base_url('admin/logout.aspx') }}"><i class="fa fa-sign-out"></i> Log Out</a></li>

@@ -112,6 +112,28 @@ class User extends CI_Controller {
         }
     }
 
+    public function profile()
+    {
+        if(!empty($this->session->userdata('id_user'))){
+            $id_user = $this->session->userdata('id_user');
+
+            $data_user = $this->UserModel->read_id($id_user)->row_array();
+            $jml_article = $this->ArticleModel->hitung_jml($id_user)->row_array();
+            $data_article = $this->ArticleModel->read_user($id_user)->result_array();
+
+            $data = array(
+                'content'       => 'profile',
+                'data_user'     => $data_user,
+                'jml_post'      => $jml_article['jml'],
+                'data_article'  => $data_article
+            );
+
+            view('backend/profile', $data);
+        }else{
+            redirect('admin/login.html','refresh');
+        }
+    }
+
     /**
      * Action Method
      */

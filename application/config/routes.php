@@ -80,6 +80,8 @@ $route['admin/article/(:any).html'] = 'Article/view_update/$1';
 $route['admin/slider.html'] = 'Slider/index';
 $route['admin/slider/create.html'] = 'Slider/view_create';
 
+$route['admin/profile.html'] = 'User/profile';
+
 /**
  * Pengurus
  */
