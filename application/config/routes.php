@@ -44,6 +44,9 @@ $route['admin/products/(:any)/update.aspx'] = 'products/update/$1';
 $route['admin/slider/create.aspx'] = 'slider/create';
 $route['admin/slider/(:any)/delete.aspx'] = 'slider/delete/$1';
 
+$route['admin/password.aspx'] = 'User/password';
+$route['admin/settings.aspx'] = 'User/settings';
+
 /**
  * UI Section
  */
@@ -81,6 +84,8 @@ $route['admin/slider.html'] = 'Slider/index';
 $route['admin/slider/create.html'] = 'Slider/view_create';
 
 $route['admin/profile.html'] = 'User/profile';
+$route['admin/password.html'] = 'User/view_password';
+$route['admin/settings.html'] = 'User/view_settings';
 
 /**
  * Pengurus

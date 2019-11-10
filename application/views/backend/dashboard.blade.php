@@ -66,7 +66,7 @@
                 <section class="card">
                     <div class="card-body">
                         <a href="#" class="task-thumb">
-                        <img alt="" class="rounded-circle" style="height:80px; margin-top:10px" src="{{ base_url('media/photo_user/') }}@php echo $_SESSION['photo']; @endphp">
+                        <img alt="" class="rounded-circle" style="height:80px; width:80px; margin-top:10px" src="{{ base_url('media/photo_user/') }}@php echo $_SESSION['photo']; @endphp">
                         </a>
                         <div class="task-thumb-details">
                             <h1><a href="#">@php echo $_SESSION['nama'] @endphp</a></h1>

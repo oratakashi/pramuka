@@ -11,16 +11,23 @@
             <!-- user login dropdown start-->
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <img alt="" class="rounded-circle" style="height:25px" src="<?php echo e(base_url('media/photo_user/')); ?><?php echo $_SESSION['photo']; ?>">
+                    <img alt="" class="rounded-circle" style="height:25px;width:25px" src="<?php echo e(base_url('media/photo_user/')); ?><?php echo $_SESSION['photo']; ?>">
                     <span class="username"><?php echo $_SESSION['nama'] ?></span>
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu extended logout dropdown-menu-right">
                     <div class="log-arrow-up"></div>
+                    <?php if($_SESSION['lev_user']=='Administrator'): ?>
                     <li><a href="<?php echo e(base_url('admin/profile.html')); ?>"><i class=" fa fa-user"></i>Profile</a></li>
-                    <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                    <li><a href="<?php echo e(base_url('admin/settings.html')); ?>"><i class="fa fa-cog"></i> Pengaturan</a></li>
+                    <li><a href="<?php echo e(base_url('admin/password.html')); ?>"><i class="fa fa-key"></i> Change Password</a></li>
+                    <li><a href="<?php echo e(base_url('admin/logout.aspx')); ?>"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                    <?php else: ?>
+                    <li><a href="<?php echo e(base_url('admin/profile.html')); ?>"><i class=" fa fa-user"></i>Profile</a></li>
+                    <li><a href="<?php echo e(base_url('admin/settings.html')); ?>"><i class="fa fa-cog"></i> Pengaturan</a></li>
                     <li><a href="#"><i class="fa fa-key"></i> Change Password</a></li>
                     <li><a href="<?php echo e(base_url('admin/logout.aspx')); ?>"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                    <?php endif; ?>
                 </ul>
             </li>
             <!-- user login dropdown end -->

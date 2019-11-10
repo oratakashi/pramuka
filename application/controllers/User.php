@@ -112,6 +112,45 @@ class User extends CI_Controller {
         }
     }
 
+    public function view_password()
+    {
+        if(!empty($this->session->userdata('id_user'))){
+            $data = array(
+                "content"   => 'password'
+            );
+
+            view('backend/password', $data);
+        }else{
+            redirect('admin/login.html','refresh');
+        }
+    }
+
+    public function view_settings()
+    {
+        if(!empty($this->session->userdata('id_user'))){
+            $id_user = $this->session->userdata('id_user');
+            $id_kecamatan = "";
+
+            if($this->session->userdata('lev_user') == 'Pengurus'){
+                $id_kecamatan = substr($id_user, 0, 6);
+            }
+
+            $data_kec = $this->KecamatanModel->read()->result_array();
+            $data_user = $this->UserModel->read_id($id_user)->row_array();
+
+            $data = array(
+                "content"       => 'settings',
+                "data_kec"      =>  $data_kec,
+                "user"          => $data_user,
+                "id_kecamatan"  => $id_kecamatan
+            );
+
+            view('backend/settings', $data);
+        }else{
+            redirect('admin/login.html','refresh');
+        }
+    }
+
     public function profile()
     {
         if(!empty($this->session->userdata('id_user'))){
@@ -411,6 +450,91 @@ class User extends CI_Controller {
                 $this->UserModel->delete($id_user);
                 
                 redirect('admin/user.html','refresh');
+            }
+        }
+    }
+
+    public function password()
+    {
+        if(!empty($this->session->userdata('id_user'))){
+            if($_SERVER['REQUEST_METHOD']=='POST'){
+                $id_user = $this->session->userdata('id_user');
+
+                $data_user = $this->UserModel->read_id($id_user)->row_array();
+
+                $old_pass = sha1($this->input->post('old_pass'));
+                $new_pass = sha1($this->input->post('new_pass'));
+
+                if($old_pass == $data_user['password']){
+                    $data = array(
+                        "id_user"   => $id_user,
+                        "password"  => $new_pass
+                    );
+
+                    $this->UserModel->update($data);
+
+                    echo "<script>alert('Berhasil merubah katasandi!')</script>";
+                    redirect('admin/index.html','refresh');
+                }else{
+                    echo "<script>alert('Kata sandi lama salah!')</script>";
+                    
+                    redirect('admin/password.html','refresh');
+                }
+            }
+        }
+    }
+
+    public function settings()
+    {
+        if(!empty($this->session->userdata('id_user'))){
+            if($_SERVER['REQUEST_METHOD']=='POST'){
+                $photo = "";
+                $id_user = $this->session->userdata('id_user');
+                $data_user = $this->UserModel->read_id($id_user)->row_array();
+
+                if($_FILES['photo']['error'] === UPLOAD_ERR_OK){
+                    $photo = $this->input->post('id_user');
+                    
+                    $config['upload_path']          = './media/photo_user/';
+                    $config['allowed_types']        = 'gif|jpg|png';
+                    $config['overwrite']            = true;
+                    $config['file_name']            = $photo;
+                    
+                    $this->load->library('upload', $config);
+                    $this->upload->initialize($config);
+                    if ( ! $this->upload->do_upload('photo')){
+                        $error = array('error' => $this->upload->display_errors());
+                        print_r($error);
+                    }
+                    else{
+                        $upload = array('upload_data' => $this->upload->data());
+                        $photo = $upload['upload_data']['file_name'];
+                    }
+                }else{
+                    $photo = $data_user['photo'];
+                }
+
+                $data = array(
+                    "id_user" => $this->input->post('id_user'),
+                    "nama" => $this->input->post('nama'),
+                    "email" => $this->input->post('email'),
+                    "alamat" => $this->input->post('alamat'),
+                    "no_hp" => $this->input->post('no_hp'),
+                    "photo" => $photo
+                );
+
+                $this->UserModel->update($data);
+
+                
+                $array = array(
+                    'photo' => $photo,
+                    'nama'  => $data['nama']
+                );
+                
+                $this->session->set_userdata( $array );
+                
+
+                redirect('admin/index.html','refresh');
             }
         }
     }
