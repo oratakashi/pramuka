@@ -21,7 +21,6 @@
                 <ul class="sub">
                     <li class="@if ($content == 'article-add') active @endif"><a  href="{{base_url('pengurus/article/')}}create.html">Tambah Artikel Baru</a></li>
                     <li class="@if ($content == 'article') active @endif"><a  href="{{base_url('pengurus/')}}article.html"">Kelola Artikel</a></li>
-                    <li class="@if ($content == 'categories') active @endif"><a  href="{{base_url('pengurus/article/')}}categories.html">Kelola Kategori Artikel</a></li>
                 </ul>
             </li>
         </ul>
