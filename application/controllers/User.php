@@ -185,13 +185,15 @@ class User extends CI_Controller {
 
             if($this->input->post('type') == 'admin'){
                 $data = array(
-                    "email" => $this->input->post('email'),
-                    "password" => sha1($this->input->post('password'))
+                    "email"     => $this->input->post('email'),
+                    "password"  => sha1($this->input->post('password')),
+                    "lev_user"  => "Administrator"
                 );
             }else{
                 $data = array(
                     "id_user" => $this->input->post('id_user'),
-                    "password" => sha1($this->input->post('password'))
+                    "password" => sha1($this->input->post('password')),
+                    "lev_user"  => "Pengurus"
                 );
             }            
 
