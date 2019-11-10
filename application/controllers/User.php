@@ -260,9 +260,11 @@ class User extends CI_Controller {
 
         $this->session->sess_destroy();
         
-        
-        redirect('admin/login.html','refresh');
-        
+        if($this->uri->segment(1) == 'admin'){
+            redirect('admin/login.html','refresh');
+        }else{
+            redirect('pengurus/login.html','refresh');
+        }
     }
 
     public function getID()
