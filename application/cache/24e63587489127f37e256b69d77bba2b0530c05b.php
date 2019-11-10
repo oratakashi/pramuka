@@ -69,7 +69,11 @@
       <?php echo $__env->make('backend.layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
       <!--header end-->
       <!--sidebar start-->
-      <?php echo $__env->make('backend.layouts.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+      <?php if($_SESSION['lev_user']=='Administrator'): ?>
+        <?php echo $__env->make('backend.layouts.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+      <?php else: ?>
+        <?php echo $__env->make('backend.pengurus.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+      <?php endif; ?>
       <!--sidebar end-->
       <!--main content start-->
       <?php echo $__env->yieldContent('container'); ?>

@@ -83,7 +83,7 @@
                             success: function (response) {
                                 if(response.success){
                                     // console.log(response);
-                                    window.location.replace('{{ base_url("admin/index.html") }}');
+                                    window.location.replace('{{ base_url("pengurus/index.html") }}');
                                 }else{
                                     $('button').attr('disabled', false);
                                     $('button').html('Sign in');

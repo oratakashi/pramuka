@@ -69,7 +69,11 @@
       @include('backend.layouts.header')
       <!--header end-->
       <!--sidebar start-->
-      @include('backend.layouts.sidebar')
+      @if($_SESSION['lev_user']=='Administrator')
+        @include('backend.layouts.sidebar')
+      @else
+        @include('backend.pengurus.sidebar')
+      @endif
       <!--sidebar end-->
       <!--main content start-->
       @yield('container')

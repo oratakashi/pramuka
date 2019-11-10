@@ -34,7 +34,7 @@
         <div class="login-wrap">
             <div class="form-group">
                 <label for="">ID Pengguna</label>
-                <input type="text" class="form-control" required id="email" name="email" placeholder="Alamat Email" autofocus>
+                <input type="text" class="form-control" required id="id_user" name="email" placeholder="ID Pengguna" autofocus>
             </div>
             <div class="form-group">
                 <label for="">Kata Sandi</label>
@@ -61,7 +61,7 @@
                 type: "post",
                 url: "<?php echo e(base_url('pengurus/validation.aspx')); ?>",
                 data: {
-                    "email" : $('#email').val(),
+                    "id_user" : $('#id_user').val(),
                     "password" : $('#password').val(),
                     "type" : "pengurus"
                 },
@@ -83,7 +83,7 @@
                             success: function (response) {
                                 if(response.success){
                                     // console.log(response);
-                                    window.location.replace('<?php echo e(base_url("admin/index.html")); ?>');
+                                    window.location.replace('<?php echo e(base_url("pengurus/index.html")); ?>');
                                 }else{
                                     $('button').attr('disabled', false);
                                     $('button').html('Sign in');

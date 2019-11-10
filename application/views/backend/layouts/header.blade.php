@@ -23,10 +23,10 @@
                     <li><a href="{{ base_url('admin/password.html') }}"><i class="fa fa-key"></i> Change Password</a></li>
                     <li><a href="{{ base_url('admin/logout.aspx') }}"><i class="fa fa-sign-out"></i> Log Out</a></li>
                     @else
-                    <li><a href="{{ base_url('admin/profile.html') }}"><i class=" fa fa-user"></i>Profile</a></li>
-                    <li><a href="{{ base_url('admin/settings.html') }}"><i class="fa fa-cog"></i> Pengaturan</a></li>
-                    <li><a href="#"><i class="fa fa-key"></i> Change Password</a></li>
-                    <li><a href="{{ base_url('admin/logout.aspx') }}"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                    <li><a href="{{ base_url('pengurus/profile.html') }}"><i class=" fa fa-user"></i>Profile</a></li>
+                    <li><a href="{{ base_url('pengurus/settings.html') }}"><i class="fa fa-cog"></i> Pengaturan</a></li>
+                    <li><a href="{{ base_url('pengurus/password.html') }}"><i class="fa fa-key"></i> Change Password</a></li>
+                    <li><a href="{{ base_url('pengurus/logout.aspx') }}"><i class="fa fa-sign-out"></i> Log Out</a></li>
                     @endif
                 </ul>
             </li>
