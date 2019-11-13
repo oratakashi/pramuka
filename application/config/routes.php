@@ -97,6 +97,16 @@ $route['admin/settings.html'] = 'User/view_settings';
 $route['pengurus/validation.aspx'] = 'User/validation';
 $route['pengurus/login.aspx'] = 'User/login';
 $route['pengurus/logout.aspx'] = 'User/logout';
+
+$route['pengurus/article/(:any)/update.aspx'] = 'article/update/$1';
+$route['pengurus/article/(:any)/delete.aspx'] = 'article/delete/$1';
+$route['pengurus/article/(:any)/deactivated.aspx'] = 'article/status/$1/0';
+$route['pengurus/article/(:any)/activated.aspx'] = 'article/status/$1/1';
+$route['pengurus/article/create.aspx'] = 'article/create';
+
+$route['pengurus/password.aspx'] = 'User/password';
+$route['pengurus/settings.aspx'] = 'User/settings';
+
  /**
   * UI Section
   */
@@ -104,6 +114,13 @@ $route['pengurus'] = 'Pengurus';
 $route['pengurus/login.html'] = 'Pengurus';
 $route['pengurus/index.html'] = 'Pengurus';
 
+$route['pengurus/article.html'] = 'Article/index';
+$route['pengurus/article/create.html'] = 'Article/view_create';
+$route['pengurus/article/(:any).html'] = 'Article/view_update/$1';
+
+$route['pengurus/profile.html'] = 'User/profile';
+$route['pengurus/password.html'] = 'User/view_password';
+$route['pengurus/settings.html'] = 'User/view_settings';
 
 /**
  * Web Service

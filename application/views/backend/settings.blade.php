@@ -32,12 +32,21 @@
             <div class="col-sm-12">
                 <section class="card">
                     <header class="card-header">
-                        {{ "Pengaturan" }} <a href="{{ base_url('admin/index.html') }}"><button class="btn btn-sm btn-danger">Batal</button></a>
+                        {{ "Pengaturan" }} 
                             <span class="tools pull-right">
+                                @if($_SESSION['lev_user']=='Administrator')
+                                    <a href="{{ base_url('admin/index.html') }}"><button class="btn btn-sm btn-danger">Kembali</button></a>
+                                @elseif($_SESSION['lev_user']=='Pengurus')
+                                    <a href="{{ base_url('pengurus/index.html') }}"><button class="btn btn-sm btn-danger">Kembali</button></a>
+                                @endif
                                 <a href="javascript:;" class="fa fa-chevron-down"></a>
                             </span>
                     </header>
+                    @if($_SESSION['lev_user']=='Administrator')
                     <form action="{{ base_url('admin/settings.aspx') }}" method="post" enctype="multipart/form-data">
+                    @elseif($_SESSION['lev_user']=='Pengurus')
+                    <form action="{{ base_url('pengurus/settings.aspx') }}" method="post" enctype="multipart/form-data">
+                    @endif
                         <div class="card-body">
                             <div class="row">
                                     <aside class="profile-nav col-lg-3">

@@ -9,7 +9,7 @@
                 <section class="card">
                     <?php if($_SESSION['lev_user']=='Administrator'): ?>
                         <form action="<?php echo e(base_url('admin/password.aspx')); ?>" method="post" enctype="multipart/form-data">
-                    <?php else: ?>
+                    <?php elseif($_SESSION['lev_user']=='Pengurus'): ?>
                         <form action="<?php echo e(base_url('pengurus/password.aspx')); ?>" method="post" enctype="multipart/form-data">
                     <?php endif; ?>
                     <header class="card-header">
@@ -55,7 +55,11 @@
         });
         $('#btnBack').click(function (e) { 
             e.preventDefault();
-            window.location.replace("<?php echo e(base_url('admin/index.html')); ?>");
+            <?php if($_SESSION['lev_user']=='Administrator'): ?>
+                window.location.replace("<?php echo e(base_url('admin/index.html')); ?>");
+            <?php elseif($_SESSION['lev_user']=='Pengurus'): ?>
+                window.location.replace("<?php echo e(base_url('pengurus/index.html')); ?>");
+            <?php endif; ?>
         });
     });
 </script>

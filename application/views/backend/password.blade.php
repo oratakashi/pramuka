@@ -11,7 +11,7 @@
                 <section class="card">
                     @if($_SESSION['lev_user']=='Administrator')
                         <form action="{{ base_url('admin/password.aspx') }}" method="post" enctype="multipart/form-data">
-                    @else
+                    @elseif($_SESSION['lev_user']=='Pengurus')
                         <form action="{{ base_url('pengurus/password.aspx') }}" method="post" enctype="multipart/form-data">
                     @endif
                     <header class="card-header">
@@ -56,7 +56,11 @@
         });
         $('#btnBack').click(function (e) { 
             e.preventDefault();
-            window.location.replace("{{ base_url('admin/index.html') }}");
+            @if($_SESSION['lev_user']=='Administrator')
+                window.location.replace("{{ base_url('admin/index.html') }}");
+            @elseif($_SESSION['lev_user']=='Pengurus')
+                window.location.replace("{{ base_url('pengurus/index.html') }}");
+            @endif
         });
     });
 </script>

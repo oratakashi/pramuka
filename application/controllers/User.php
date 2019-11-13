@@ -478,11 +478,19 @@ class User extends CI_Controller {
                     $this->UserModel->update($data);
 
                     echo "<script>alert('Berhasil merubah katasandi!')</script>";
-                    redirect('admin/index.html','refresh');
+                    if($this->session->userdata('lev_user')=='Administrator'){
+                        redirect('admin/index.html','refresh');
+                    }elseif($this->session->userdata('lev_user') == 'Pengurus'){
+                        redirect('pengurus/index.html','refresh');
+                    }
                 }else{
                     echo "<script>alert('Kata sandi lama salah!')</script>";
                     
-                    redirect('admin/password.html','refresh');
+                    if($this->session->userdata('lev_user')=='Administrator'){
+                        redirect('admin/password.html','refresh');
+                    }elseif($this->session->userdata('lev_user') == 'Pengurus'){
+                        redirect('pengurus/password.html','refresh');
+                    }
                 }
             }
         }
@@ -537,8 +545,11 @@ class User extends CI_Controller {
                 
                 $this->session->set_userdata( $array );
                 
-
-                redirect('admin/index.html','refresh');
+                if($this->session->userdata('lev_user')=='Administrator'){
+                    redirect('admin/index.html','refresh');
+                }elseif($this->session->userdata('lev_user') == 'Pengurus'){
+                    redirect('pengurus/index.html','refresh');
+                }
             }
         }
     }

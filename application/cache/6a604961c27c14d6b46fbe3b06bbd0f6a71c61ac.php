@@ -1,7 +1,7 @@
-<?php $__env->startSection('title', 'Tambah Artikel - Pramuka Lumajang'); ?>
+<?php $__env->startSection('title', 'Ubah Artikel - Pramuka Lumajang'); ?>
 
 <?php $__env->startSection('container'); ?>
-    <script>
+<script>
         function tampilkanPreview(gambar,idpreview){
             var gb = gambar.files;
             for (var i = 0; i < gb.length; i++){
@@ -30,13 +30,14 @@
                     <div class="col-sm-12">
                         <section class="card">
                             <header class="card-header">
-                                <?php echo e("Tambah Artikel"); ?> <a href="<?php echo e(base_url('admin/article.html')); ?>"><button class="btn btn-sm btn-danger">Batal</button></a>
+                                <?php echo e("Ubah Artikel"); ?> <a href="<?php echo e(base_url('pengurus/article.html')); ?>"><button class="btn btn-sm btn-danger">Batal</button></a>
                                     <span class="tools pull-right">
                                         <a href="javascript:;" class="fa fa-chevron-down"></a>
                                     </span>
                             </header>
+
                             <div class="card-body">
-                                <form action="<?php echo e(base_url('admin/article/create.aspx')); ?>" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo e(base_url('pengurus/article/').$id); ?>/update.aspx" method="post" enctype="multipart/form-data">
                                     <!-- Code Form -->
                                     <div class="card-body">
                                         <div class="row">
@@ -64,20 +65,28 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <label for="">Judul</label>
-                                                                    <input type="text" required name="judul" id="" class="form-control">
+                                                                    <input type="text" required name="judul" id="" class="form-control"  value="<?php echo e($artikel['judul']); ?>">
                                                                 </div>  
                                                                 <div class="form-group">
                                                                     <label for="">Kategori</label> 
                                                                     <select name="kategori" id="" class="form-control">
-                                                                        <option value="">Pilih Kategori</option>
-                                                                        <?php $__currentLoopData = $data_kat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                                            <option value="<?php echo e($data['id_kategori']); ?>"><?php echo e($data['nm_kategori']); ?></option>
+                                                                        <?php $__currentLoopData = $kategori; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                                                                            <?php if($artikel['id_kategori'] == $data['id_kategori']){?> 
+                                                                                <option value="<?= $data['id_kategori'];?>" selected>
+                                                                                    <?= $data['nm_kategori'];?>
+                                                                                </option>  
+                                                                            <?php }else{   ?>
+                                                                                <option value="<?= $data['id_kategori'];?>">
+                                                                                    <?= $data['nm_kategori'];?>
+                                                                                </option>  
+                                                                            <?php }?>  
                                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                        
                                                                     </select>
                                                                 </div>  
                                                                 <div class="form-group">
-                                                                    <label for="">Isi Artikel</label>
-                                                                    <textarea name="isi_artikel" class="richtext form-controls" id="" cols="100%" rows="200"></textarea>
+                                                                    <label for="">Isi Artikel</label> 
+                                                                    <textarea name="isi_artikel" class="richtext form-controls" id="" cols="100%" rows="200"><?php echo e($artikel['judul']); ?></textarea>
                                                                 </div> 
                                                             </div>
                                                             <div class="col-md-12">
@@ -95,6 +104,6 @@
                     </div>
                 </div>
           </section>
-      </section> 
+      </section>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/article_create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/pengurus/article_edit.blade.php ENDPATH**/ ?>

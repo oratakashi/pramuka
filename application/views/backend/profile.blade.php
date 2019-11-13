@@ -12,7 +12,11 @@
                             <header class="card-header">
                                 {{ "Profil" }}
                                     <span class="tools pull-right">
-                                        <a href="{{ base_url('admin/index.html') }}"><button class="btn btn-sm btn-danger">Kembali</button></a>
+                                        @if($_SESSION['lev_user']=='Administrator')
+                                            <a href="{{ base_url('admin/index.html') }}"><button class="btn btn-sm btn-danger">Kembali</button></a>
+                                        @elseif($_SESSION['lev_user']=='Pengurus')
+                                            <a href="{{ base_url('pengurus/index.html') }}"><button class="btn btn-sm btn-danger">Kembali</button></a>
+                                        @endif
                                         <a href="javascript:;" class="fa fa-chevron-down"></a>
                                     </span>
                             </header>

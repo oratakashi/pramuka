@@ -29,8 +29,11 @@
                     'content'   => 'article',
                     'data'      => $data_article
                 );
-
-                view('backend/article', $data);
+                if($this->session->userdata('lev_user') == 'Administrator'){
+                    view('backend/article', $data);
+                }elseif($this->session->userdata('lev_user') == 'Pengurus'){
+                    view('backend/pengurus/article', $data);
+                }
             }else{
                 redirect('admin/login.html','refresh');
             }
@@ -68,7 +71,11 @@
                     "content"   => 'article-add',
                     "data_kat" => $data_kategori
                 ); 
-                view('backend/article_create', $data);
+                if($this->session->userdata('lev_user') == 'Administrator'){
+                    view('backend/article_create', $data);
+                }elseif($this->session->userdata('lev_user') == 'Pengurus'){
+                    view('backend/pengurus/article_create', $data);
+                }
             }else{
                 redirect('admin/login.html','refresh');
             }
@@ -95,8 +102,12 @@
                     'kategori'  => $data_kategori,
                     'id'        => $id_article
                 ); 
-
-                view('backend/article_edit', $data);
+                
+                if($this->session->userdata('lev_user')=='Administrator'){
+                    view('backend/article_edit', $data);
+                }elseif($this->session->userdata('lev_user') == 'Pengurus'){
+                    view('backend/pengurus/article_edit', $data);
+                }
             }else{
                 redirect('admin/login.html','refresh');
             }
@@ -222,7 +233,12 @@
                     // var_dump($data);die;
          
                     $this->ArticleModel->create($data);
-                    redirect('admin/article.html','refresh');
+                    if($this->session->userdata('lev_user') == 'Administrator'){
+                        redirect('admin/article.html','refresh');
+                    }elseif($this->session->userdata('lev_user') == 'Pengurus'){
+                        redirect('pengurus/article.html','refresh');
+                    }
+                    
                     
                 } 
             }else{
@@ -274,7 +290,12 @@
                         ); 
 
                         $this->ArticleModel->update($data, $id_article);
-                        redirect('admin/article.html','refresh');
+
+                        if($this->session->userdata('lev_user') == 'Administrator'){
+                            redirect('admin/article.html','refresh');
+                        }elseif($this->session->userdata('lev_user') == 'Pengurus'){
+                            redirect('pengurus/article.html','refresh');
+                        }
                         
                     } 
                     
@@ -317,11 +338,14 @@
                             "status" => '0'
                         );
                     }
-
-                    # code ...
                      
                     $this->ArticleModel->change_status($id, $data);
-                    redirect('admin/article.html','refresh');
+
+                    if($this->session->userdata('lev_user') == 'Administrator'){
+                        redirect('admin/article.html','refresh');
+                    }elseif($this->session->userdata('lev_user') == 'Pengurus'){
+                        redirect('pengurus/article.html','refresh');
+                    }
                 }
             }else{
                 redirect('admin/login.html','refresh');

@@ -30,12 +30,21 @@
             <div class="col-sm-12">
                 <section class="card">
                     <header class="card-header">
-                        <?php echo e("Pengaturan"); ?> <a href="<?php echo e(base_url('admin/index.html')); ?>"><button class="btn btn-sm btn-danger">Batal</button></a>
+                        <?php echo e("Pengaturan"); ?> 
                             <span class="tools pull-right">
+                                <?php if($_SESSION['lev_user']=='Administrator'): ?>
+                                    <a href="<?php echo e(base_url('admin/index.html')); ?>"><button class="btn btn-sm btn-danger">Kembali</button></a>
+                                <?php elseif($_SESSION['lev_user']=='Pengurus'): ?>
+                                    <a href="<?php echo e(base_url('pengurus/index.html')); ?>"><button class="btn btn-sm btn-danger">Kembali</button></a>
+                                <?php endif; ?>
                                 <a href="javascript:;" class="fa fa-chevron-down"></a>
                             </span>
                     </header>
+                    <?php if($_SESSION['lev_user']=='Administrator'): ?>
                     <form action="<?php echo e(base_url('admin/settings.aspx')); ?>" method="post" enctype="multipart/form-data">
+                    <?php elseif($_SESSION['lev_user']=='Pengurus'): ?>
+                    <form action="<?php echo e(base_url('pengurus/settings.aspx')); ?>" method="post" enctype="multipart/form-data">
+                    <?php endif; ?>
                         <div class="card-body">
                             <div class="row">
                                     <aside class="profile-nav col-lg-3">

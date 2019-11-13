@@ -11,7 +11,11 @@
                                 <?php echo e("Profil"); ?>
 
                                     <span class="tools pull-right">
-                                        <a href="<?php echo e(base_url('admin/index.html')); ?>"><button class="btn btn-sm btn-danger">Kembali</button></a>
+                                        <?php if($_SESSION['lev_user']=='Administrator'): ?>
+                                            <a href="<?php echo e(base_url('admin/index.html')); ?>"><button class="btn btn-sm btn-danger">Kembali</button></a>
+                                        <?php elseif($_SESSION['lev_user']=='Pengurus'): ?>
+                                            <a href="<?php echo e(base_url('pengurus/index.html')); ?>"><button class="btn btn-sm btn-danger">Kembali</button></a>
+                                        <?php endif; ?>
                                         <a href="javascript:;" class="fa fa-chevron-down"></a>
                                     </span>
                             </header>

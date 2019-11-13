@@ -30,13 +30,13 @@
                     <div class="col-sm-12">
                         <section class="card">
                             <header class="card-header">
-                                <?php echo e("Tambah Artikel"); ?> <a href="<?php echo e(base_url('admin/article.html')); ?>"><button class="btn btn-sm btn-danger">Batal</button></a>
+                                <?php echo e("Tambah Artikel"); ?> <a href="<?php echo e(base_url('pengurus/article.html')); ?>"><button class="btn btn-sm btn-danger">Batal</button></a>
                                     <span class="tools pull-right">
                                         <a href="javascript:;" class="fa fa-chevron-down"></a>
                                     </span>
                             </header>
                             <div class="card-body">
-                                <form action="<?php echo e(base_url('admin/article/create.aspx')); ?>" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo e(base_url('pengurus/article/create.aspx')); ?>" method="post" enctype="multipart/form-data">
                                     <!-- Code Form -->
                                     <div class="card-body">
                                         <div class="row">
@@ -97,4 +97,4 @@
           </section>
       </section> 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/article_create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/pengurus/article_create.blade.php ENDPATH**/ ?>

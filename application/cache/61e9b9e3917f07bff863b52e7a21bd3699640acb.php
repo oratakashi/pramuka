@@ -21,7 +21,6 @@
                 <ul class="sub">
                     <li class="<?php if($content == 'article-add'): ?> active <?php endif; ?>"><a  href="<?php echo e(base_url('pengurus/article/')); ?>create.html">Tambah Artikel Baru</a></li>
                     <li class="<?php if($content == 'article'): ?> active <?php endif; ?>"><a  href="<?php echo e(base_url('pengurus/')); ?>article.html"">Kelola Artikel</a></li>
-                    <li class="<?php if($content == 'categories'): ?> active <?php endif; ?>"><a  href="<?php echo e(base_url('pengurus/article/')); ?>categories.html">Kelola Kategori Artikel</a></li>
                 </ul>
             </li>
         </ul>
