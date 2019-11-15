@@ -72,7 +72,6 @@
     <div class="main-container">
     	
         <!-- Top Bar Starts -->
-        @include('frontend.layout.topbar')
         <!-- Top bar Ends /-->
         
         <!-- Header Starts -->

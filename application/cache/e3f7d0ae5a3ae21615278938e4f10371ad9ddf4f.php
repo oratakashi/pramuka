@@ -72,7 +72,6 @@
     <div class="main-container">
     	
         <!-- Top Bar Starts -->
-        <?php echo $__env->make('frontend.layout.topbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <!-- Top bar Ends /-->
         
         <!-- Header Starts -->
