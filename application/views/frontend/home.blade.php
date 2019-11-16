@@ -69,7 +69,7 @@
 <div class="blog-posts module grey-bg">
     <div class="section-title-wrapper">
         <div class="section-title">
-            <h2>Artikel Menarik</h2>
+            <h2>Berita Terbaru</h2>
             <p></p>
         </div>
     </div> <!-- Title Ends /-->
@@ -78,7 +78,7 @@
         
         <div class="posts-wrapper">
             
-            <div class="medium-4 small-12 columns">
+            <div class="medium-4 small-12 columns" style="margin-bottom:20px">
                 <div class="post">
                     <div class="post-thumb">
                         <a href="index.html#">
@@ -92,47 +92,80 @@
                     </div><!-- post content /-->
                 </div><!-- Post /-->
             </div><!-- Post column /-->
-            
-            <div class="medium-4 small-12 columns">
+
+            <div class="medium-4 small-12 columns" style="margin-bottom:20px">
                 <div class="post">
                     <div class="post-thumb">
                         <a href="index.html#">
-                            <img src="{{base_url('assets/frontend/')}}images/help/gallery9.jpg" alt="My Blog post" />
+                            <img src="{{base_url('assets/frontend/')}}images/help/gallery3.jpg" alt="My Blog post" />
                         </a>    
                     </div><!-- Thumb /-->
                     <div class="post-content">
-                        <h4><a href="index.html#">Is this your Campus/Home</a></h4>
+                        <h4><a href="index.html#">What is good about us?</a></h4>
                         <div class="post-meta"><strong>Date:</strong> 20, Dec, 2016 | <strong>Category:</strong> <a href="index.html#">Campus</a> | <strong>Author:</strong> <a href="index.html#">Ateeq</a></div>
                         <p>Contrary to popular belief, Lorem Ipsum is not simply random text ... <a href="index.html#">Read More &raquo;</a></p>
                     </div><!-- post content /-->
                 </div><!-- Post /-->
             </div><!-- Post column /-->
-            
-            <div class="medium-4 small-12 columns">
+
+            <div class="medium-4 small-12 columns" style="margin-bottom:20px">
                 <div class="post">
                     <div class="post-thumb">
                         <a href="index.html#">
-                            <img src="{{base_url('assets/frontend/')}}images/help/gallery7.jpg" alt="My Blog post" />
+                            <img src="{{base_url('assets/frontend/')}}images/help/gallery3.jpg" alt="My Blog post" />
                         </a>    
                     </div><!-- Thumb /-->
                     <div class="post-content">
-                        <h4><a href="index.html#">What's our next mission?</a></h4>
+                        <h4><a href="index.html#">What is good about us?</a></h4>
                         <div class="post-meta"><strong>Date:</strong> 20, Dec, 2016 | <strong>Category:</strong> <a href="index.html#">Campus</a> | <strong>Author:</strong> <a href="index.html#">Ateeq</a></div>
                         <p>Contrary to popular belief, Lorem Ipsum is not simply random text ... <a href="index.html#">Read More &raquo;</a></p>
                     </div><!-- post content /-->
                 </div><!-- Post /-->
             </div><!-- Post column /-->
-            
+
+            <div class="medium-4 small-12 columns" style="margin-bottom:20px">
+                <div class="post">
+                    <div class="post-thumb">
+                        <a href="index.html#">
+                            <img src="{{base_url('assets/frontend/')}}images/help/gallery3.jpg" alt="My Blog post" />
+                        </a>    
+                    </div><!-- Thumb /-->
+                    <div class="post-content">
+                        <h4><a href="index.html#">What is good about us?</a></h4>
+                        <div class="post-meta"><strong>Date:</strong> 20, Dec, 2016 | <strong>Category:</strong> <a href="index.html#">Campus</a> | <strong>Author:</strong> <a href="index.html#">Ateeq</a></div>
+                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text ... <a href="index.html#">Read More &raquo;</a></p>
+                    </div><!-- post content /-->
+                </div><!-- Post /-->
+            </div><!-- Post column /-->
         </div><!-- Posts Wrapper /-->
         
+        
+    </div><!-- Row Ends /-->
+    <div class="row">
         <div class="load-more text-center">
             <a href="index.html#" class="button primary bordered-dark">Load More...</a>
         </div><!-- Load more /-->
-        
-    </div><!-- Row Ends /-->
+    </div>
 
 </div>
 <!-- Blog Posts Ends /-->
+<div class="gallery-wrapper module">
+    <div class="section-title-wrapper">
+        <div class="section-title">
+            <h2>Instagram Kami</h2>
+            <p>Followers : {{$profile_ig['counts']['followed_by']}}</p>
+        </div>
+    </div> <!-- Title Ends /-->
+    <div class="gallery-container">
+        @foreach($instagram as $row)
+
+        <a href="images/help/gallery1.jpg" target="_blank">
+            <img class="gallery-thumb" src="{{$row['images']['standard_resolution']['url']}}" alt="" style="width:500px;height:267px"/>
+        </a>
+    
+        @endforeach
+    </div><!-- Gallery Container /-->
+</div>
 
 <!-- Our Teachers -->
 <div class="our-teachers module">
@@ -145,7 +178,7 @@
         </div> <!-- Title Ends /-->
         
         <div class="teachers-wrapper">
-            
+            @foreach($pengurus as $row)
             <div class="teacher">
                 <div class="teacher-thumb">
                     <img src="{{base_url('assets/frontend/')}}images/help/teacher1.jpg" alt="Teacher Doe" />
@@ -159,83 +192,11 @@
                     </div><!-- teacher links /-->
                 </div><!-- Teacher thumb /-->
                 <div class="teacher-meta">
-                    <h3><a href="index.html#">Mr. John Doe</a></h3>
+                    <h3><a href="#">{{ $row['nama'] }}</a></h3>
                     <p>Highly Educated Punjab University Professor</p>
                 </div><!-- teacher meta /-->    
             </div><!-- Teacher Ends /-->
-            
-            <div class="teacher">
-                <div class="teacher-thumb">
-                    <img src="{{base_url('assets/frontend/')}}images/help/teacher5.jpg" alt="Teacher Doe" />
-                    <div class="teacher-links menu-centered">
-                        <ul class="menu">
-                            <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="index.html#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                        <a href="index.html#" class="small-button">Read More &raquo;</a>
-                    </div><!-- teacher links /-->
-                </div><!-- Teacher thumb /-->
-                <div class="teacher-meta">
-                    <h3><a href="index.html#">Mr. John Doe</a></h3>
-                    <p>Highly Educated Punjab University Professor</p>
-                </div><!-- teacher meta /-->    
-            </div><!-- Teacher Ends /-->
-            
-            <div class="teacher">
-                <div class="teacher-thumb">
-                    <img src="{{base_url('assets/frontend/')}}images/help/teacher3.jpg" alt="Teacher Doe" />
-                    <div class="teacher-links menu-centered">
-                        <ul class="menu">
-                            <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="index.html#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                        <a href="index.html#" class="small-button">Read More &raquo;</a>
-                    </div><!-- teacher links /-->
-                </div><!-- Teacher thumb /-->
-                <div class="teacher-meta">
-                    <h3><a href="index.html#">Mr. John Doe</a></h3>
-                    <p>Highly Educated Punjab University Professor</p>
-                </div><!-- teacher meta /-->    
-            </div><!-- Teacher Ends /-->
-            
-            <div class="teacher">
-                <div class="teacher-thumb">
-                    <img src="{{base_url('assets/frontend/')}}images/help/teacher4.jpg" alt="Teacher Doe" />
-                    <div class="teacher-links menu-centered">
-                        <ul class="menu">
-                            <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="index.html#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                        <a href="index.html#" class="small-button">Read More &raquo;</a>
-                    </div><!-- teacher links /-->
-                </div><!-- Teacher thumb /-->
-                <div class="teacher-meta">
-                    <h3><a href="index.html#">Mr. John Doe</a></h3>
-                    <p>Highly Educated Punjab University Professor</p>
-                </div><!-- teacher meta /-->    
-            </div><!-- Teacher Ends /-->
-            
-            <div class="teacher">
-                <div class="teacher-thumb">
-                    <img src="{{base_url('assets/frontend/')}}images/help/teacher2.jpg" alt="Teacher Doe" />
-                    <div class="teacher-links menu-centered">
-                        <ul class="menu">
-                            <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="index.html#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                        <a href="index.html#" class="small-button">Read More &raquo;</a>
-                    </div><!-- teacher links /-->
-                </div><!-- Teacher thumb /-->
-                <div class="teacher-meta">
-                    <h3><a href="index.html#">Mr. John Doe</a></h3>
-                    <p>Highly Educated Punjab University Professor</p>
-                </div><!-- teacher meta /-->    
-            </div><!-- Teacher Ends /-->
-        
+            @endforeach
         </div><!-- Teachers Wrapper /-->
         
     </div><!-- row /-->

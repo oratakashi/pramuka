@@ -52,6 +52,12 @@ class UserModel extends CI_Model {
         $this->db->select('count(*) as jml');
         return $this->db->get('tb_user');
     }
+
+    public function read_pengurus()
+    {
+        $this->db->where('lev_user', 'Pengurus');
+        return $this->db->get('tb_user');
+    }
 }
 
 /* End of file AdminModel.php */
