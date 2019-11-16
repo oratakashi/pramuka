@@ -159,7 +159,7 @@
     <div class="gallery-container">
         @foreach($instagram as $row)
 
-        <a href="images/help/gallery1.jpg" target="_blank">
+        <a href="{{$row['link']}}" target="_blank">
             <img class="gallery-thumb" src="{{$row['images']['standard_resolution']['url']}}" alt="" style="width:500px;height:267px"/>
         </a>
     

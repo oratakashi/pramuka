@@ -158,7 +158,7 @@
     <div class="gallery-container">
         <?php $__currentLoopData = $instagram; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-        <a href="images/help/gallery1.jpg" target="_blank">
+        <a href="<?php echo e($row['link']); ?>" target="_blank">
             <img class="gallery-thumb" src="<?php echo e($row['images']['standard_resolution']['url']); ?>" alt="" style="width:500px;height:267px"/>
         </a>
     
