@@ -11,6 +11,7 @@
             $this->load->model('UserModel');       
             $this->load->model('DocumenModel'); 
             $this->load->model('SongModel');
+            $this->load->model('PengurusModel');            
         }
 
         public function index()
@@ -46,6 +47,35 @@
             }    
         }
 
+        public function read()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                $data_pengurus = $this->PengurusModel->read()->result_array();
+                $data = array(
+                    'content'   => 'pengurus',
+                    'pengurus'  => $data_pengurus
+                );
+                view('backend/pengurus', $data);
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function view_create()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                $data = array(
+                    'content'   => 'pengurus'
+                );
+                view('backend/pengurus_create', $data);
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        /**
+         * Action Section
+         */
         public function hitung_size($data)
         {
             $total_size = 0;
@@ -54,7 +84,7 @@
                 $total_size += $row['size'] / 1024;
             }
             $total_size = round($total_size, 2);
-
+    
             if($total_size < 1024){
                 $ext = "Mb";
             }elseif($total_size < 1048576){
@@ -62,10 +92,70 @@
             }else{
                 $ext = "Tb";
             }
-
+    
             return $total_size." ".$ext;
         }
-    
+
+        public function create()
+        {
+            if($_SERVER['REQUEST_METHOD']=='POST'){
+                $photo = "";
+                if($_FILES['photo']['error'] === UPLOAD_ERR_OK){
+                    
+                    $config['upload_path']          = './media/pengurus/';
+                    $config['allowed_types']        = 'gif|jpg|png';
+                    $config['overwrite']            = true;
+                    $config['file_name']            = $photo;
+                    
+                    $this->load->library('upload', $config);
+                    $this->upload->initialize($config);
+                    if ( ! $this->upload->do_upload('photo')){
+                        $error = array('error' => $this->upload->display_errors());
+                        print_r($error);
+                    }
+                    else{
+                        $upload = array('upload_data' => $this->upload->data());
+                        $photo = $upload['upload_data']['file_name'];
+                    }
+                }else{
+                    $photo = "no-pict.png";
+                }
+
+                $data = array(
+                    "nama"      => $this->input->post('nama'),
+                    "jabatan"   => $this->input->post('jabatan'),
+                    "photo"     => $photo
+                );
+
+                $this->PengurusModel->create($data);
+
+                redirect('admin/pengurus.html','refresh');                
+            }
+        }
+
+        public function delete()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                if(!empty($this->uri->segment(4))){
+                    $id_pengurus = $this->uri->segment(3);
+
+                    $data_pengurus = $this->PengurusModel->read_id($id_pengurus)->row_array();
+
+                    if(file_exists("media/pengurus/".$data_pengurus['photo'])){
+                        unlink("media/pengurus/".$data_pengurus['photo']);
+                    }
+
+                    $this->PengurusModel->delete($id_pengurus);
+
+                    
+                    redirect('admin/pengurus.html','refresh');
+                    
+                }
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
     }
     
     /* End of file Pengurus.php */

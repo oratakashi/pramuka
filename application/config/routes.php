@@ -23,6 +23,9 @@ $route['admin/user/create.aspx'] = 'User/create';
 $route['admin/user/update.aspx'] = 'User/update';
 $route['admin/user/delete/(:any).aspx'] = 'User/delete/$1';
 
+$route['admin/pengurus/create.aspx'] = 'Pengurus/create';
+$route['admin/pengurus/(:any)/delete.aspx'] = 'Pengurus/delete';
+
 $route['admin/song/upload.aspx'] = 'Song/create';
 $route['admin/song/(:any)/delete.aspx'] = 'Song/delete/$1';
 
@@ -60,6 +63,9 @@ $route['admin/user/create.html'] = 'User/view_create';
 $route['admin/user/(:any).html'] = 'User/read/$1';
 $route['admin/user/(:any)/article.html'] = 'User/view_article/$1';
 $route['admin/user/(:any).aspx'] = 'User/view_update/$1';
+
+$route['admin/pengurus.html'] = 'Pengurus/read';
+$route['admin/pengurus/create.html'] = 'Pengurus/view_create';
 
 $route['admin/song.html'] = 'Song/index';
 $route['admin/song/create.html'] = 'Song/view_create';

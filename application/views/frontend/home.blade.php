@@ -143,7 +143,7 @@
     </div><!-- Row Ends /-->
     <div class="row">
         <div class="load-more text-center">
-            <a href="index.html#" class="button primary bordered-dark">Load More...</a>
+            <a href="{{base_url('article.html')}}" class="button primary bordered-dark">Lihat lainya</a>
         </div><!-- Load more /-->
     </div>
 
@@ -181,19 +181,10 @@
             @foreach($pengurus as $row)
             <div class="teacher">
                 <div class="teacher-thumb">
-                    <img src="{{base_url('assets/frontend/')}}images/help/teacher1.jpg" alt="Teacher Doe" />
-                    <div class="teacher-links menu-centered">
-                        <ul class="menu">
-                            <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="index.html#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                        <a href="index.html#" class="small-button">Read More &raquo;</a>
-                    </div><!-- teacher links /-->
+                    <img src="{{base_url('media/photo_user/').$row['photo']}}" alt="Teacher Doe" />
                 </div><!-- Teacher thumb /-->
                 <div class="teacher-meta">
                     <h3><a href="#">{{ $row['nama'] }}</a></h3>
-                    <p>Highly Educated Punjab University Professor</p>
                 </div><!-- teacher meta /-->    
             </div><!-- Teacher Ends /-->
             @endforeach

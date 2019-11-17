@@ -363,7 +363,6 @@ class User extends CI_Controller {
                 $config['upload_path']          = './media/photo_user/';
                 $config['allowed_types']        = 'gif|jpg|png';
                 $config['overwrite']            = true;
-                $config['file_name']            = $photo;
                 
                 $this->load->library('upload', $config);
                 $this->upload->initialize($config);
