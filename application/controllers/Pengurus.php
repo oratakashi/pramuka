@@ -73,6 +73,21 @@
             }
         }
 
+        public function view_update()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                $id_pengurus = $this->uri->segment(3);                
+                $data_pengurus = $this->PengurusModel->read_id($id_pengurus)->row_array();
+                $data = array(
+                    'content'   => 'pengurus',
+                    'pengurus'  => $data_pengurus
+                );
+                view('backend/pengurus_edit', $data);
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
         /**
          * Action Section
          */
@@ -103,7 +118,7 @@
                 if($_FILES['photo']['error'] === UPLOAD_ERR_OK){
                     
                     $config['upload_path']          = './media/pengurus/';
-                    $config['allowed_types']        = 'gif|jpg|png';
+                    $config['allowed_types']        = 'gif|jpg|png|jpeg';
                     $config['overwrite']            = true;
                     $config['file_name']            = $photo;
                     
@@ -156,6 +171,56 @@
             }
         }
 
+        public function update()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                if(!empty($this->uri->segment(4))){
+                    if($_SERVER['REQUEST_METHOD']=='POST'){
+                        $photo = "";
+
+                        $id_pengurus = $this->uri->segment(3);
+
+                        $data_pengurus = $this->PengurusModel->read_id($id_pengurus)->row_array();
+
+                        if($_FILES['photo']['error'] === UPLOAD_ERR_OK){
+                            $config['upload_path']          = './media/pengurus/';
+                            $config['allowed_types']        = 'gif|jpg|png|jpeg';
+                            $config['overwrite']            = true;
+                            $config['file_name']            = $photo;
+                            
+                            $this->load->library('upload', $config);
+                            $this->upload->initialize($config);
+                            if ( ! $this->upload->do_upload('photo')){
+                                $error = array('error' => $this->upload->display_errors());
+                                print_r($error);
+                            }
+                            else{
+                                $upload = array('upload_data' => $this->upload->data());
+                                $photo = $upload['upload_data']['file_name'];
+
+                                if(file_exists("media/pengurus/".$data_pengurus['photo'])){
+                                    unlink("media/pengurus/".$data_pengurus['photo']);
+                                }
+                            }
+                        }else{
+                            $photo = $data_pengurus['photo'];
+                        }
+
+                        $data = array(
+                            "nama"          => $this->input->post('nama'),
+                            "jabatan"       => $this->input->post('jabatan'),
+                            "photo"         => $photo,
+                            "id_pengurus"   => $id_pengurus
+                        );
+
+                        $this->PengurusModel->update($data);
+
+                        redirect('admin/pengurus.html','refresh');
+                        
+                    }
+                }
+            }
+        }
     }
     
     /* End of file Pengurus.php */

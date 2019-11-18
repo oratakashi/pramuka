@@ -25,6 +25,13 @@
             $this->db->where('id_pengurus', $id_pengurus);
             return $this->db->delete('tb_pengurus');            
         }
+
+        public function update($data)
+        {
+            $this->db->where('id_pengurus', $data['id_pengurus']);
+            unset($data['id_pengurus']);
+            return $this->db->update('tb_pengurus', $data);
+        }
     }
     
     /* End of file PengurusModel.php */
