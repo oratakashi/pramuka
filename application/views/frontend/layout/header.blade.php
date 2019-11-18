@@ -38,7 +38,7 @@
                             </ul>
                         </li>
                         <li><a href="events.html">Kwaran</a></li>
-                        <li><a href="#">Pengurus</a></li>
+                        <li><a href="{{ base_url('pengurus.html') }}">Pengurus</a></li>
                         <li><a href="https://www.sipapramukajatim.or.id/">SIPA</a></li>
                         <li><a href="{{ base_url('pengurus') }}">Login</a></li>
                     </ul>

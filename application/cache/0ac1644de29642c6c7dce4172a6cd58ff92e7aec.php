@@ -180,10 +180,19 @@
             <?php $__currentLoopData = $pengurus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="teacher">
                 <div class="teacher-thumb">
-                    <img src="<?php echo e(base_url('media/photo_user/').$row['photo']); ?>" alt="Teacher Doe" />
+                    <img src="<?php echo e(base_url('media/pengurus/').$row['photo']); ?>" alt="Teacher Doe" style="height:250px"/>
                 </div><!-- Teacher thumb /-->
                 <div class="teacher-meta">
-                    <h3><a href="#"><?php echo e($row['nama']); ?></a></h3>
+                    <h3><a href="#">
+                        <?php
+                            if(strlen($row['nama'])>18){
+                                echo substr($row['nama'], 0, 15)."...";
+                            }else{
+                                echo $row['nama'];
+                            }
+                        ?>
+                    </a></h3>
+                    <p><?php echo e($row['jabatan']); ?></p>
                 </div><!-- teacher meta /-->    
             </div><!-- Teacher Ends /-->
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

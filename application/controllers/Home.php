@@ -10,6 +10,7 @@ class Home extends CI_Controller {
         $this->load->model('SliderModel');
         $this->load->model('ArticleModel');
         $this->load->model('UserModel');
+        $this->load->model('PengurusModel');
         $this->load->model('InstagramModel');        
     }
     
@@ -18,7 +19,7 @@ class Home extends CI_Controller {
     {   
         $data_slider = $this->SliderModel->read()->result_array();
         $data_kategori = $this->ArticleModel->read_category()->result_array();
-        $data_pengurus = $this->UserModel->read_pengurus()->result_array();
+        $data_pengurus = $this->PengurusModel->read()->result_array();
         $data_instagram = $this->InstagramModel->read();
         $data_profile_ig = $this->InstagramModel->read_profile();
         $data = array(
@@ -29,6 +30,17 @@ class Home extends CI_Controller {
             "profile_ig"       => $data_profile_ig['data']
         );
         view('frontend/home', $data);
+    }
+
+    public function pengurus()
+    {
+        $data_pengurus = $this->PengurusModel->read()->result_array();
+        $data_kategori = $this->ArticleModel->read_category()->result_array();
+        $data = array(
+            "kategori"      => $data_kategori,
+            "pengurus"      => $data_pengurus
+        );
+        view('frontend/pengurus', $data);
     }
 
 }

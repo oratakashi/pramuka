@@ -181,10 +181,19 @@
             @foreach($pengurus as $row)
             <div class="teacher">
                 <div class="teacher-thumb">
-                    <img src="{{base_url('media/photo_user/').$row['photo']}}" alt="Teacher Doe" />
+                    <img src="{{base_url('media/pengurus/').$row['photo']}}" alt="Teacher Doe" style="height:250px"/>
                 </div><!-- Teacher thumb /-->
                 <div class="teacher-meta">
-                    <h3><a href="#">{{ $row['nama'] }}</a></h3>
+                    <h3><a href="#">
+                        @php
+                            if(strlen($row['nama'])>18){
+                                echo substr($row['nama'], 0, 15)."...";
+                            }else{
+                                echo $row['nama'];
+                            }
+                        @endphp
+                    </a></h3>
+                    <p>{{ $row['jabatan'] }}</p>
                 </div><!-- teacher meta /-->    
             </div><!-- Teacher Ends /-->
             @endforeach
