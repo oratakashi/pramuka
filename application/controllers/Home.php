@@ -11,6 +11,7 @@ class Home extends CI_Controller {
         $this->load->model('ArticleModel');
         $this->load->model('UserModel');
         $this->load->model('PengurusModel');
+        $this->load->model('DocumenModel');
         $this->load->model('InstagramModel');        
     }
     
@@ -43,6 +44,16 @@ class Home extends CI_Controller {
         view('frontend/pengurus', $data);
     }
 
+    public function documents()
+    {
+        $data_pengurus = $this->PengurusModel->read()->result_array();
+        $data_kategori = $this->ArticleModel->read_category()->result_array();
+        $data = array(
+            "kategori"      => $data_kategori,
+            "pengurus"      => $data_pengurus
+        );
+        view('frontend/documents', $data);
+    }
 }
 
 /* End of file Home.php */

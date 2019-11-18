@@ -33,7 +33,7 @@
                         </li>
                             <li class="single-sub parent-nav"><a href="our-staff.html"> Download</a>
                             <ul class="child-nav menu vertical">
-                                <li><a href="our-staff.html">Berkas / Dokumen</a></li>
+                                <li><a href="documents.html">Berkas / Dokumen</a></li>
                                 <li><a href="single-teacher.html">Lagu Pramuka</a></li>                                        
                             </ul>
                         </li>

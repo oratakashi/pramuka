@@ -14,6 +14,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['index.html'] = 'Home/index';
 $route['pengurus.html'] = 'Home/pengurus';
+$route['documents.html'] = 'Home/documents';
 
 /**
  * Administrator
