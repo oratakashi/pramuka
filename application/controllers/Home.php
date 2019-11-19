@@ -46,13 +46,34 @@ class Home extends CI_Controller {
 
     public function documents()
     {
-        $data_pengurus = $this->PengurusModel->read()->result_array();
+        $data_documents = $this->DocumenModel->read()->result_array();
         $data_kategori = $this->ArticleModel->read_category()->result_array();
         $data = array(
             "kategori"      => $data_kategori,
-            "pengurus"      => $data_pengurus
+            "dokumen"      => $data_documents,
+            "size"          => $this->hitung_size($data_documents)
         );
         view('frontend/documents', $data);
+    }
+
+    public function hitung_size($data)
+    {
+        $total_size = 0;
+        $ext = "";
+        foreach($data as $row){
+            $total_size += $row['size'] / 1024;
+        }
+        $total_size = round($total_size, 2);
+
+        if($total_size < 1024){
+            $ext = "Mb";
+        }elseif($total_size < 1048576){
+            $ext = "Gb";
+        }else{
+            $ext = "Tb";
+        }
+
+        return $total_size." ".$ext;
     }
 }
 
