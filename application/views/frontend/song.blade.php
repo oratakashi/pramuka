@@ -1,19 +1,21 @@
-<?php $__env->startSection('title', 'Download Berkas - Pramuka Lumajang Tangguh'); ?>
+@extends('frontend.layout.master')
 
-<?php $__env->startSection('container'); ?>
+@section('title', 'Download Lagu Pramuka - Pramuka Lumajang Tangguh')
+
+@section('container')
 <!-- Title Section -->
 <div class="title-section module">
     <div class="row">
 
         <div class="small-12 columns">
-            <h1>Download Berkas / Dokumen</h1>
+            <h1>Download Lagu Pramuka</h1>
         </div><!-- Top Row /-->
 
         <div class="small-12 columns">
             <ul class="breadcrumbs">
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="#">Download</a></li>
-                <li><span class="show-for-sr">Current: </span> Dokumen / Berkas</li>
+                <li><span class="show-for-sr">Current: </span> Lagu Pramuka</li>
             </ul><!-- Breadcrumbs /-->
         </div><!-- Bottom Row /-->
         
@@ -26,9 +28,9 @@
     
         <div class="medium-9 small-12 columns">
             <ul class="accordion" data-accordion>
-                <?php $__currentLoopData = $dokumen; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                @foreach($song as $row)
                 <li class="accordion-item" data-accordion-item>
-                    <a href="#" class="accordion-title"><?php echo e($row['nama_file']); ?></a>
+                    <a href="#" class="accordion-title">{{ $row['nama_file'] }}</a>
                     <div class="accordion-content" data-tab-content>
                         <table>
                             <tr>
@@ -40,18 +42,18 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <?php
+                                    @php
                                         if(strlen($row['nama_file'])>43){
                                             echo substr($row['nama_file'], 0, 40)."...";
                                         }else{
                                             echo $row['nama_file'];
                                         }
-                                    ?>
+                                    @endphp
                                 </td>
-                                <td><?php echo e($row['nama']); ?></td>
-                                <td><?php echo e($row['total_download']); ?></td>
+                                <td>{{ $row['nama'] }}</td>
+                                <td>{{ $row['total_download'] }}</td>
                                 <td>
-                                    <?php
+                                    @php
                                         $real_size = $row['size'] / 1024;
                                         $real_size = round($real_size, 2);
                                         $ext = "";
@@ -66,16 +68,16 @@
                                             $ext = "Tb";
                                         }
                                         echo $real_size.$ext;
-                                    ?>
+                                    @endphp
                                 </td>
                                 <td>
-                                    <a href="<?php echo e(base_url('documents/').$row['id_dokumen'].'/'.$row['nama_file']); ?>" class="btn btn-primary" target="_blank"><i class="fa fa-download"></i> Download</a>
+                                    <a href="{{base_url('song/').$row['id_lagu'].'/'.$row['nama_file']}}" class="btn btn-primary" target="_blank"><i class="fa fa-download"></i> Download</a>
                                 </td>
                             </tr>
                         </table>
                     </div>
                 </li>                     
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                  
+                @endforeach                  
             </ul> <!-- reasons accordion ends -->
         </div> <!-- right sidebar ends -->
 
@@ -86,8 +88,8 @@
                 </div><!-- icon side /-->
                 <div class="info-side float-left">
                     <p><strong>Keterangan : </strong><br>
-                    <p>Total Ukuran : <?php echo e($size); ?></p>
-                    <p>Jumlah Berkas : <?php echo e(count($dokumen)); ?> Berkas</p>
+                    <p>Total Ukuran : {{ $size }}</p>
+                    <p>Jumlah Berkas : {{ count($song) }} Berkas</p>
                 </div><!-- info side /-->
                 <div class="clearfix"></div>
             </div><!-- icon-box /-->
@@ -96,5 +98,4 @@
     </div><!-- row / -->
 </div> 	    	
 <!-- Content Area Ends /-->
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('frontend.layout.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/frontend/documents.blade.php ENDPATH**/ ?>
+@endsection

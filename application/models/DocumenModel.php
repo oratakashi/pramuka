@@ -27,7 +27,11 @@
             $this->db->where('id_dokumen', $id_dokumen);
             return $this->db->get('tb_dokumen');            
         }
-    
+        
+        public function download($id_dokumen)
+        {
+            return $this->db->query("UPDATE tb_dokumen set total_download = total_download+1 where id_dokumen = '$id_dokumen'");
+        }
     }
     
     /* End of file DocumenModel.php */

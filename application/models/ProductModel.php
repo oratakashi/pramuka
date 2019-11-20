@@ -10,6 +10,11 @@
             return $this->db->get('tb_product');
         }
 
+        public function read_limit($limit, $start)
+        {
+            return $this->db->get('tb_product', $limit, $start);
+        }
+
         public function read_id($id)
         {
             $this->db->where('id_product', $id);

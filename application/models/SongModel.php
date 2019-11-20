@@ -27,6 +27,11 @@
             $this->db->where('id_lagu', $id_lagu);
             return $this->db->delete('tb_lagu');
         }
+
+        public function download($id_lagu)
+        {
+            return $this->db->query("UPDATE tb_lagu set total_download = total_download+1 where id_lagu = '$id_lagu'");
+        }
     }
     
     /* End of file SongModel.php */

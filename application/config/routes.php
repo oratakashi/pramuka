@@ -15,6 +15,19 @@ $route['translate_uri_dashes'] = FALSE;
 $route['index.html'] = 'Home/index';
 $route['pengurus.html'] = 'Home/pengurus';
 $route['documents.html'] = 'Home/documents';
+$route['song.html'] = 'Home/song';
+$route['stores.html'] = 'Home/store';
+
+
+$route['stores/(:any)'] = 'Home/store';
+$route['stores'] = 'Home/store';
+
+/**
+ * Download
+ */
+
+$route['documents/(:any)/(:any)'] = 'Home/download_doc';
+$route['song/(:any)/(:any)'] = 'Home/download_song';
 
 /**
  * Administrator
