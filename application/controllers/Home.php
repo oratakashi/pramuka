@@ -94,8 +94,8 @@ class Home extends CI_Controller {
         $config["num_links"] = floor($choice);
  
         // Membuat Style pagination untuk BootStrap v4
-        $config['next_link']        = '<li>Next &raquo;</li>';
-        $config['prev_link']        = '<li>&laquo; Previous</li>';
+        $config['next_link']        = '<li>Selanjutnya &raquo;</li>';
+        $config['prev_link']        = '<li>&laquo; Sebelumnya</li>';
         $config['full_tag_open']    = '<div class="pagination-container"><ul class="pagination" role="menubar" aria-label="Pagination">';
         $config['full_tag_close']   = '</ul></div>';
         $config['num_tag_open']     = '<li class="">';

@@ -22,7 +22,7 @@
                     <ul class="menu vertical medium-horizontal float-right" data-responsive-menu="accordion medium-dropdown">
                         <li><a href="index.html">Beranda</a>
                         </li>
-                        <li class="single-sub parent-nav"><a href="about-us.html"> Kategori </a>
+                        <li class="single-sub parent-nav"><a href="#"> Kategori </a>
                             <ul class="child-nav menu vertical">
                                 @foreach($kategori as $row)
                                     <li><a href="{{ base_url('categories/').$row['slug'] }}">{{ $row['nm_kategori'] }}</a></li>                                       
@@ -31,7 +31,7 @@
                         </li>
                         <li><a href="stores.html">Toko</a>
                         </li>
-                            <li class="single-sub parent-nav"><a href="our-staff.html"> Download</a>
+                            <li class="single-sub parent-nav"><a href="#"> Download</a>
                             <ul class="child-nav menu vertical">
                                 <li><a href="documents.html">Berkas / Dokumen</a></li>
                                 <li><a href="song.html">Lagu Pramuka</a></li>                                        
