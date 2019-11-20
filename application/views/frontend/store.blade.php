@@ -49,7 +49,7 @@
                                     $text = "Saya ingin membeli produk ".$row['nm_product']." apakah masih tersedia ?";
                                     $endcoded = str_replace(" ", "%20", $text);
                                     @endphp
-                                    <a href='https://api.whatsapp.com/send?phone=82301117118&text={{$endcoded}}' target="_blank" class='button primary'>Beli Sekarang</a>
+                                    <a href='https://api.whatsapp.com/send?phone=6282301117118&text={{$endcoded}}' target="_blank" class='button primary'>Beli Sekarang</a>
                             </div>
                         </div>
                         <div class="product-info">
