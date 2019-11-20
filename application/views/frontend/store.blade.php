@@ -40,15 +40,16 @@
                 @foreach($product as $row)
                 <div class="medium-4 small-12 columns">
                     <div class="single-product">
+                        @php
+                            $text = "Saya ingin membeli produk ".$row['nm_product']." apakah masih tersedia ?";
+                            $endcoded = str_replace(" ", "%20", $text);
+                        @endphp
                         <div class="product-img thumbnail">
-                            <a href="single-product.html">
+                            <a href="shttps://api.whatsapp.com/send?phone=6282301117118&text={{$endcoded}}">
                                 <img alt=""  class="front-image" src="{{ base_url('media/product/').$row['foto'] }}">
                             </a>
                             <div class="add-to-cart-top">
-                                @php
-                                    $text = "Saya ingin membeli produk ".$row['nm_product']." apakah masih tersedia ?";
-                                    $endcoded = str_replace(" ", "%20", $text);
-                                    @endphp
+                                
                                     <a href='https://api.whatsapp.com/send?phone=6282301117118&text={{$endcoded}}' target="_blank" class='button primary'>Beli Sekarang</a>
                             </div>
                         </div>
