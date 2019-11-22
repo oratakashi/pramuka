@@ -11,15 +11,18 @@ $route['translate_uri_dashes'] = FALSE;
 /**
  * Front End
  */
+$route['stores/(:any).aspx'] = 'Home/store_search';
 
 $route['index.html'] = 'Home/index';
 $route['pengurus.html'] = 'Home/pengurus';
 $route['documents.html'] = 'Home/documents';
 $route['song.html'] = 'Home/song';
 $route['stores.html'] = 'Home/store';
+$route['kwaran.html'] = 'Home/kwaran';
 
 
 $route['stores/(:any)'] = 'Home/store';
+$route['stores/(:any)/(:any).html'] = 'Home/store_detail';
 $route['stores'] = 'Home/store';
 
 /**

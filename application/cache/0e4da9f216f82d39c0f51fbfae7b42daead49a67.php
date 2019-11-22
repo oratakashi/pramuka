@@ -1,9 +1,8 @@
 <div class="header">
     <div class="row">
-        
         <div class="medium-4 small-12 columns">
             <div class="logo">
-                <a href="index.html">
+                <a href="<?php echo e(base_url('index.html')); ?>">
                     <img src="<?php echo e(base_url('assets/frontend/')); ?>images/LOGO-WEB-.png" alt="Webful Education" />
                 </a>    
             </div><!-- logo /-->
@@ -20,7 +19,7 @@
                 
                 <nav id="responsive-menu">
                     <ul class="menu vertical medium-horizontal float-right" data-responsive-menu="accordion medium-dropdown">
-                        <li><a href="index.html">Beranda</a>
+                        <li><a href="<?php echo e(base_url('index.html')); ?>">Beranda</a>
                         </li>
                         <li class="single-sub parent-nav"><a href="#"> Kategori </a>
                             <ul class="child-nav menu vertical">
@@ -29,15 +28,15 @@
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                         </li>
-                        <li><a href="stores.html">Toko</a>
+                        <li><a href="<?php echo e(base_url('stores.html')); ?>">Toko</a>
                         </li>
                             <li class="single-sub parent-nav"><a href="#"> Download</a>
                             <ul class="child-nav menu vertical">
-                                <li><a href="documents.html">Berkas / Dokumen</a></li>
-                                <li><a href="song.html">Lagu Pramuka</a></li>                                        
+                                <li><a href="<?php echo e(base_url('documents.html')); ?>">Berkas / Dokumen</a></li>
+                                <li><a href="<?php echo e(base_url('song.html')); ?>">Lagu Pramuka</a></li>                                        
                             </ul>
                         </li>
-                        <li><a href="events.html">Kwaran</a></li>
+                        <li><a href="<?php echo e(base_url('kwaran.html')); ?>">Kwaran</a></li>
                         <li><a href="<?php echo e(base_url('pengurus.html')); ?>">Pengurus</a></li>
                         <li><a href="https://www.sipapramukajatim.or.id/">SIPA</a></li>
                         <li><a href="<?php echo e(base_url('pengurus')); ?>">Login</a></li>

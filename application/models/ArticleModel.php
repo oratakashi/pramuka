@@ -4,12 +4,22 @@
     
     class ArticleModel extends CI_Model {
     
+        public function __call($name, $arguments)
+        {
+            if($name === 'read_limit'){
+                if(count($arguments)===2){
+                    return $this->db->get('tb_artikel', $arguments[0], $arguments[1]);
+                }
+            }
+        }
+
         public function read()
         {
             $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_artikel.id_kategori');
             $this->db->join('tb_user', 'tb_user.id_user = tb_artikel.id_user');
             return $this->db->get_where('tb_artikel', array('status !=' => 2));
         }
+
         public function read_pending()
         {
             $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_artikel.id_kategori');

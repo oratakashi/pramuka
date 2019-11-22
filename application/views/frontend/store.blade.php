@@ -29,7 +29,9 @@
             
             <div class="widget search">
                 <h2>Pencarian Produk</h2>
-                <input type="text" placeholder="Cari Produk..." />
+                <form action="{{base_url('stores/search.aspx')}}" method="post">
+                    <input name="keyword" type="text" placeholder="Cari Produk..." />
+                </form>
             </div><!-- widget ends -->                 
             
         </div><!-- Sidebar Ends /-->
@@ -45,11 +47,10 @@
                             $endcoded = str_replace(" ", "%20", $text);
                         @endphp
                         <div class="product-img thumbnail">
-                            <a href="shttps://api.whatsapp.com/send?phone=6282301117118&text={{$endcoded}}">
+                            <a href="{{ base_url('stores/').$row['id_product'].'/'.$row['slug'] }}.html">
                                 <img alt=""  class="front-image" src="{{ base_url('media/product/').$row['foto'] }}">
                             </a>
                             <div class="add-to-cart-top">
-                                
                                     <a href='https://api.whatsapp.com/send?phone=6282301117118&text={{$endcoded}}' target="_blank" class='button primary'>Beli Sekarang</a>
                             </div>
                         </div>

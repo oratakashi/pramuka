@@ -77,65 +77,22 @@
         
         <div class="posts-wrapper">
             
-            <div class="medium-4 small-12 columns" style="margin-bottom:20px">
-                <div class="post">
-                    <div class="post-thumb">
-                        <a href="index.html#">
-                            <img src="<?php echo e(base_url('assets/frontend/')); ?>images/help/gallery3.jpg" alt="My Blog post" />
-                        </a>    
-                    </div><!-- Thumb /-->
-                    <div class="post-content">
-                        <h4><a href="index.html#">What is good about us?</a></h4>
-                        <div class="post-meta"><strong>Date:</strong> 20, Dec, 2016 | <strong>Category:</strong> <a href="index.html#">Campus</a> | <strong>Author:</strong> <a href="index.html#">Ateeq</a></div>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text ... <a href="index.html#">Read More &raquo;</a></p>
-                    </div><!-- post content /-->
-                </div><!-- Post /-->
-            </div><!-- Post column /-->
-
-            <div class="medium-4 small-12 columns" style="margin-bottom:20px">
-                <div class="post">
-                    <div class="post-thumb">
-                        <a href="index.html#">
-                            <img src="<?php echo e(base_url('assets/frontend/')); ?>images/help/gallery3.jpg" alt="My Blog post" />
-                        </a>    
-                    </div><!-- Thumb /-->
-                    <div class="post-content">
-                        <h4><a href="index.html#">What is good about us?</a></h4>
-                        <div class="post-meta"><strong>Date:</strong> 20, Dec, 2016 | <strong>Category:</strong> <a href="index.html#">Campus</a> | <strong>Author:</strong> <a href="index.html#">Ateeq</a></div>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text ... <a href="index.html#">Read More &raquo;</a></p>
-                    </div><!-- post content /-->
-                </div><!-- Post /-->
-            </div><!-- Post column /-->
-
-            <div class="medium-4 small-12 columns" style="margin-bottom:20px">
-                <div class="post">
-                    <div class="post-thumb">
-                        <a href="index.html#">
-                            <img src="<?php echo e(base_url('assets/frontend/')); ?>images/help/gallery3.jpg" alt="My Blog post" />
-                        </a>    
-                    </div><!-- Thumb /-->
-                    <div class="post-content">
-                        <h4><a href="index.html#">What is good about us?</a></h4>
-                        <div class="post-meta"><strong>Date:</strong> 20, Dec, 2016 | <strong>Category:</strong> <a href="index.html#">Campus</a> | <strong>Author:</strong> <a href="index.html#">Ateeq</a></div>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text ... <a href="index.html#">Read More &raquo;</a></p>
-                    </div><!-- post content /-->
-                </div><!-- Post /-->
-            </div><!-- Post column /-->
-
-            <div class="medium-4 small-12 columns" style="margin-bottom:20px">
-                <div class="post">
-                    <div class="post-thumb">
-                        <a href="index.html#">
-                            <img src="<?php echo e(base_url('assets/frontend/')); ?>images/help/gallery3.jpg" alt="My Blog post" />
-                        </a>    
-                    </div><!-- Thumb /-->
-                    <div class="post-content">
-                        <h4><a href="index.html#">What is good about us?</a></h4>
-                        <div class="post-meta"><strong>Date:</strong> 20, Dec, 2016 | <strong>Category:</strong> <a href="index.html#">Campus</a> | <strong>Author:</strong> <a href="index.html#">Ateeq</a></div>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text ... <a href="index.html#">Read More &raquo;</a></p>
-                    </div><!-- post content /-->
-                </div><!-- Post /-->
-            </div><!-- Post column /-->
+            <?php $__currentLoopData = $article; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="medium-4 small-12 columns" style="margin-bottom:20px">
+                    <div class="post">
+                        <div class="post-thumb">
+                            <a href="#">
+                                <img src="<?php echo e(base_url('media/article/').$row['foto_header']); ?>" alt="photo" style="width:500px;height:230px" />
+                            </a>    
+                        </div><!-- Thumb /-->
+                        <div class="post-content">
+                            <h4><a href="#"><?php echo e($row['judul']); ?></a></h4>
+                            <div class="post-meta"><strong>Date:</strong> 20, Dec, 2016 | <strong>Category:</strong> <a href="index.html#">Campus</a> | <strong>Author:</strong> <a href="index.html#">Ateeq</a></div>
+                            <a href="" class="btn btn-primary">Lihat Selengkapnya</a>
+                        </div><!-- post content /-->
+                    </div><!-- Post /-->
+                </div><!-- Post column /-->
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div><!-- Posts Wrapper /-->
         
         

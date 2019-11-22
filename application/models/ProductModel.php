@@ -10,14 +10,33 @@
             return $this->db->get('tb_product');
         }
 
-        public function read_limit($limit, $start)
+        public function __call($name, $arguments)
         {
-            return $this->db->get('tb_product', $limit, $start);
+            if($name === 'read_limit'){
+                if(count($arguments) === 2){
+                    return $this->db->get('tb_product', $arguments[0], $arguments[1]);
+                }elseif(count($arguments) === 3){
+                    $this->db->like('nm_product', $arguments[2]);
+                    return $this->db->get('tb_product', $arguments[0], $arguments[1]);
+                }
+            }
         }
+
+        // public function read_limit($limit, $start)
+        // {
+        //     return $this->db->get('tb_product', $limit, $start);
+        // }
 
         public function read_id($id)
         {
             $this->db->where('id_product', $id);
+            return $this->db->get('tb_product');
+        }
+
+        public function read_slug($id_product, $slug)
+        {
+            $this->db->where('slug', $slug);
+            $this->db->where('id_product', $id_product);
             return $this->db->get('tb_product');
         }
         
