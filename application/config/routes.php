@@ -25,6 +25,9 @@ $route['stores/(:any)'] = 'Home/store';
 $route['stores/(:any)/(:any).html'] = 'Home/store_detail';
 $route['stores'] = 'Home/store';
 
+$route['(:any)/(:any).html'] = 'Home/article_detail';
+
+
 /**
  * Download
  */

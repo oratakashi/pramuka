@@ -81,14 +81,14 @@
                 <div class="medium-4 small-12 columns" style="margin-bottom:20px">
                     <div class="post">
                         <div class="post-thumb">
-                            <a href="#">
+                            <a href="<?php echo e(base_url('').$row['id_artikel'].'/'.$row['slug']); ?>.html">
                                 <img src="<?php echo e(base_url('media/article/').$row['foto_header']); ?>" alt="photo" style="width:500px;height:230px" />
                             </a>    
                         </div><!-- Thumb /-->
                         <div class="post-content">
-                            <h4><a href="#"><?php echo e($row['judul']); ?></a></h4>
-                            <div class="post-meta"><strong>Date:</strong> 20, Dec, 2016 | <strong>Category:</strong> <a href="index.html#">Campus</a> | <strong>Author:</strong> <a href="index.html#">Ateeq</a></div>
-                            <a href="" class="btn btn-primary">Lihat Selengkapnya</a>
+                            <h4><a href="<?php echo e(base_url('').$row['id_artikel'].'/'.$row['slug']); ?>.html"><?php echo e($row['judul']); ?></a></h4>
+                            <div class="post-meta"><?php echo e(date('d F Y', strtotime($row['tgl_post']))); ?> | <a href="<?php echo e(base_url('categories/').$row['slug_kategori']); ?>"><?php echo e($row['nm_kategori']); ?></a> | <strong>Penulis:</strong> <?php echo e($row['nama']); ?></div>
+                            <a href="<?php echo e(base_url('').$row['id_artikel'].'/'.$row['slug']); ?>.html" class="btn btn-primary">Lihat Selengkapnya</a>
                         </div><!-- post content /-->
                     </div><!-- Post /-->
                 </div><!-- Post column /-->
@@ -99,7 +99,7 @@
     </div><!-- Row Ends /-->
     <div class="row">
         <div class="load-more text-center">
-            <a href="<?php echo e(base_url('article.html')); ?>" class="button primary bordered-dark">Lihat lainya</a>
+            <a href="<?php echo e(base_url('article.html')); ?>" class="button primary bordered-dark">Lihat lainnya</a>
         </div><!-- Load more /-->
     </div>
 
@@ -114,11 +114,9 @@
     </div> <!-- Title Ends /-->
     <div class="gallery-container">
         <?php $__currentLoopData = $instagram; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
         <a href="<?php echo e($row['link']); ?>" target="_blank">
             <img class="gallery-thumb" src="<?php echo e($row['images']['standard_resolution']['url']); ?>" alt="" style="width:500px;height:267px"/>
         </a>
-    
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div><!-- Gallery Container /-->
 </div>
@@ -137,7 +135,7 @@
             <?php $__currentLoopData = $pengurus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="teacher">
                 <div class="teacher-thumb">
-                    <img src="<?php echo e(base_url('media/pengurus/').$row['photo']); ?>" alt="Teacher Doe" style="height:250px"/>
+                    <img src="<?php echo e(base_url('media/pengurus/').$row['photo']); ?>" alt="photo" style="height:250px"/>
                 </div><!-- Teacher thumb /-->
                 <div class="teacher-meta">
                     <h3><a href="#">

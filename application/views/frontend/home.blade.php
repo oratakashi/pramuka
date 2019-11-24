@@ -82,14 +82,14 @@
                 <div class="medium-4 small-12 columns" style="margin-bottom:20px">
                     <div class="post">
                         <div class="post-thumb">
-                            <a href="#">
+                            <a href="{{ base_url('').$row['id_artikel'].'/'.$row['slug'] }}.html">
                                 <img src="{{base_url('media/article/').$row['foto_header']}}" alt="photo" style="width:500px;height:230px" />
                             </a>    
                         </div><!-- Thumb /-->
                         <div class="post-content">
-                            <h4><a href="#">{{ $row['judul'] }}</a></h4>
-                            <div class="post-meta"><strong>Date:</strong> 20, Dec, 2016 | <strong>Category:</strong> <a href="index.html#">Campus</a> | <strong>Author:</strong> <a href="index.html#">Ateeq</a></div>
-                            <a href="" class="btn btn-primary">Lihat Selengkapnya</a>
+                            <h4><a href="{{ base_url('').$row['id_artikel'].'/'.$row['slug'] }}.html">{{ $row['judul'] }}</a></h4>
+                            <div class="post-meta">{{date('d F Y', strtotime($row['tgl_post']))}} | <a href="{{base_url('categories/').$row['slug_kategori']}}">{{ $row['nm_kategori'] }}</a> | <strong>Penulis:</strong> {{ $row['nama'] }}</div>
+                            <a href="{{ base_url('').$row['id_artikel'].'/'.$row['slug'] }}.html" class="btn btn-primary">Lihat Selengkapnya</a>
                         </div><!-- post content /-->
                     </div><!-- Post /-->
                 </div><!-- Post column /-->
@@ -100,7 +100,7 @@
     </div><!-- Row Ends /-->
     <div class="row">
         <div class="load-more text-center">
-            <a href="{{base_url('article.html')}}" class="button primary bordered-dark">Lihat lainya</a>
+            <a href="{{base_url('article.html')}}" class="button primary bordered-dark">Lihat lainnya</a>
         </div><!-- Load more /-->
     </div>
 
@@ -115,11 +115,9 @@
     </div> <!-- Title Ends /-->
     <div class="gallery-container">
         @foreach($instagram as $row)
-
         <a href="{{$row['link']}}" target="_blank">
             <img class="gallery-thumb" src="{{$row['images']['standard_resolution']['url']}}" alt="" style="width:500px;height:267px"/>
         </a>
-    
         @endforeach
     </div><!-- Gallery Container /-->
 </div>
@@ -138,7 +136,7 @@
             @foreach($pengurus as $row)
             <div class="teacher">
                 <div class="teacher-thumb">
-                    <img src="{{base_url('media/pengurus/').$row['photo']}}" alt="Teacher Doe" style="height:250px"/>
+                    <img src="{{base_url('media/pengurus/').$row['photo']}}" alt="photo" style="height:250px"/>
                 </div><!-- Teacher thumb /-->
                 <div class="teacher-meta">
                     <h3><a href="#">

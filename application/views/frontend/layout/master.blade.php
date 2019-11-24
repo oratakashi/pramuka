@@ -44,7 +44,7 @@
     <link rel="stylesheet" type="text/css" href="{{base_url('assets/frontend/')}}lib/revolution/css/layers.css">
     <!-- REVOLUTION NAVIGATION STYLES -->
     <link rel="stylesheet" type="text/css" href="{{base_url('assets/frontend/')}}lib/revolution/css/navigation.css">
-    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v5.0"></script>
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

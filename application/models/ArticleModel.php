@@ -8,6 +8,9 @@
         {
             if($name === 'read_limit'){
                 if(count($arguments)===2){
+                    $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_artikel.id_kategori', 'left');
+                    $this->db->join('tb_user', 'tb_user.id_user = tb_artikel.id_user', 'left');
+                    $this->db->select('tb_artikel.*, tb_kategori.nm_kategori, tb_user.*, tb_kategori.slug as slug_kategori');
                     return $this->db->get('tb_artikel', $arguments[0], $arguments[1]);
                 }
             }
@@ -170,6 +173,17 @@
             $this->db->order_by('jml', 'desc');
             
             return $this->db->get('tb_user');
+        }
+
+        public function detail($id_article, $slug)
+        {
+            $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_artikel.id_kategori', 'left');
+            $this->db->join('tb_user', 'tb_user.id_user = tb_artikel.id_user', 'left');
+            $this->db->where('tb_artikel.id_artikel', $id_article);
+            $this->db->where('tb_artikel.slug', $slug);
+            $this->db->select('tb_artikel.*, tb_kategori.nm_kategori, tb_user.*');
+            return $this->db->get('tb_artikel');
+            
         }
     }
     

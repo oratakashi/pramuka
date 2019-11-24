@@ -206,6 +206,24 @@ class Home extends CI_Controller {
 
         view('frontend/kwaran', $data);
     }
+
+    public function article_detail()
+    {
+        $slug = substr($this->uri->segment(2), 0, strlen($this->uri->segment(2))-5);
+        $id_article = $this->uri->segment(1);
+        
+        $data_kategori = $this->ArticleModel->read_category()->result_array();
+        $data_article = $this->ArticleModel->detail($id_article, $slug)->row_array();
+        $list_article = $this->ArticleModel->read_limit(0, 3)->result_array();
+        $data = array(
+            "kategori"      => $data_kategori,
+            "article"       => $data_article,
+            "list"          => $list_article
+        );
+
+        view('frontend/article_detail', $data);
+    }
+
     /**
      * Action Section
      */
