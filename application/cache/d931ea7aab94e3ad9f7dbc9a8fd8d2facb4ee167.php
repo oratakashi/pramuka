@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Toko - Pramuka Lumajang Tangguh'); ?>
+<?php $__env->startSection('title', $article['judul'].' - Pramuka Lumajang Tangguh'); ?>
 
 <?php $__env->startSection('container'); ?>
 <!-- Title Section -->

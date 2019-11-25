@@ -1,6 +1,6 @@
 @extends('frontend.layout.master')
 
-@section('title', 'Toko - Pramuka Lumajang Tangguh')
+@section('title', $article['judul'].' - Pramuka Lumajang Tangguh')
 
 @section('container')
 <!-- Title Section -->

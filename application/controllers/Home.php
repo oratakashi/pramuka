@@ -28,7 +28,7 @@ class Home extends CI_Controller {
         $data_pengurus = $this->PengurusModel->read()->result_array();
         $data_instagram = $this->InstagramModel->read();
         $data_profile_ig = $this->InstagramModel->read_profile();
-        $data_article = $this->ArticleModel->read_limit(0, 3)->result_array();
+        $data_article = $this->ArticleModel->read_limit(6, 0)->result_array();
         $data = array(
             "slider"        => $data_slider,
             "kategori"      => $data_kategori,
@@ -77,6 +77,7 @@ class Home extends CI_Controller {
 
     public function store()
     {   
+        unset($_SESSION['keyword_store']);
         if(empty($this->uri->segment(2))){
             if($this->uri->segment(1) == 'stores'){
                 redirect('stores.html','refresh');
@@ -150,7 +151,22 @@ class Home extends CI_Controller {
                 redirect('stores/search.aspx','refresh');
             }
         }
-        $keyword = $this->input->post('keyword');
+        if(!empty($this->input->post('keyword'))){
+            $keyword = $this->input->post('keyword');
+            $array = array(
+                'keyword_store' => $keyword
+            );
+            
+            $this->session->set_userdata( $array );
+        }else{
+            if(!empty($this->session->userdata('keyword_article'))){
+                $keyword = $this->session->userdata('keyword_article');
+            }else{
+                
+                redirect('stores.html','refresh');
+                
+            }
+        }
         $data_kategori = $this->ArticleModel->read_category()->result_array();
         $data = array(
             "kategori"      => $data_kategori,
@@ -188,7 +204,7 @@ class Home extends CI_Controller {
         $this->pagination->initialize($config);
         $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;   
         
-        $data['product'] = $this->ProductModel->read_limit($config['per_page'], $data['page'])->result_array();
+        $data['product'] = $this->ProductModel->read_limit($config['per_page'], $data['page'], $keyword)->result_array();
          
         $data['pagination'] = $this->pagination->create_links();
         
@@ -207,6 +223,57 @@ class Home extends CI_Controller {
         view('frontend/kwaran', $data);
     }
 
+    public function article()
+    {
+        unset($_SESSION['keyword_article']);
+        if(empty($this->uri->segment(2))){
+            if($this->uri->segment(1) == 'article'){
+                redirect('article.html','refresh');
+            }
+        }
+
+        $data_kategori = $this->ArticleModel->read_category()->result_array();
+
+        $data = array(
+            "kategori"      => $data_kategori
+        );
+        
+        //konfigurasi pagination
+        $config['base_url'] = site_url('article'); //site url
+        $config['total_rows'] = $this->db->count_all('tb_artikel'); //total row
+        $config['per_page'] = 6;  //show record per halaman
+        $config["uri_segment"] = 2;  // uri parameter
+        $choice = $config["total_rows"] / $config["per_page"];
+        $config["num_links"] = floor($choice);
+
+        // Membuat Style pagination untuk BootStrap v4
+        $config['next_link']        = '<li>Selanjutnya &raquo;</li>';
+        $config['prev_link']        = '<li>&laquo; Sebelumnya</li>';
+        $config['full_tag_open']    = '<div class="pagination-container"><ul class="pagination" role="menubar" aria-label="Pagination">';
+        $config['full_tag_close']   = '</ul></div>';
+        $config['num_tag_open']     = '<li class="">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="current"><a href="#">';
+        $config['cur_tag_close']    = '</a></li>';
+        $config['next_tag_open']    = '<li class="">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="">';
+        $config['last_tagl_close']  = '</span></li>';
+ 
+        $this->pagination->initialize($config);
+        $data['page'] = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+
+        $data['article'] = $this->ArticleModel->read_limit($config['per_page'], $data['page'])->result_array();
+         
+        $data['pagination'] = $this->pagination->create_links();
+
+        view('frontend/article', $data);
+    }
+
     public function article_detail()
     {
         $slug = substr($this->uri->segment(2), 0, strlen($this->uri->segment(2))-5);
@@ -214,7 +281,7 @@ class Home extends CI_Controller {
         
         $data_kategori = $this->ArticleModel->read_category()->result_array();
         $data_article = $this->ArticleModel->detail($id_article, $slug)->row_array();
-        $list_article = $this->ArticleModel->read_limit(0, 3)->result_array();
+        $list_article = $this->ArticleModel->read_limit(5, 0)->result_array();
         $data = array(
             "kategori"      => $data_kategori,
             "article"       => $data_article,
@@ -222,6 +289,70 @@ class Home extends CI_Controller {
         );
 
         view('frontend/article_detail', $data);
+    }
+
+    public function article_search()
+    {
+        if(empty($this->uri->segment(3))){
+            if($this->uri->segment(2) == 'search'){
+                redirect('article/search.aspx','refresh');
+            }
+        }
+        if(!empty($this->input->post('keyword'))){
+            $keyword = $this->input->post('keyword');
+            $array = array(
+                'keyword_article' => $keyword
+            );
+            
+            $this->session->set_userdata( $array );
+        }else{
+            $keyword = $this->session->userdata('keyword_article');
+        }
+
+        $data_kategori = $this->ArticleModel->read_category()->result_array();
+        $data = array(
+            "kategori"      => $data_kategori,
+            "keyword"       => $keyword
+        );
+
+        //konfigurasi pagination
+        $config['base_url'] = site_url('article/search/'); //site url
+        $this->db->like('judul', $keyword);
+        
+        $config['total_rows'] = $this->db->get('tb_artikel')->num_rows(); //total row
+        
+        
+        $config['per_page'] = 6;  //show record per halaman
+        $config["uri_segment"] = 3;  // uri parameter
+        $choice = $config["total_rows"] / $config["per_page"];
+        $config["num_links"] = floor($choice);
+
+        // Membuat Style pagination untuk BootStrap v4
+        $config['next_link']        = '<li>Selanjutnya &raquo;</li>';
+        $config['prev_link']        = '<li>&laquo; Sebelumnya</li>';
+        $config['full_tag_open']    = '<div class="pagination-container"><ul class="pagination" role="menubar" aria-label="Pagination">';
+        $config['full_tag_close']   = '</ul></div>';
+        $config['num_tag_open']     = '<li class="">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="current"><a href="#">';
+        $config['cur_tag_close']    = '</a></li>';
+        $config['next_tag_open']    = '<li class="">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="">';
+        $config['last_tagl_close']  = '</span></li>';
+
+        $this->pagination->initialize($config);
+        $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;   
+
+        $data['article'] = $this->ArticleModel->read_limit($config['per_page'], $data['page'], $keyword)->result_array();
+
+        $data['pagination'] = $this->pagination->create_links();
+    
+        view('frontend/article_search', $data);
     }
 
     /**

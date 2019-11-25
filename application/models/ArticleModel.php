@@ -12,6 +12,12 @@
                     $this->db->join('tb_user', 'tb_user.id_user = tb_artikel.id_user', 'left');
                     $this->db->select('tb_artikel.*, tb_kategori.nm_kategori, tb_user.*, tb_kategori.slug as slug_kategori');
                     return $this->db->get('tb_artikel', $arguments[0], $arguments[1]);
+                }elseif(count($arguments)===3){
+                    $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_artikel.id_kategori', 'left');
+                    $this->db->join('tb_user', 'tb_user.id_user = tb_artikel.id_user', 'left');
+                    $this->db->like('tb_artikel.judul', $arguments[2]);
+                    $this->db->select('tb_artikel.*, tb_kategori.nm_kategori, tb_user.*, tb_kategori.slug as slug_kategori');
+                    return $this->db->get('tb_artikel', $arguments[0], $arguments[1]);
                 }
             }
         }

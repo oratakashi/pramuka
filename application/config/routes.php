@@ -9,33 +9,6 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 /**
- * Front End
- */
-$route['stores/(:any).aspx'] = 'Home/store_search';
-
-$route['index.html'] = 'Home/index';
-$route['pengurus.html'] = 'Home/pengurus';
-$route['documents.html'] = 'Home/documents';
-$route['song.html'] = 'Home/song';
-$route['stores.html'] = 'Home/store';
-$route['kwaran.html'] = 'Home/kwaran';
-
-
-$route['stores/(:any)'] = 'Home/store';
-$route['stores/(:any)/(:any).html'] = 'Home/store_detail';
-$route['stores'] = 'Home/store';
-
-$route['(:any)/(:any).html'] = 'Home/article_detail';
-
-
-/**
- * Download
- */
-
-$route['documents/(:any)/(:any)'] = 'Home/download_doc';
-$route['song/(:any)/(:any)'] = 'Home/download_song';
-
-/**
  * Administrator
  */
 
@@ -164,3 +137,37 @@ $route['pengurus/settings.html'] = 'User/view_settings';
 $route['api/article/periode/(:any)/(:any)'] = 'Webservice/getArticlePeriodic/$1/$2';
 $route['api/article/bulan/(:any)'] = 'Webservice/getArticleMonth/$1';
 $route['api/article/tahun/(:any)'] = 'Webservice/getArticleYear/$1';
+
+/**
+ * Front End
+ */
+$route['stores/(:any).aspx'] = 'Home/store_search';
+$route['article/(:any).aspx'] = 'Home/article_search';
+
+$route['index.html'] = 'Home/index';
+$route['pengurus.html'] = 'Home/pengurus';
+$route['documents.html'] = 'Home/documents';
+$route['song.html'] = 'Home/song';
+$route['stores.html'] = 'Home/store';
+$route['kwaran.html'] = 'Home/kwaran';
+$route['article.html'] = 'Home/article';
+
+$route['article/search/(:any)'] = 'Home/article_search';
+$route['article/search'] = 'Home/article_search';
+$route['article/(:any)'] = 'Home/article';
+$route['article'] = 'Home/article';
+
+$route['stores/(:any)'] = 'Home/store';
+$route['stores/search/(:any)'] = 'Home/store_search';
+$route['stores/(:any)/(:any).html'] = 'Home/store_detail';
+$route['stores'] = 'Home/store';
+
+$route['(:any)/(:any).html'] = 'Home/article_detail';
+
+
+/**
+ * Download
+ */
+
+$route['documents/(:any)/(:any)'] = 'Home/download_doc';
+$route['song/(:any)/(:any)'] = 'Home/download_song';

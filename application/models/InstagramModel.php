@@ -6,7 +6,7 @@
     
         public function read()
         {
-            $url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=4495532477.1677ed0.b08595a9d6034415897b186be829e226&count=10";
+            $url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=4495532477.1677ed0.b08595a9d6034415897b186be829e226&count=8";
             //  Initiate curl
             $ch = curl_init();
             // Will return the response, if false it print the response
