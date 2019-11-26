@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Pencarian Artikel - Pramuka Lumajang Tangguh'); ?>
+<?php $__env->startSection('title', 'Artikel - Pramuka Lumajang Tangguh'); ?>
 
 <?php $__env->startSection('container'); ?>
 <!-- Title Section -->
@@ -6,14 +6,14 @@
     <div class="row">
 
         <div class="small-12 columns">
-            <h1>Pencarian Artikel</h1>
+            <h1><?php echo e($nm_kategori); ?></h1>
         </div><!-- Top Row /-->
 
         <div class="small-12 columns">
             <ul class="breadcrumbs">
                 <li><a href="index.html">Beranda</a></li>
                 <li>Artikel</li>
-                <li><span class="show-for-sr">Current: </span> Pencarian</li>
+                <li><span class="show-for-sr">Current: </span> <?php echo e($nm_kategori); ?></li>
             </ul><!-- Breadcrumbs /-->
         </div><!-- Bottom Row /-->
         
@@ -49,7 +49,7 @@
             <div class="widget search">
                 <h2>Pencarian Artikel</h2>
                 <form action="<?php echo e(base_url('article/search.aspx')); ?>" method="post">
-                    <input name="keyword" type="text" placeholder="Cari Artikel..." value="<?php echo e($keyword); ?>"/>
+                    <input name="keyword" type="text" placeholder="Cari Artikel..." />
                 </form>
             </div><!-- widget ends -->  
             <div class="widget">
@@ -57,7 +57,7 @@
                 
                 <ul class="menu vertical">
                     <?php $__currentLoopData = $kategori; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <li><a href="blog1.html#"><?php echo e($row['nm_kategori']); ?></a></li>
+                    <li><a href="<?php echo e(base_url('categories/').$row['id_kategori'].'/'.$row['slug']); ?>.html"><?php echo e($row['nm_kategori']); ?></a></li>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </ul>
             </div><!-- widget ends /-->
@@ -70,4 +70,4 @@
 <!-- Content Section Ends /-->
 <!-- Content Section Ends /-->
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('frontend.layout.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/frontend/article_search.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('frontend.layout.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/frontend/article_category.blade.php ENDPATH**/ ?>

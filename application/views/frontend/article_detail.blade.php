@@ -84,7 +84,7 @@
                 
                 <ul class="menu vertical">
                     @foreach($kategori as $row)
-                    <li><a href="single-post.html#">{{$row['nm_kategori']}}</a></li>
+                    <li><a href="{{ base_url('categories/').$row['id_kategori'].'/'.$row['slug'] }}.html">{{$row['nm_kategori']}}</a></li>
                     @endforeach
                 </ul>
             </div><!-- widget ends /-->

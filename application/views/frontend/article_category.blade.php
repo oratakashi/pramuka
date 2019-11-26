@@ -8,13 +8,14 @@
     <div class="row">
 
         <div class="small-12 columns">
-            <h1>Artikel</h1>
+            <h1>{{ $nm_kategori }}</h1>
         </div><!-- Top Row /-->
 
         <div class="small-12 columns">
             <ul class="breadcrumbs">
                 <li><a href="index.html">Beranda</a></li>
-                <li><span class="show-for-sr">Current: </span> Artikel</li>
+                <li>Artikel</li>
+                <li><span class="show-for-sr">Current: </span> {{$nm_kategori}}</li>
             </ul><!-- Breadcrumbs /-->
         </div><!-- Bottom Row /-->
         

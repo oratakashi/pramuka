@@ -51,7 +51,7 @@
             <div class="widget search">
                 <h2>Pencarian Artikel</h2>
                 <form action="{{base_url('article/search.aspx')}}" method="post">
-                    <input name="keyword" type="text" placeholder="Cari Artikel..." />
+                    <input name="keyword" type="text" placeholder="Cari Artikel..." value="{{ $keyword }}"/>
                 </form>
             </div><!-- widget ends -->  
             <div class="widget">
@@ -59,7 +59,7 @@
                 
                 <ul class="menu vertical">
                     @foreach($kategori as $row)
-                    <li><a href="blog1.html#">{{$row['nm_kategori']}}</a></li>
+                    <li><a href="{{ base_url('categories/').$row['id_kategori'].'/'.$row['slug'] }}.html">{{$row['nm_kategori']}}</a></li>
                     @endforeach
                 </ul>
             </div><!-- widget ends /-->

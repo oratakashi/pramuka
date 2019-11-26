@@ -24,7 +24,7 @@
                         <li class="single-sub parent-nav"><a href="#"> Kategori </a>
                             <ul class="child-nav menu vertical">
                                 @foreach($kategori as $row)
-                                    <li><a href="{{ base_url('categories/').$row['slug'] }}">{{ $row['nm_kategori'] }}</a></li>                                       
+                                    <li><a href="{{ base_url('categories/').$row['id_kategori'].'/'.$row['slug'] }}.html">{{ $row['nm_kategori'] }}</a></li>                                       
                                 @endforeach
                             </ul>
                         </li>
@@ -48,7 +48,9 @@
                 <a href="index.html#" class="search-icon-toggle" data-toggle="search-dropdown"><i class="fa fa-search"></i></a>
             </div><!-- search wrap ends -->
             <div class="dropdown-pane" id="search-dropdown" data-dropdown data-auto-focus="true">
-                <input type="text" placeholder="Enter keyword and press enter .... " />
+                <form action="{{base_url('search.aspx')}}" method="post">
+                    <input type="text" name="keyword" placeholder="Cari apa saja yang kamu butuhkan .... " />
+                </form>
             </div>
         </div><!-- right Ends /-->
         

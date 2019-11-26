@@ -143,6 +143,7 @@ $route['api/article/tahun/(:any)'] = 'Webservice/getArticleYear/$1';
  */
 $route['stores/(:any).aspx'] = 'Home/store_search';
 $route['article/(:any).aspx'] = 'Home/article_search';
+$route['search.aspx'] = 'Home/global_search';
 
 $route['index.html'] = 'Home/index';
 $route['pengurus.html'] = 'Home/pengurus';
@@ -152,6 +153,8 @@ $route['stores.html'] = 'Home/store';
 $route['kwaran.html'] = 'Home/kwaran';
 $route['article.html'] = 'Home/article';
 
+$route['categories/(:any)/(:any)'] = 'Home/article_category';
+$route['categories/(:any)/(:any)/(:any)'] = 'Home/article_category';
 $route['article/search/(:any)'] = 'Home/article_search';
 $route['article/search'] = 'Home/article_search';
 $route['article/(:any)'] = 'Home/article';

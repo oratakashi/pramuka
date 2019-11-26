@@ -19,6 +19,13 @@
                     $this->db->select('tb_artikel.*, tb_kategori.nm_kategori, tb_user.*, tb_kategori.slug as slug_kategori');
                     return $this->db->get('tb_artikel', $arguments[0], $arguments[1]);
                 }
+            }elseif($name === 'read_category_limit'){
+                $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_artikel.id_kategori', 'left');
+                $this->db->join('tb_user', 'tb_user.id_user = tb_artikel.id_user', 'left');
+                $this->db->select('tb_artikel.*, tb_kategori.nm_kategori, tb_user.*, tb_kategori.slug as slug_kategori');
+                $this->db->where('tb_artikel.id_kategori', $arguments[2]);
+                
+                return $this->db->get('tb_artikel', $arguments[0], $arguments[1]);
             }
         }
 

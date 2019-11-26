@@ -56,7 +56,7 @@
                 
                 <ul class="menu vertical">
                     <?php $__currentLoopData = $kategori; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <li><a href="<?php echo e(base_url('categories')); ?>"><?php echo e($row['nm_kategori']); ?></a></li>
+                    <li><a href="<?php echo e(base_url('categories/').$row['id_kategori'].'/'.$row['slug']); ?>.html"><?php echo e($row['nm_kategori']); ?></a></li>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </ul>
             </div><!-- widget ends /-->

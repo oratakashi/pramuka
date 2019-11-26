@@ -355,19 +355,73 @@ class Home extends CI_Controller {
         view('frontend/article_search', $data);
     }
 
+    public function article_category()
+    {
+        $id_category = $this->uri->segment(2);        
+        $arr = explode('.', $this->uri->segment(3));
+        if(empty($this->uri->segment(4))){
+            if(count($arr)==1){
+                redirect('categories/'.$id_category.'/'.$arr[0].'.html','refresh');
+            }
+        }
+        $data_kategori = $this->ArticleModel->read_category()->result_array();
+
+        $data = array(
+            "kategori"      => $data_kategori,
+            "nm_kategori"   => $arr[0]
+        );
+        
+        //konfigurasi pagination
+        $config['base_url'] = site_url('categories/'.$id_category.'/'.$arr[0].'/'); //site url
+        $this->db->where('id_kategori', $id_category);        
+        $config['total_rows'] = $this->db->get('tb_artikel')->num_rows(); //total row
+        $config['per_page'] = 6;  //show record per halaman
+        $config["uri_segment"] = 4;  // uri parameter
+        $choice = $config["total_rows"] / $config["per_page"];
+        $config["num_links"] = floor($choice);
+
+        // Membuat Style pagination untuk BootStrap v4
+        $config['next_link']        = '<li>Selanjutnya &raquo;</li>';
+        $config['prev_link']        = '<li>&laquo; Sebelumnya</li>';
+        $config['full_tag_open']    = '<div class="pagination-container"><ul class="pagination" role="menubar" aria-label="Pagination">';
+        $config['full_tag_close']   = '</ul></div>';
+        $config['num_tag_open']     = '<li class="">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="current"><a href="#">';
+        $config['cur_tag_close']    = '</a></li>';
+        $config['next_tag_open']    = '<li class="">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="">';
+        $config['last_tagl_close']  = '</span></li>';
+
+        $this->pagination->initialize($config);
+        $data['page'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;   
+
+        $data['article'] = $this->ArticleModel->read_category_limit($config['per_page'], $data['page'], $id_category)->result_array();
+
+        $data['pagination'] = $this->pagination->create_links();
+
+        view('frontend/article_category', $data);
+    }
+
+    
     /**
      * Action Section
      */
-
+    
     public function download_doc()
     {
         if(!empty($this->uri->segment(3))){
             $id_document = $this->uri->segment(2);
-
+            
             $data_documents = $this->DocumenModel->read_id($id_document)->row_array();
             
             $this->DocumenModel->download($id_document);
-
+            
             
             redirect('media/files/'.$data_documents['nama_file'],'refresh');
             
@@ -375,16 +429,16 @@ class Home extends CI_Controller {
             redirect('documents.html','refresh');
         }
     }
-
+    
     public function download_song()
     {
         if(!empty($this->uri->segment(3))){
             $id_lagu = $this->uri->segment(2);
-
+            
             $data_song = $this->SongModel->read_id($id_lagu)->row_array();
             
             $this->SongModel->download($id_lagu);
-
+            
             
             redirect('media/music/'.$data_song['nama_file'],'refresh');
             
@@ -392,7 +446,7 @@ class Home extends CI_Controller {
             redirect('song.html','refresh');
         }
     }
-
+    
     public function hitung_size($data)
     {
         $total_size = 0;
@@ -401,7 +455,7 @@ class Home extends CI_Controller {
             $total_size += $row['size'] / 1024;
         }
         $total_size = round($total_size, 2);
-
+        
         if($total_size < 1024){
             $ext = "Mb";
         }elseif($total_size < 1048576){
@@ -409,10 +463,15 @@ class Home extends CI_Controller {
         }else{
             $ext = "Tb";
         }
-
+        
         return $total_size." ".$ext;
+    }
+
+    public function global_search()
+    {
+        # code...
     }
 }
 
 /* End of file Home.php */
- ?>
+?>

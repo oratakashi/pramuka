@@ -24,7 +24,7 @@
                         <li class="single-sub parent-nav"><a href="#"> Kategori </a>
                             <ul class="child-nav menu vertical">
                                 <?php $__currentLoopData = $kategori; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <li><a href="<?php echo e(base_url('categories/').$row['slug']); ?>"><?php echo e($row['nm_kategori']); ?></a></li>                                       
+                                    <li><a href="<?php echo e(base_url('categories/').$row['id_kategori'].'/'.$row['slug']); ?>.html"><?php echo e($row['nm_kategori']); ?></a></li>                                       
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                         </li>
@@ -48,7 +48,9 @@
                 <a href="index.html#" class="search-icon-toggle" data-toggle="search-dropdown"><i class="fa fa-search"></i></a>
             </div><!-- search wrap ends -->
             <div class="dropdown-pane" id="search-dropdown" data-dropdown data-auto-focus="true">
-                <input type="text" placeholder="Enter keyword and press enter .... " />
+                <form action="<?php echo e(base_url('search.aspx')); ?>" method="post">
+                    <input type="text" name="keyword" placeholder="Cari apa saja yang kamu butuhkan .... " />
+                </form>
             </div>
         </div><!-- right Ends /-->
         
