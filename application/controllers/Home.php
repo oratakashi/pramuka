@@ -469,7 +469,56 @@ class Home extends CI_Controller {
 
     public function global_search()
     {
-        # code...
+        $keyword = $this->input->post('keyword');
+
+        
+
+        /**
+         * Section Article
+         */
+
+        $data_article = $this->ArticleModel->read_limit(3, 0, $keyword)->result_array();
+
+        /**
+         * Section Pengurus
+         */
+        $data_pengurus = $this->PengurusModel->search(3, 0, $keyword)->result_array();  
+        
+        /**
+         * Section Document
+         */
+
+        $data_documents = $this->DocumenModel->search(3, 0, $keyword)->result_array();
+
+        /**
+         * Section Song
+         */
+
+        $data_song = $this->SongModel->search(3, 0, $keyword)->result_array();
+
+        /**
+         * Product Section
+         */
+        $data_product = $this->ProductModel->read_limit(3, 0, $keyword)->result_array();
+
+        /**
+         * Kwarcab Section
+         */
+        $data_kecamatan = $this->KecamatanModel->read(3, 0, $keyword)->result_array();
+
+        $data_kategori = $this->ArticleModel->read_category()->result_array();
+
+        $data = array(
+            "kategori"      => $data_kategori,
+            "article"       => $data_article,
+            "pengurus"      => $data_pengurus,
+            "dokumen"      => $data_documents,
+            "song"          => $data_song,
+            "product"       => $data_product,
+            "kwaran"     => $data_kecamatan
+        );
+
+        view('frontend/search', $data);
     }
 }
 

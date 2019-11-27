@@ -32,6 +32,13 @@
         {
             return $this->db->query("UPDATE tb_dokumen set total_download = total_download+1 where id_dokumen = '$id_dokumen'");
         }
+
+        public function search($limit, $start, $keyword)
+        {
+            $this->db->join('tb_user', 'tb_user.id_user = tb_dokumen.id_user', 'left');
+            $this->db->like('tb_dokumen.nama_file', $keyword);
+            return $this->db->get('tb_dokumen', $limit, $start);
+        }
     }
     
     /* End of file DocumenModel.php */

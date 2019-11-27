@@ -32,6 +32,13 @@
         {
             return $this->db->query("UPDATE tb_lagu set total_download = total_download+1 where id_lagu = '$id_lagu'");
         }
+
+        public function search($limit, $start, $keyword)
+        {
+            $this->db->join('tb_user', 'tb_lagu.id_user = tb_user.id_user', 'left');
+            $this->db->like('tb_lagu.nama_file', $keyword);
+            return $this->db->get('tb_lagu', $limit, $start);
+        }
     }
     
     /* End of file SongModel.php */

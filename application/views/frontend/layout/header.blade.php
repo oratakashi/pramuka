@@ -3,7 +3,7 @@
         <div class="medium-4 small-12 columns">
             <div class="logo">
                 <a href="{{ base_url('index.html') }}">
-                    <img src="{{base_url('assets/frontend/')}}images/LOGO-WEB-.png" alt="Webful Education" />
+                    <img src="{{base_url('assets/frontend/')}}images/LOGO-WEB-.png" alt="logo" />
                 </a>    
             </div><!-- logo /-->
         </div><!-- left Ends /-->

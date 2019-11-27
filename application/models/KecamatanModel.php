@@ -4,9 +4,16 @@
     
     class KecamatanModel extends CI_Model {
     
-        public function read()
+        public function __call($name, $arguments)
         {
-            return $this->db->get('tb_kecamatan');
+            if($name === 'read'){
+                if(count($arguments)===0){
+                    return $this->db->get('tb_kecamatan');
+                }elseif(count($arguments)===3){
+                    $this->db->like('nama_kecamatan', $arguments[2]);
+                    return $this->db->get('tb_kecamatan', $arguments[0], $arguments[1]);
+                }
+            }
         }
     
     }

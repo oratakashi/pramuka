@@ -32,6 +32,12 @@
             unset($data['id_pengurus']);
             return $this->db->update('tb_pengurus', $data);
         }
+
+        public function search($limit, $start, $keyword)
+        {
+            $this->db->like('nama', $keyword);
+            return $this->db->get('tb_pengurus', $limit, $start);
+        }
     }
     
     /* End of file PengurusModel.php */
