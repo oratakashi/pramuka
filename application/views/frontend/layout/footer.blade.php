@@ -13,7 +13,7 @@
             
             <div class="large-3 medium-6 small-12 columns footer-widget quick-links">
                 <h2>Map</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.799110165795!2d113.2253625141582!3d-8.121925583534123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd65d652c9ae251%3A0x4c8d5e27a3dda9a7!2sRSUD%20Dr.%20Haryoto!5e0!3m2!1sid!2sid!4v1574873805262!5m2!1sid!2sid" width="600" height="280" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.7953283096494!2d113.22793411415815!3d-8.122309983538894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd65d7b021c5e19%3A0xd16c2ff83b6fbfc4!2sKwarcab%20Lumajang!5e0!3m2!1sid!2sid!4v1574874397054!5m2!1sid!2sid" width="600" height="280" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div><!-- Widget 2 Ends /-->
             
             <div class="large-3 medium-6 small-12 columns footer-widget">
