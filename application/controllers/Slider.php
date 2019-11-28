@@ -49,7 +49,7 @@
                     if($_FILES['photo']['error'] === UPLOAD_ERR_OK){
                         
                         $config['upload_path']          = './media/slider/';
-                        $config['allowed_types']        = 'gif|jpg|png';
+                        $config['allowed_types']        = 'gif|jpg|png|jpeg';
                         $config['overwrite']            = true;
                         
                         $this->load->library('upload', $config);

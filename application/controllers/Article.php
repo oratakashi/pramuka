@@ -201,7 +201,7 @@
                         $photo = $this->input->post('id_artikel');
                         
                         $config['upload_path']          = './media/article/';
-                        $config['allowed_types']        = 'gif|jpg|png';
+                        $config['allowed_types']        = 'gif|jpg|png|jpeg';
                         $config['overwrite']            = true;
                         $config['file_name']            = time();
                         
@@ -260,7 +260,7 @@
                         if($_FILES['photo']['error'] === UPLOAD_ERR_OK){ 
                             
                             $config['upload_path']          = './media/article/';
-                            $config['allowed_types']        = 'gif|jpg|png';
+                            $config['allowed_types']        = 'gif|jpg|png|jpeg';
                             $config['overwrite']            = true;
                             $config['file_name']            = time();
                             

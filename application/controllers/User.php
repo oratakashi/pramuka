@@ -361,7 +361,7 @@ class User extends CI_Controller {
                 $photo = $this->input->post('id_user');
                 
                 $config['upload_path']          = './media/photo_user/';
-                $config['allowed_types']        = 'gif|jpg|png';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg';
                 $config['overwrite']            = true;
                 
                 $this->load->library('upload', $config);
@@ -410,7 +410,7 @@ class User extends CI_Controller {
                 $photo = $this->input->post('id_user');
                 
                 $config['upload_path']          = './media/photo_user/';
-                $config['allowed_types']        = 'gif|jpg|png';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg';
                 $config['overwrite']            = true;
                 $config['file_name']            = $photo;
                 
