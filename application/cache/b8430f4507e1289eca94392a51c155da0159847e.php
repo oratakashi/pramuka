@@ -30,6 +30,11 @@
                 <li class="accordion-item" data-accordion-item>
                     <a href="#" class="accordion-title"><?php echo e($row['nama_file']); ?></a>
                     <div class="accordion-content" data-tab-content>
+                        <audio controls style="width:100%">
+                            <source src="<?php echo e(base_url('media/music/').$row['nama_file']); ?>" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <hr>
                         <table>
                             <tr>
                                 <th>Nama File</th>
