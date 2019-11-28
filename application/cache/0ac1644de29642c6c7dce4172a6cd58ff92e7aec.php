@@ -9,7 +9,7 @@
         <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" data-version="5.0.7">
             <ul>	<!-- SLIDE  -->
                 <?php $__currentLoopData = $slider; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <li data-index="rs-16" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off">
+                <li data-index="rs-<?php echo e($loop->index); ?>" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off">
                     <!-- MAIN IMAGE -->
                     <img src="<?php echo e(base_url('media/slider/').$row['image']); ?>"  alt="First Slide"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" />
                     <!-- LAYERS -->
@@ -112,6 +112,7 @@
             <p>Followers : <?php echo e($profile_ig['counts']['followed_by']); ?></p>
         </div>
     </div> <!-- Title Ends /-->
+    <?php if(!empty($instagram)): ?>
     <div class="gallery-container">
         <?php $__currentLoopData = $instagram; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <a href="<?php echo e($row['link']); ?>" target="_blank">
@@ -119,6 +120,11 @@
         </a>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div><!-- Gallery Container /-->
+    <?php else: ?>
+    <div class="gallery-container">
+        <center><p>Gagal mengambil data dari Instagram</p></center>
+    </div><!-- Gallery Container /-->
+    <?php endif; ?>
 </div>
 
 <!-- Our Teachers -->

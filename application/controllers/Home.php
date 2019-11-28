@@ -38,6 +38,7 @@ class Home extends CI_Controller {
             "article"       => $data_article
         );
         view('frontend/home', $data);
+        // print_r($data);
     }
 
     public function pengurus()

@@ -11,7 +11,7 @@
         <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" data-version="5.0.7">
             <ul>	<!-- SLIDE  -->
                 @foreach($slider as $row)
-                <li data-index="rs-16" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off">
+                <li data-index="rs-{{$loop->index}}" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off">
                     <!-- MAIN IMAGE -->
                     <img src="{{base_url('media/slider/').$row['image']}}"  alt="First Slide"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" />
                     <!-- LAYERS -->
@@ -52,7 +52,7 @@
                         data-start="1000" 
                         data-splitin="none" 
                         data-splitout="none" 
-                        data-responsive_offset="on">{{$row['title']}}
+                        data-responsive_offset="on">{{ $row['title'] }}
                     </div>
                 </li>
                 @endforeach
@@ -113,6 +113,7 @@
             <p>Followers : {{$profile_ig['counts']['followed_by']}}</p>
         </div>
     </div> <!-- Title Ends /-->
+    @if(!empty($instagram))
     <div class="gallery-container">
         @foreach($instagram as $row)
         <a href="{{$row['link']}}" target="_blank">
@@ -120,6 +121,11 @@
         </a>
         @endforeach
     </div><!-- Gallery Container /-->
+    @else
+    <div class="gallery-container">
+        <center><p>Gagal mengambil data dari Instagram</p></center>
+    </div><!-- Gallery Container /-->
+    @endif
 </div>
 
 <!-- Our Teachers -->
