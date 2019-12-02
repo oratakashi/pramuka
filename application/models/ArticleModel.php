@@ -10,30 +10,45 @@
                 if(count($arguments)===2){
                     $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_artikel.id_kategori', 'left');
                     $this->db->join('tb_user', 'tb_user.id_user = tb_artikel.id_user', 'left');
+                    $this->db->order_by('tb_artikel.tgl_post', 'desc');
+                    $this->db->where('tb_artikel.status != 2');
+                    
+                    
                     $this->db->select('tb_artikel.*, tb_kategori.nm_kategori, tb_user.*, tb_kategori.slug as slug_kategori');
                     return $this->db->get('tb_artikel', $arguments[0], $arguments[1]);
                 }elseif(count($arguments)===3){
                     $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_artikel.id_kategori', 'left');
                     $this->db->join('tb_user', 'tb_user.id_user = tb_artikel.id_user', 'left');
+                    $this->db->order_by('tb_artikel.tgl_post', 'desc');
                     $this->db->like('tb_artikel.judul', $arguments[2]);
                     $this->db->select('tb_artikel.*, tb_kategori.nm_kategori, tb_user.*, tb_kategori.slug as slug_kategori');
+                    $this->db->where('tb_artikel.status != 2');
                     return $this->db->get('tb_artikel', $arguments[0], $arguments[1]);
                 }
             }elseif($name === 'read_category_limit'){
                 $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_artikel.id_kategori', 'left');
                 $this->db->join('tb_user', 'tb_user.id_user = tb_artikel.id_user', 'left');
+                $this->db->order_by('tb_artikel.tgl_post', 'desc');
                 $this->db->select('tb_artikel.*, tb_kategori.nm_kategori, tb_user.*, tb_kategori.slug as slug_kategori');
                 $this->db->where('tb_artikel.id_kategori', $arguments[2]);
+                $this->db->where('tb_artikel.status != 2');
                 
                 return $this->db->get('tb_artikel', $arguments[0], $arguments[1]);
+            }elseif($name === 'read'){
+                if(count($arguments) === 0){
+                    $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_artikel.id_kategori');
+                    $this->db->join('tb_user', 'tb_user.id_user = tb_artikel.id_user');
+                    $this->db->order_by('tb_artikel.tgl_post', 'asc');
+                    return $this->db->get_where('tb_artikel', array('status !=' => 2));
+                }elseif(count($arguments)===1){
+                    $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_artikel.id_kategori');
+                    $this->db->join('tb_user', 'tb_user.id_user = tb_artikel.id_user');
+                    $this->db->order_by('tb_artikel.tgl_post', 'asc');
+                    $this->db->where('tb_artikel.id_user', $arguments[0]);
+                    
+                    return $this->db->get_where('tb_artikel', array('status !=' => 2));
+                }
             }
-        }
-
-        public function read()
-        {
-            $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_artikel.id_kategori');
-            $this->db->join('tb_user', 'tb_user.id_user = tb_artikel.id_user');
-            return $this->db->get_where('tb_artikel', array('status !=' => 2));
         }
 
         public function read_pending()

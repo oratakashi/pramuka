@@ -23,8 +23,11 @@
                  * 
                  * Data ne mung status e 1 karo 0, status 2 ora d tampilke
                  */
-
-                $data_article = $this->ArticleModel->read()->result_array();
+                if($this->session->userdata('lev_user')=='Administrator'){
+                    $data_article = $this->ArticleModel->read()->result_array();
+                }else{
+                    $data_article = $this->ArticleModel->read($this->session->userdata('id_user'))->result_array();
+                }
                 $data = array(
                     'content'   => 'article',
                     'data'      => $data_article
@@ -225,7 +228,7 @@
                         "id_kategori" => $this->input->post('kategori'),
                         "judul" => $this->input->post('judul'),
                         "artikel" => $this->input->post('isi_artikel'), 
-                        "tgl_post" => date('Ymd'),
+                        "tgl_post" => date('Y-m-d H:i:s'),
                         "status" => $status_artikel,
                         "slug" => slug($this->input->post('judul')),
                         "foto_header" => $photo
@@ -284,7 +287,6 @@
                             "id_kategori" => $this->input->post('kategori'),
                             "judul" => $this->input->post('judul'),
                             "artikel" => $this->input->post('isi_artikel'), 
-                            "tgl_post" => date('Ymd'), 
                             "slug" => slug($this->input->post('judul')),
                             "foto_header" => $photo
                         ); 

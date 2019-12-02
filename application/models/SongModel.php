@@ -12,7 +12,7 @@
         public function read()
         {
             $this->db->join('tb_user', 'tb_lagu.id_user = tb_user.id_user', 'left');
-            
+            $this->db->order_by('tb_lagu.date_created', 'asc');
             return $this->db->get('tb_lagu');
         }
 
@@ -37,6 +37,7 @@
         {
             $this->db->join('tb_user', 'tb_lagu.id_user = tb_user.id_user', 'left');
             $this->db->like('tb_lagu.nama_file', $keyword);
+            $this->db->order_by('tb_lagu.date_created', 'asc');
             return $this->db->get('tb_lagu', $limit, $start);
         }
     }

@@ -62,6 +62,7 @@
                             "nama_file"         => $upload['upload_data']['file_name'],
                             "size"              => $upload['upload_data']['file_size'],
                             "total_download"    => 0,
+                            "date_created"      => date('Y-m-d H:i:s'),
                             "id_user"           => $this->session->userdata('id_user')
                         );
 

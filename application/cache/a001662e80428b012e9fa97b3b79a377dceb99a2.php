@@ -9,6 +9,7 @@
         <!--search & user info start-->
         <ul class="nav float-right top-menu">
             <!-- user login dropdown start-->
+            <li><a href="<?php echo e(base_url()); ?>" style="font-size:15px" target="_blank">Lihat Website</a></li>
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                     <img alt="" class="rounded-circle" style="height:25px;width:25px" src="<?php echo e(base_url('media/photo_user/')); ?><?php echo $_SESSION['photo']; ?>">
