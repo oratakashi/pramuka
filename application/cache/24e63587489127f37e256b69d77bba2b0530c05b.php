@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mosaddek">
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <link rel="shortcut icon" href="img/favicon.html">
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo e(base_url('assets/frontend/')); ?>images/icon.png">
 
     <title><?php echo $__env->yieldContent('title'); ?></title>
 

@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- FavIcon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{base_url('assets/frontend/')}}images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{base_url('assets/frontend/')}}images/icon.png">
     
     <!-- Animation CSS -->
     <link rel="stylesheet" type="text/css" href="{{base_url('assets/frontend/')}}css/animate.css" media="all" />
