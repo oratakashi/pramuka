@@ -73,6 +73,21 @@
                             <p>@php echo $_SESSION['lev_user'] @endphp</p>
                         </div>
                     </div>
+                    <table class="table table-hover personal-task">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <i class=" fa fa-book"></i>
+                                </td>
+                                @if($_SESSION['lev_user']=='Administrator')
+                                <td><a href="{{base_url('admin/profile.html')}}">Total Artikel</a></td>
+                                @elseif($_SESSION['lev_user']=='Pengurus')
+                                <td><a href="{{base_url('pengurus/profile.html')}}">Total Artikel</a></td>
+                                @endif
+                                <td> {{$jml_post}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </section>
                 <!--user info table end-->
             </div>
@@ -115,7 +130,30 @@
                 <!--work progress end-->
             </div>
         </div>
-
+        <div class="row">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    @foreach($slider as $row)
+                    <div class="carousel-item">
+                        <img src="{{base_url('media/slider/').$row['image']}}"  alt="First Slide"   class="d-block w-100" src="..."/>
+                    </div>
+                    @endforeach
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
     </section>
 </section>
 @endsection

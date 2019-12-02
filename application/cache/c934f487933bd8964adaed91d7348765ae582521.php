@@ -76,6 +76,21 @@
                             <p><?php echo $_SESSION['lev_user'] ?></p>
                         </div>
                     </div>
+                    <table class="table table-hover personal-task">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <i class=" fa fa-book"></i>
+                                </td>
+                                <?php if($_SESSION['lev_user']=='Administrator'): ?>
+                                <td><a href="<?php echo e(base_url('admin/profile.html')); ?>">Total Artikel</a></td>
+                                <?php elseif($_SESSION['lev_user']=='Pengurus'): ?>
+                                <td><a href="<?php echo e(base_url('pengurus/profile.html')); ?>">Total Artikel</a></td>
+                                <?php endif; ?>
+                                <td> <?php echo e($jml_post); ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </section>
                 <!--user info table end-->
             </div>
@@ -119,7 +134,30 @@
                 <!--work progress end-->
             </div>
         </div>
-
+        <div class="row">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <?php $__currentLoopData = $slider; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="carousel-item">
+                        <img src="<?php echo e(base_url('media/slider/').$row['image']); ?>"  alt="First Slide"   class="d-block w-100" src="..."/>
+                    </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
     </section>
 </section>
 <?php $__env->stopSection(); ?>

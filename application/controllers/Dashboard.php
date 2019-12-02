@@ -10,6 +10,7 @@ class Dashboard extends CI_Controller {
         $this->load->model('UserModel');       
         $this->load->model('DocumenModel'); 
         $this->load->model('SongModel');
+        $this->load->model('SliderModel');        
     }
     
 
@@ -33,11 +34,15 @@ class Dashboard extends CI_Controller {
                 $data_artikel = $this->ArticleModel->hitung_pending()->row_array();
                 $data_document = $this->DocumenModel->read()->result_array();
                 $data_lagu = $this->SongModel->read()->result_array();
+                $data_slider = $this->SliderModel->read()->result_array();
+                $jml_article = $this->ArticleModel->hitung_jml($this->session->userdata('id_user'))->row_array();
                 $data = array(
+                    "slider"        => $data_slider,
                     'content'   => 'dashboard',
                     'rank'      => $data_rank,
                     'user'      => $data_user['jml'],
                     'pending'   => $data_artikel['jml'],
+                    'jml_post'      => $jml_article['jml'],
                     'size_doc'  => $this->hitung_size($data_document),
                     'size_song' => $this->hitung_size($data_lagu)
                 );
