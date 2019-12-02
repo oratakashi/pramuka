@@ -143,7 +143,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <?php $__currentLoopData = $slider; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="carousel-item active">
+                    <div class="carousel-item <?php if($loop->index == 0): ?> <?php echo e('active'); ?> <?php endif; ?>">
                         <img src="<?php echo e(base_url('media/slider/').$row['image']); ?>"  alt="First Slide" class="d-block w-100"/>
                     </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
