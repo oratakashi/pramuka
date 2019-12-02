@@ -160,5 +160,10 @@
         </div>
     </section>
 </section>
+<script>
+    $('.carousel').carousel({
+        interval: 2000
+    })
+</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/dashboard.blade.php ENDPATH**/ ?>
