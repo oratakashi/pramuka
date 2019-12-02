@@ -139,8 +139,8 @@
                 </ol>
                 <div class="carousel-inner">
                     @foreach($slider as $row)
-                    <div class="carousel-item">
-                        <img src="{{base_url('media/slider/').$row['image']}}"  alt="First Slide"   class="d-block w-100" src="..."/>
+                    <div class="carousel-item active">
+                        <img src="{{base_url('media/slider/').$row['image']}}"  alt="First Slide" class="d-block w-100"/>
                     </div>
                     @endforeach
                 </div>
