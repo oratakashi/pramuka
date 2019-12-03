@@ -12,6 +12,7 @@
                     $this->db->join('tb_user', 'tb_user.id_user = tb_artikel.id_user', 'left');
                     $this->db->order_by('tb_artikel.tgl_post', 'desc');
                     $this->db->where('tb_artikel.status != 2');
+                    $this->db->where('tb_artikel.status != 0');
                     
                     
                     $this->db->select('tb_artikel.*, tb_kategori.nm_kategori, tb_user.*, tb_kategori.slug as slug_kategori');
@@ -23,6 +24,7 @@
                     $this->db->like('tb_artikel.judul', $arguments[2]);
                     $this->db->select('tb_artikel.*, tb_kategori.nm_kategori, tb_user.*, tb_kategori.slug as slug_kategori');
                     $this->db->where('tb_artikel.status != 2');
+                    $this->db->where('tb_artikel.status != 0');
                     return $this->db->get('tb_artikel', $arguments[0], $arguments[1]);
                 }
             }elseif($name === 'read_category_limit'){
@@ -32,6 +34,7 @@
                 $this->db->select('tb_artikel.*, tb_kategori.nm_kategori, tb_user.*, tb_kategori.slug as slug_kategori');
                 $this->db->where('tb_artikel.id_kategori', $arguments[2]);
                 $this->db->where('tb_artikel.status != 2');
+                $this->db->where('tb_artikel.status != 0');
                 
                 return $this->db->get('tb_artikel', $arguments[0], $arguments[1]);
             }elseif($name === 'read'){
