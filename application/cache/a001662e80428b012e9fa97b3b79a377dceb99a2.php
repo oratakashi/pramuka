@@ -3,7 +3,9 @@
         <i class="fa fa-bars"></i>
     </div>
     <!--logo start-->
-    <a href="index-2.html" class="logo">Pramuka Lumajang </a>
+    <a href="#" class="logo">
+    <img src="<?php echo e(base_url('assets/frontend/')); ?>images/LOGO-WEB-.png" alt="logo" style="height:35px"/>
+     </a>
     <!--logo end-->
     <div class="top-nav ">
         <!--search & user info start-->
