@@ -59,6 +59,8 @@ $route['admin/login.html'] = 'Dashboard';
 $route['admin/index.html'] = 'Dashboard';
 $route['admin/summary.html'] = 'Dashboard/view_summary';
 
+$route['admin/helpdesk.html'] = 'Helpdesk/index';
+
 $route['admin/user.html'] = 'User/index';
 $route['admin/user/create.html'] = 'User/view_create';
 $route['admin/user/(:any).html'] = 'User/read/$1';
@@ -121,6 +123,8 @@ $route['pengurus/settings.aspx'] = 'User/settings';
 $route['pengurus'] = 'Pengurus';
 $route['pengurus/login.html'] = 'Pengurus';
 $route['pengurus/index.html'] = 'Pengurus';
+
+$route['pengurus/helpdesk.html'] = 'Helpdesk/index';
 
 $route['pengurus/article.html'] = 'Article/index';
 $route['pengurus/article/create.html'] = 'Article/view_create';
