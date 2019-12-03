@@ -20,7 +20,7 @@
                     'content'   => 'slider',
                     'data'      => $data_slider
                 );
-                view('backend/slider', $data);
+                view('backend/information', $data);
             }else{
                 redirect('admin/login.html','refresh');
             }
