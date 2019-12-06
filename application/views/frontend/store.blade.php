@@ -1,6 +1,6 @@
 @extends('frontend.layout.master')
 
-@section('title', 'Toko - Pramuka Lumajang Tangguh')
+@section('title', 'Kedai - Pramuka Lumajang Tangguh')
 
 @section('container')
 <!-- Title Section -->
@@ -8,13 +8,13 @@
     <div class="row">
 
         <div class="small-12 columns">
-            <h1>Toko</h1>
+            <h1>Kedai</h1>
         </div><!-- Top Row /-->
 
         <div class="small-12 columns">
             <ul class="breadcrumbs">
                 <li><a href="index.html">Beranda</a></li>
-                <li><span class="show-for-sr">Current: </span> Toko</li>
+                <li><span class="show-for-sr">Current: </span> Kedai</li>
             </ul><!-- Breadcrumbs /-->
         </div><!-- Bottom Row /-->
         
