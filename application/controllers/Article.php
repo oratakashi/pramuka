@@ -35,7 +35,7 @@
                 if($this->session->userdata('lev_user') == 'Administrator'){
                     view('backend/article', $data);
                 }elseif($this->session->userdata('lev_user') == 'Pengurus'){
-                    view('backend/pengurus/article', $data);
+                    view('backend/article', $data);
                 }
             }else{
                 redirect('admin/login.html','refresh');
