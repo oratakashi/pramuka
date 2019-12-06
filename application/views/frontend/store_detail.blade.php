@@ -1,6 +1,6 @@
 @extends('frontend.layout.master')
 
-@section('title', 'Toko - Pramuka Lumajang Tangguh')
+@section('title', 'Kedai - Pramuka Lumajang Tangguh')
 
 @php
     $text = "Saya ingin membeli produk ".$product['nm_product']." apakah masih tersedia ?";
@@ -18,7 +18,7 @@
         <div class="small-12 columns">
             <ul class="breadcrumbs">
                 <li><a href="index.html">Beranda</a></li>
-                <li> Toko</li>
+                <li> Kedai</li>
                 <li><span class="show-for-sr">Current: </span> Detail</li>
             </ul><!-- Breadcrumbs /-->
         </div><!-- Bottom Row /-->

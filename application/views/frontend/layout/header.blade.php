@@ -28,7 +28,7 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li><a href="{{ base_url('stores.html') }}">Toko</a>
+                        <li><a href="{{ base_url('stores.html') }}">Kedai</a>
                         </li>
                             <li class="single-sub parent-nav"><a href="#"> Download</a>
                             <ul class="child-nav menu vertical">
