@@ -28,7 +28,7 @@
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                         </li>
-                        <li><a href="<?php echo e(base_url('stores.html')); ?>">Toko</a>
+                        <li><a href="<?php echo e(base_url('stores.html')); ?>">Kedai</a>
                         </li>
                             <li class="single-sub parent-nav"><a href="#"> Download</a>
                             <ul class="child-nav menu vertical">

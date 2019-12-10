@@ -47,10 +47,10 @@
             },
             plugins: [
                 "advlist autolink lists link image charmap print preview anchor",
-                "searchreplace visualblocks code fullscreen",
+                "searchreplace visualblocks code fullscreen link",
                 "insertdatetime media table contextmenu paste imagetools responsivefilemanager"
             ],
-            toolbar: "insertfile undo redo | paste | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | responsivefilemanager ",
+            toolbar: "insertfile undo redo | paste | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link | | responsivefilemanager ",
             paste_as_text: true,
             menubar: false,
             statusbar: false,
