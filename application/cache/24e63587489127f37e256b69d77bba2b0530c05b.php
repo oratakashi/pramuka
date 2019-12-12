@@ -31,6 +31,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo e(base_url('assets/backend/')); ?>assets/bootstrap-datepicker/css/datepicker.css" />
 
     <script src="<?php echo e(base_url('assets/backend/')); ?>js/jquery.js"></script>
+    <script type="text/javascript" language="javascript" src="<?php echo e(base_url('assets/backend/')); ?>assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
     <script type="text/javascript" language="javascript" src="<?php echo e(base_url('assets/backend/')); ?>assets/advanced-datatable/media/js/datatables.js"></script>
     <script type="text/javascript" language="javascript" src="<?php echo e(base_url('assets/backend/')); ?>assets/advanced-datatable/media/js/datatables.bootstrap.js"></script>
     <script type="text/javascript" src="<?php echo e(base_url('assets/backend/')); ?>assets/data-tables/DT_bootstrap.js"></script>
