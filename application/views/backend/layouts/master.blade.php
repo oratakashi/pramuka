@@ -32,6 +32,7 @@
 
     <script src="{{ base_url('assets/backend/') }}js/jquery.js"></script>
     <script type="text/javascript" language="javascript" src="{{ base_url('assets/backend/') }}assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" language="javascript" src="{{ base_url('assets/backend/') }}assets/advanced-datatable/media/js/jquery.migrate.js"></script>
     <script type="text/javascript" language="javascript" src="{{ base_url('assets/backend/') }}assets/advanced-datatable/media/js/datatables.js"></script>
     <script type="text/javascript" language="javascript" src="{{ base_url('assets/backend/') }}assets/advanced-datatable/media/js/datatables.bootstrap.js"></script>
     <script type="text/javascript" src="{{ base_url('assets/backend/') }}assets/data-tables/DT_bootstrap.js"></script>
