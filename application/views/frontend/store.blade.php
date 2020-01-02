@@ -51,7 +51,7 @@
                                 <img alt=""  class="front-image" src="{{ base_url('media/product/').$row['foto'] }}">
                             </a>
                             <div class="add-to-cart-top">
-                                    <a href='https://api.whatsapp.com/send?phone=6282301117118&text={{$endcoded}}' target="_blank" class='button primary'>Beli Sekarang</a>
+                                    <a href='https://api.whatsapp.com/send?phone=62852364641708&text={{$endcoded}}' target="_blank" class='button primary'>Beli Sekarang</a>
                             </div>
                         </div>
                         <div class="product-info">

@@ -76,10 +76,10 @@ $query_builder = TRUE;
 if ($_SERVER['HTTP_HOST'] == 'localhost'){
 	$db['default'] = array(
 		'dsn'	=> '',
-		'hostname' => 'pramukalumajang.or.id:3306',
-		'username' => 'u3562650_root',
-		'password' => 'admin12',
-		'database' => 'u3562650_webbaru',
+		'hostname' => 'localhost',
+		'username' => 'root',
+		'password' => '',
+		'database' => 'db_pramuka',
 		'dbdriver' => 'mysqli',
 		'dbprefix' => '',
 		'pconnect' => FALSE,
