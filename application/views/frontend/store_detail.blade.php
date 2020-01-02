@@ -51,7 +51,7 @@
                 </div>
                 
                 <div class="add-cart-option">
-                    <a href="https://api.whatsapp.com/send?phone=62852364641708&text={{$endcoded}}" class="button primary" target="_blank">Beli Sekarang</a> 
+                    <a href="https://api.whatsapp.com/send?phone=6285236464170&text={{$endcoded}}" class="button primary" target="_blank">Beli Sekarang</a> 
                 </div><!-- add cart option -->
             
             </div><!-- Product Detail Ends -->
@@ -85,7 +85,7 @@
                             <img alt=""  class="front-image" src="{{base_url('media/product/').$row['foto']}}">
                         </a>
                         <div class="add-to-cart-top">
-                                <a href="https://api.whatsapp.com/send?phone=62852364641708&text={{$endcoded}}" class="button primary">Beli Sekarang</a>
+                                <a href="https://api.whatsapp.com/send?phone=6285236464170&text={{$endcoded}}" class="button primary">Beli Sekarang</a>
                         </div>
                     </div>
                     <div class="product-info">
