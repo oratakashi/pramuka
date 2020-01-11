@@ -42,7 +42,7 @@
                                 <h4 class="font-18">Sign In</h4>
                                 <p class="text-muted mb-4">Selamat datang kembali Administrator</p>
                         
-                                <form action="#">
+                                <form action="#" class="form-signin">
                                     <div class="form-group">
                                         <label class="float-left" for="emailaddress">Alamat Email</label>
                                         <input class="form-control" type="email" id="email" required="Email wajib di isi" placeholder="Alamat Email Anda">
@@ -55,9 +55,6 @@
                                     
                                     <div class="form-group">
                                         <div id="alert">
-                                            <div class="alert alert-danger" role="alert">
-                                            Gagal melakukan login, Silahkan coba lagi !
-                                        </div>
                                         </div>
                                     </div>
 
@@ -86,5 +83,57 @@
 
     <!-- Active JS -->
     <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/active.js"></script>
-
+    <script>
+        $('.form-signin').submit(function (e) { 
+            e.preventDefault();
+            $('#alert').html('');
+            $('button').attr('disabled', true);
+            $('button').html('Tunggu Sebentar...');
+            $.ajax({
+                type: "post",
+                url: "<?php echo e(base_url('admin/validation.aspx')); ?>",
+                data: {
+                    "email" : $('#email').val(),
+                    "password" : $('#password').val(),
+                    "type" : "admin"
+                },
+                dataType: "json",
+                success: function (response) {
+                    if(response.success){
+                        console.log(response);
+                        $.ajax({
+                            type: "post",
+                            url: "<?php echo e(base_url('admin/login.aspx')); ?>",
+                            data: {
+                                'email'     : response.data.email,
+                                'id_user'   : response.data.id_user,
+                                'nama'      : response.data.nama,
+                                'photo'     : response.data.photo,
+                                'lev_user'  : response.data.lev_user
+                            },
+                            dataType: "json",
+                            success: function (response) {
+                                if(response.success){
+                                    // console.log(response);
+                                    window.location.replace('<?php echo e(base_url("admin/index.html")); ?>');
+                                }else{
+                                    $('button').attr('disabled', false);
+                                    $('button').html('Sign in');
+                                    $('#alert').html(`<div class="alert alert-danger" role="alert">
+                                            Gagal melakukan login, Silahkan coba lagi !
+                                        </div>`);
+                                }
+                            }
+                        });
+                    }else{
+                        $('button').attr('disabled', false);
+                        $('button').html('Sign in');
+                        $('#alert').html(`<div class="alert alert-danger" role="alert">
+                                  Email atau katasandi salah
+                              </div>`);
+                    }
+                }
+            });
+        });
+    </script>
 </html><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/login.blade.php ENDPATH**/ ?>

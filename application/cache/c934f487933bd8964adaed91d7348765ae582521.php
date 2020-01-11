@@ -1,134 +1,122 @@
-<?php $__env->startSection('title', "Dashboard -  Pramuka Lumajang"); ?>
+<?php $__env->startSection('title', 'Dashboard -  Pramuka Lumajang'); ?>
 
 <?php $__env->startSection('container'); ?>
-<section id="main-content">
-    <section class="wrapper">
-        <div class="row">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <?php $__currentLoopData = $slider; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="carousel-item <?php if($loop->index == 0): ?> <?php echo e('active'); ?> <?php endif; ?>">
-                        <img src="<?php echo e(base_url('media/slider/').$row['image']); ?>" style="height:300px;width:100%"  alt="First Slide" class="d-block w-100"/>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="owl-carousel owl-theme full-width">
+                        <?php $__currentLoopData = $slider; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="item">
+                            <img src="<?php echo e(base_url('media/slider/').$row['image']); ?>" style="height:300px;width:100%" alt="image" />
+                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
         </div>
-        <!--state overview start-->
-        <div class="row state-overview">
-            <div class="col-lg-3 col-sm-6">
-                <section class="card">
-                    <div class="symbol terques">
-                        <i class="fa fa-user"></i>
+    </div>
+    <div class="row">
+        <!-- Single Widget -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="text-primary"><?php echo e($user); ?></h5>
+                            <p class="mb-0">Total Pengurus</p>
+                        </div>
                     </div>
-                    <div class="value">
-                        <h1 class="count">
-                            <?php echo e($user); ?>
-
-                        </h1>
-                        <p>Total Pengurus</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <section class="card">
-                    <div class="symbol red">
-                        <i class="fa fa-book"></i>
-                    </div>
-                    <div class="value">
-                        <h1 class=" count2">
-                            <?php echo e($pending); ?>
-
-                        </h1>
-                        <p>Artikel butuh tindakan</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <section class="card">
-                    <div class="symbol yellow">
-                        <i class="fa fa-archive"></i>
-                    </div>
-                    <div class="value">
-                        <h1 class=" count3">
-                            <?php echo e($size_doc); ?>
-
-                        </h1>
-                        <p>Total Ukuran Dokumen</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <section class="card">
-                    <div class="symbol blue">
-                        <i class="fa fa-archive"></i>
-                    </div>
-                    <div class="value">
-                        <h1 class=" count4">
-                            <?php echo e($size_song); ?>
-
-                        </h1>
-                        <p>Total Ukuran Lagu</p>
-                    </div>
-                </section>
+                </div>
             </div>
         </div>
-        <!--state overview end-->
-        <div class="row">
-            <div class="col-lg-4">
-                <!--user info table start-->
-                <section class="card">
-                    <div class="card-body">
-                        <a href="#" class="task-thumb">
-                        <img alt="" class="rounded-circle" style="height:80px; width:80px; margin-top:10px" src="<?php echo e(base_url('media/photo_user/')); ?><?php echo $_SESSION['photo']; ?>">
-                        </a>
-                        <div class="task-thumb-details">
-                            <h1><a href="#"><?php echo $_SESSION['nama'] ?></a></h1>
-                            <p><?php echo $_SESSION['lev_user'] ?></p>
+        <!-- Single Widget -->
+
+        <!-- Single Widget -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="text-danger"><?php echo e($pending); ?></h5>
+                            <p class="mb-0">Artikel butuh tindakan</p>
                         </div>
                     </div>
-                    <table class="table table-hover personal-task">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <i class=" fa fa-book"></i>
-                                </td>
-                                <?php if($_SESSION['lev_user']=='Administrator'): ?>
-                                <td><a href="<?php echo e(base_url('admin/profile.html')); ?>">Total Artikel</a></td>
-                                <?php elseif($_SESSION['lev_user']=='Pengurus'): ?>
-                                <td><a href="<?php echo e(base_url('pengurus/profile.html')); ?>">Total Artikel</a></td>
-                                <?php endif; ?>
-                                <td> <?php echo e($jml_post); ?></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-                <!--user info table end-->
+                </div>
             </div>
-            <div class="col-lg-8">
-                <!--work progress start-->
-                <section class="card">
-                    <div class="card-body progress-card">
-                        <div class="task-progress">
-                            <h1>Ranking Pengurus</h1>
-                            <p>Rangking di hitung berdasarkan jumlah terbanyak posting artikel</p>
+        </div>
+        <!-- Single Widget -->
+
+        <!-- Single Widget -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="text-warning"><?php echo e($size_doc); ?></h5>
+                            <p class="mb-0">Total Ukuran Dokumen</p>
                         </div>
                     </div>
-                    <table class="table table-hover personal-task">
+                </div>
+            </div>
+        </div>
+        <!-- Single Widget -->
+
+        <!-- Single Widget -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="text-success"><?php echo e($size_song); ?></h5>
+                            <p class="mb-0">Total Ukuran Lagu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xl-4">
+            <div class="card ">
+                <div class="card-body">
+                    <div class="member-content-area">
+                        <div class="member-contact-content d-flex align-items-center mb-4">
+                            <div class="contact-thumb">
+                                <img alt="" src="<?php echo e(base_url('media/photo_user/')); ?><?php echo $_SESSION['photo']; ?>">
+                            </div>
+                            <div class="member-contact-info">
+                                <h5><?php echo $_SESSION['nama'] ?></h5>
+                                <span class="badge badge-success badge-pill"><?php echo $_SESSION['lev_user'] ?></span>
+                            </div>
+                        </div>
+
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <div class="img-icon"><i class="fa fa-book"></i></div>
+                            </li>
+                            <li class="nav-item">
+                                <p>Total Artikel : <?php echo e($jml_post); ?></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-8">
+            <div class="card ">
+                <div class="card-body">
+                    <h4 class="card-title mb-2">Rangking Pengurus</h4>
+                    <p class="text-muted font-14 mb-4">
+                        Rangking di hitung berdasarkan jumlah terbanyak posting artikel
+                    </p>
+                    <table id="no-config" class="table table-striped dt-responsive nowrap w-100">
                         <thead>
                             <tr>
-                                <th>Rank</th>
+                                <th>Ranking</th>
                                 <th>Nama</th>
                                 <th>Jumlah Artikel</th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -142,23 +130,14 @@
                                     <td>
                                         <span class="badge badge-pill badge-danger"><?php echo e($row['jml']); ?> Artikel</span>
                                     </td>
-                                    <td>
-                                        <div id="work-progress1"></div>
-                                    </td>
                                 </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
-                </section>
-                <!--work progress end-->
+                </div>
             </div>
         </div>
-    </section>
-</section>
-<script>
-    $('.carousel').carousel({
-        interval: 2000
-    })
-</script>
+    </div>
+</div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/dashboard.blade.php ENDPATH**/ ?>

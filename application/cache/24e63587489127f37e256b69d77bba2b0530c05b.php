@@ -1,129 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
     <meta name="description" content="">
-    <meta name="author" content="Mosaddek">
-    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <link rel="shortcut icon" type="image/x-icon" href="<?php echo e(base_url('assets/frontend/')); ?>images/icon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
+    <!-- Title -->
     <title><?php echo $__env->yieldContent('title'); ?></title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="<?php echo e(base_url('assets/backend/')); ?>css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo e(base_url('assets/backend/')); ?>css/bootstrap-reset.css" rel="stylesheet">
-    <!--external css-->
-    <link href="<?php echo e(base_url('assets/backend/')); ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="<?php echo e(base_url('assets/backend/')); ?>assets/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" type="text/css" >
-    <!--right slidebar-->
-    <link href="<?php echo e(base_url('assets/backend/')); ?>css/slidebars.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="<?php echo e(base_url('assets/backend/')); ?>css/style.css" rel="stylesheet">
-    <link href="<?php echo e(base_url('assets/backend/')); ?>css/style-responsive.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link rel="icon" href="<?php echo e(base_url('assets/backend/')); ?>img/core-img/favicon.png">
 
-    <!--dynamic table-->
-    <link href="<?php echo e(base_url('assets/backend/')); ?>assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
-    <link href="<?php echo e(base_url('assets/backend/')); ?>assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
-    <link rel="stylesheet" href="<?php echo e(base_url('assets/backend/')); ?>assets/data-tables/DT_bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo e(base_url('assets/backend/')); ?>assets/bootstrap-datepicker/css/datepicker.css" />
+    <!-- These plugins only need for the run this page -->
+    <link rel="stylesheet" href="<?php echo e(base_url('assets/backend/')); ?>css/default-assets/datatables.bootstrap4.css">
+    <link rel="stylesheet" href="<?php echo e(base_url('assets/backend/')); ?>css/default-assets/responsive.bootstrap4.css">
+    <!-- These plugins only need for the run this page -->
+    <link rel="stylesheet" href="<?php echo e(base_url('assets/backend/')); ?>css/default-assets/buttons.bootstrap4.css">
+    <link rel="stylesheet" href="<?php echo e(base_url('assets/backend/')); ?>css/default-assets/select.bootstrap4.css">
+    <link rel="stylesheet" href="<?php echo e(base_url('assets/backend/')); ?>css/default-assets/morris.css">
 
-    <script src="<?php echo e(base_url('assets/backend/')); ?>js/jquery.js"></script>
-    <script type="text/javascript" language="javascript" src="<?php echo e(base_url('assets/backend/')); ?>assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" language="javascript" src="<?php echo e(base_url('assets/backend/')); ?>assets/advanced-datatable/media/js/jquery.migrate.js"></script>
-    <script type="text/javascript" language="javascript" src="<?php echo e(base_url('assets/backend/')); ?>assets/advanced-datatable/media/js/datatables.js"></script>
-    <script type="text/javascript" language="javascript" src="<?php echo e(base_url('assets/backend/')); ?>assets/advanced-datatable/media/js/datatables.bootstrap.js"></script>
-    <script type="text/javascript" src="<?php echo e(base_url('assets/backend/')); ?>assets/data-tables/DT_bootstrap.js"></script>
-    <script src="<?php echo e(base_url('assets/tinymce/')); ?>tinymce.min.js"></script>
-    <script type="text/javascript" src="<?php echo e(base_url('assets/backend/')); ?>assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-    <script>
-        tinyMCE.init({
-            selector: ".richtext",
-            height: 350,
-            setup: function (editor) {
-                editor.on('change', function () {
-                    tinymce.triggerSave();
-                });
-            },
-            plugins: [
-                "advlist autolink lists link image charmap print preview anchor",
-                "searchreplace visualblocks code fullscreen link",
-                "insertdatetime media table contextmenu paste imagetools responsivefilemanager"
-            ],
-            toolbar: "insertfile undo redo | paste | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link | | responsivefilemanager ",
-            paste_as_text: true,
-            menubar: false,
-            statusbar: false,
+    <!-- These plugins only need for the run this page -->
+    <link rel="stylesheet" href="<?php echo e(base_url('assets/backend/')); ?>css/default-assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?php echo e(base_url('assets/backend/')); ?>css/default-assets/owl.carousel-default.css">
 
-            external_filemanager_path:"<?php echo e(base_url()); ?>assets/filemanager/",
-            filemanager_title:"Pengelola Berkas" ,
-            external_plugins: { "filemanager" : "<?php echo e(base_url()); ?>assets//filemanager/plugin.min.js"}
-        });
-    </script>
-  </head>
+    <!-- Master Stylesheet [If you remove this CSS file, your file will be broken undoubtedly.] -->
+    <link rel="stylesheet" href="<?php echo e(base_url('assets/backend/')); ?>style.css">
 
-  <body>
+    <!-- These plugins only need for the run this page -->
+    <link rel="stylesheet" href="<?php echo e(base_url('assets/backend/')); ?>css/dropzone.min.css">
+    <link rel="stylesheet" href="<?php echo e(base_url('assets/backend/')); ?>css/default-assets/dropify.min.css">
 
-  <section id="container" class="">
-      <!--header start-->
-      <?php echo $__env->make('backend.layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-      <!--header end-->
-      <!--sidebar start-->
-      <?php if($_SESSION['lev_user']=='Administrator'): ?>
-        <?php echo $__env->make('backend.layouts.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-      <?php else: ?>
-        <?php echo $__env->make('backend.pengurus.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-      <?php endif; ?>
-      <!--sidebar end-->
-      <!--main content start-->
-      <?php echo $__env->yieldContent('container'); ?>
-      <!--main content end-->
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/jquery.min.js"></script>
 
-      <!--footer start-->
-      <footer class="site-footer">
-          <div class="text-center">
-              <?php echo e(date('Y')); ?> &copy; PramukaLumajang
-              <a href="#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
-          </div>
-      </footer>
-      <!--footer end-->
-  </section>
+    <!-- These plugins only need for the run this page -->
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/jquery.datatables.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/datatables.bootstrap4.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/datatable-responsive.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/responsive.bootstrap4.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/datatable-button.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/button.bootstrap4.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/button.html5.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/button.flash.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/button.print.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/datatables.keytable.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/datatables.select.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/demo.datatable-init.js"></script>
 
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="<?php echo e(base_url('assets/backend/')); ?>js/bootstrap.bundle.min.js"></script>
-    <script class="include" type="text/javascript" src="<?php echo e(base_url('assets/backend/')); ?>js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="<?php echo e(base_url('assets/backend/')); ?>js/jquery.scrollTo.min.js"></script>
-    <script src="<?php echo e(base_url('assets/backend/')); ?>js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="<?php echo e(base_url('assets/backend/')); ?>js/respond.min.js" ></script>
+    <!-- These plugins only need for the run this page -->
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/dropzone.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/dropzone-custom.js"></script>
 
-  <!--right slidebar-->
-  <script src="<?php echo e(base_url('assets/backend/')); ?>js/slidebars.min.js"></script>
+</head>
 
-  <!-- BEGIN:File Upload Plugin JS files-->
-  <script src="<?php echo e(base_url('assets/backend/')); ?>assets/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
-  <!-- The Templates plugin is included to render the upload/download listings -->
-  <script src="<?php echo e(base_url('assets/backend/')); ?>assets/jquery-file-upload/js/vendor/tmpl.min.js"></script>
-  <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-  <script src="<?php echo e(base_url('assets/backend/')); ?>assets/jquery-file-upload/js/vendor/load-image.min.js"></script>
-  <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-  <script src="<?php echo e(base_url('assets/backend/')); ?>assets/jquery-file-upload/js/vendor/canvas-to-blob.min.js"></script>
-  <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-  <script src="<?php echo e(base_url('assets/backend/')); ?>assets/jquery-file-upload/js/jquery.iframe-transport.js"></script>
-  <!-- The basic File Upload plugin -->
-  <script src="<?php echo e(base_url('assets/backend/')); ?>assets/jquery-file-upload/js/jquery.fileupload.js"></script>
-  <!-- The File Upload file processing plugin -->
-  <script src="<?php echo e(base_url('assets/backend/')); ?>assets/jquery-file-upload/js/jquery.fileupload-fp.js"></script>
-  <!-- The File Upload user interface plugin -->
-  <script src="<?php echo e(base_url('assets/backend/')); ?>assets/jquery-file-upload/js/jquery.fileupload-ui.js"></script>
+<body>
+    <!-- Preloader -->
+    <div id="droba-loader">
+        <div class="loader"></div>
+    </div>
+    <!--Preloader-->
 
-    <!--common script for all pages-->
-    <script src="<?php echo e(base_url('assets/backend/')); ?>js/common-scripts.js"></script>
-    <script src="<?php echo e(base_url('assets/backend/')); ?>js/dynamic_table_init.js"></script>
+    <!-- ======================================
+    ******* Page Wrapper Area Start **********
+    ======================================= -->
+    <div class="ecaps-page-wrapper">
+        <!-- Sidemenu Area -->
+        
+        <?php if($_SESSION['lev_user']=='Administrator'): ?>
+            <?php echo $__env->make('backend.layouts.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php endif; ?>
+        <!-- Page Content -->
+        <div class="ecaps-page-content">
+            <!-- Top Header Area -->
+            <?php echo $__env->make('backend.layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <?php echo $__env->yieldContent('container'); ?>
 
-</html>
-<?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/layouts/master.blade.php ENDPATH**/ ?>
+                <!-- Footer Area -->
+                <?php echo $__env->make('backend.layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            </div>
+        </div>
+    </div>
+    <!-- ======================================
+    ********* Page Wrapper Area End ***********
+    ======================================= -->
+
+    <!-- Must needed plugins to the run this Template -->
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/popper.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/bundle.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/date-time.js"></script>
+
+    <!-- Active JS -->
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/active.js"></script>
+
+    <!-- These plugins only need for the run this page -->
+
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/chart.bundle.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/chart.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/line-chart-custom.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/am-chart.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/gauge.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/serial.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/light.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/ammap.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/worldlow.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/radar.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/widget-page-chart-active.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/morris/morris.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/morris/raphael.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/morris/morris.custom.js"></script>
+    <!-- These plugins only need for the run this page -->
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/owl.carousel.min.js"></script>
+    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/owl.carousel-custom.js"></script>
+
+</html><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/layouts/master.blade.php ENDPATH**/ ?>

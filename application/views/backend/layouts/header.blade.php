@@ -1,45 +1,46 @@
-<header class="header white-bg">
-    <div class="sidebar-toggle-box">
-        <i class="fa fa-bars"></i>
+<header class="top-header-area d-flex align-items-center justify-content-between">
+    <div class="left-side-content-area d-flex align-items-center">
+        <!-- Mobile Logo -->
+        <div class="mobile-logo mr-3 mr-sm-4">
+            <img src="{{base_url('assets/frontend/')}}images/LOGO-WEB-.png" alt="logo" style="height:35px"/>
+        </div>
     </div>
-    <!--logo start-->
-    <a href="#" class="logo">
-    <img src="{{base_url('assets/frontend/')}}images/LOGO-WEB-.png" alt="logo" style="height:35px"/>
-     </a>
-    <!--logo end-->
-    <div class="top-nav ">
-        <!--search & user info start-->
-        <ul class="nav float-right top-menu">
-            <!-- user login dropdown start-->
-            <li><a href="{{base_url()}}" style="font-size:15px" target="_blank">Lihat Website</a></li>
-            @if($_SESSION['lev_user']=='Administrator')
-                <li><a href="{{base_url('admin/helpdesk.html')}}" style="font-size:15px" target="_blank">Pusat Bantuan</a></li>
-            @elseif($_SESSION['lev_user']=='Pengurus')
-            <li><a href="{{base_url('pengurus/helpdesk.html')}}" style="font-size:15px" target="_blank">Pusat Bantuan</a></li>
-            @endif
-            <li class="dropdown">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <img alt="" class="rounded-circle" style="height:25px;width:25px" src="{{ base_url('media/photo_user/') }}@php echo $_SESSION['photo']; @endphp">
-                    <span class="username">@php echo $_SESSION['nama'] @endphp</span>
-                    <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu extended logout dropdown-menu-right">
-                    <div class="log-arrow-up"></div>
-                    @if($_SESSION['lev_user']=='Administrator')
-                    <li><a href="{{ base_url('admin/profile.html') }}"><i class=" fa fa-user"></i>Profile</a></li>
-                    <li><a href="{{ base_url('admin/settings.html') }}"><i class="fa fa-cog"></i> Pengaturan</a></li>
-                    <li><a href="{{ base_url('admin/password.html') }}"><i class="fa fa-key"></i> Change Password</a></li>
-                    <li><a href="{{ base_url('admin/logout.aspx') }}"><i class="fa fa-sign-out"></i> Log Out</a></li>
-                    @elseif($_SESSION['lev_user']=='Pengurus')
-                    <li><a href="{{ base_url('pengurus/profile.html') }}"><i class=" fa fa-user"></i>Profile</a></li>
-                    <li><a href="{{ base_url('pengurus/settings.html') }}"><i class="fa fa-cog"></i> Pengaturan</a></li>
-                    <li><a href="{{ base_url('pengurus/password.html') }}"><i class="fa fa-key"></i> Change Password</a></li>
-                    <li><a href="{{ base_url('pengurus/logout.aspx') }}"><i class="fa fa-sign-out"></i> Log Out</a></li>
-                    @endif
-                </ul>
+
+    <div class="right-side-navbar d-flex align-items-center justify-content-end">
+        <!-- Mobile Trigger -->
+        <div class="right-side-trigger" id="rightSideTrigger">
+            <i class="ti-align-left"></i>
+        </div>
+
+        <!-- Top Bar Nav -->
+        <ul class="right-side-content d-flex align-items-center">
+
+            <li class="nav-item dropdown">
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="{{ base_url('media/photo_user/') }}@php echo $_SESSION['photo']; @endphp" alt="">
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <!-- User Profile Area -->
+                    <div class="user-profile-area">
+                        <div class="user-profile-heading">
+                            <!-- Thumb -->
+                            <div class="profile-thumbnail">
+                                <img src="{{ base_url('media/photo_user/') }}@php echo $_SESSION['photo']; @endphp" alt="">
+                            </div>
+                            <!-- Profile Text -->
+                            <div class="profile-text">
+                                <h6>@php echo $_SESSION['nama'] @endphp</h6>
+                                <span>@php echo $_SESSION['lev_user'] @endphp</span>
+                            </div>
+                        </div>
+                        <a href="{{ base_url('admin/profile.html') }}" class="dropdown-item"><i class="ti-user text-default" aria-hidden="true"></i> Profile</a>
+                        <a href="{{ base_url('admin/settings.html') }}" class="dropdown-item"><i class="fa fa-key text-success" aria-hidden="true"></i> Ganti Password</a>
+                        <a href="{{ base_url('admin/password.html') }}" class="dropdown-item"><i class="ti-settings text-default" aria-hidden="true"></i> Pengaturan</a>
+                        <a href="{{base_url('pengurus/helpdesk.html')}}" class="dropdown-item"><i class="ti-heart text-purple" aria-hidden="true"></i> Pusat Bantuan</a>
+                        <a href="{{ base_url('admin/logout.aspx') }}" class="dropdown-item"><i class="ti-unlink text-warning" aria-hidden="true"></i> Log-out</a>
+                    </div>
+                </div>
             </li>
-            <!-- user login dropdown end -->
         </ul>
-        <!--search & user info end-->
     </div>
 </header>

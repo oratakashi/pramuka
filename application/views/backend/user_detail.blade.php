@@ -1,67 +1,63 @@
 @extends('backend.layouts.master')
 
-@section('title', 'Detail Pengguna - Pramuka Lumajang')
+@section('title', 'Daftar Pengguna -  Pramuka Lumajang')
 
 @section('container')
-<section id="main-content">
-          <section class="wrapper">
-              <!-- page start-->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <section class="card">
-                            <header class="card-header">
-                                {{ "Detail Pengguna" }}
-                                    <span class="tools pull-right">
-                                        <a href="{{ base_url('admin/user.html') }}"><button class="btn btn-sm btn-danger">Kembali</button></a>
-                                        <a href="javascript:;" class="fa fa-chevron-down"></a>
-                                    </span>
-                            </header>
-                            <div class="card-body">
-                                <div class="row">
-                                    <aside class="profile-nav col-lg-3">
-                                        <section class="card">
-                                            <div class="user-heading round">
-                                                <a href="#">
-                                                    <img src="{{base_url('media/photo_user/').$data_user['photo']}}" alt="">
-                                                </a>
-                                                <h1>{{ $data_user['nama'] }}</h1>
-                                                <p>{{ $data_user['lev_user'] }}</p>
-                                            </div>
-                                            <ul class="nav nav-pills nav-stacked">
-                                                <li class="active nav-item"><a class="nav-link" href="{{base_url('admin/user/').$data_user['id_user']}}.html"> <i class="fa fa-user"></i> Profile</a></li>
-                                                <li class="nav-item"><a class="nav-link" href="{{base_url('admin/user/').$data_user['id_user']}}/article.html"> <i class="fa fa-book"></i> Artikel <span class="badge badge-danger pull-right r-activity">{{ $jml_post }}</span></a></li>
-                                            </ul>
-                                        </section>
-                                    </aside>
-                                    <aside class="profile-info col-lg-9">
-                                        <section class="card">
-                                            <div class="card-body bio-graph-info">
-                                                <h1>ID : {{ $data_user['id_user'] }}</h1>
-                                                <div class="row">
-                                                    <div class="bio-row">
-                                                        <p><span>Nama </span>: {{ $data_user['nama'] }}</p>
-                                                    </div>
-                                                    <div class="bio-row">
-                                                        <p><span>Level User </span>: {{ $data_user['lev_user'] }}</p>
-                                                    </div>
-                                                    <div class="bio-row">
-                                                        <p><span>Email </span>: {{ $data_user['email'] }}</p>
-                                                    </div>
-                                                    <div class="bio-row">
-                                                        <p><span>No Hp</span>: {{ $data_user['no_hp'] }}</p>
-                                                    </div>
-                                                    <div class="bio-row">
-                                                        <p><span>Alamat</span>: {{ $data_user['alamat'] }}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    </aside>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-2">
+                        {{ "Detail Pengguna" }}
+                        <span class="tools pull-right">
+                            <a href="{{ base_url('admin/user.html') }}"><button class="btn btn-sm btn-danger">Kembali</button></a>
+                        </span>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="member-content-area">
+                                    <div class="member-contact-content d-flex align-items-center mb-4">
+                                        <div class="contact-thumb">
+                                            <img alt="" src="{{base_url('media/photo_user/').$data_user['photo']}}">
+                                        </div>
+                                        <div class="member-contact-info">
+                                            <h5>{{ $data_user['nama'] }}</h5>
+                                            <span class="badge badge-success badge-pill">{{ $data_user['lev_user'] }}</span>
+                                        </div>
+                                    </div>
+                                    <a href="{{base_url('admin/user/').$data_user['id_user']}}.html">
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <div class="img-icon"><i class="fa fa-user"></i></div>
+                                            </li>
+                                            <li class="nav-item">
+                                                <p>Profil</span></p>
+                                            </li>
+                                        </ul>
+                                    </a>
+                                    <br>
+                                    <a href="{{base_url('admin/user/').$data_user['id_user']}}/article.html">
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <div class="img-icon"><i class="fa fa-book"></i></div>
+                                            </li>
+                                            <li class="nav-item">
+                                                <p>Artikel <span class="badge badge-danger pull-right" style="margin-left:50px;margin-top:5px">{{ $jml_post }}</span></p>
+                                            </li>
+                                        </ul>
+                                    </a>
                                 </div>
                             </div>
-                        </section>
-                    </div>
-                </div>
-          </section>
-      </section>
+                            <div class="col-lg-9">
+                                <h3>ID : {{ $data_user['id_user'] }}</h3>
+                                
+                            </div>
+                        </div>
+                    </h4>
+                    
+                </div> <!-- end card body-->
+            </div> <!-- end card -->
+        </div><!-- end col-->
+    </div>
+</div>
 @endsection

@@ -1,131 +1,124 @@
 @extends('backend.layouts.master')
-@section('title', "Dashboard -  Pramuka Lumajang")
+
+@section('title', 'Dashboard -  Pramuka Lumajang')
 
 @section('container')
-<section id="main-content">
-    <section class="wrapper">
-        <div class="row">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    @foreach($slider as $row)
-                    <div class="carousel-item @if($loop->index == 0) {{'active'}} @endif">
-                        <img src="{{base_url('media/slider/').$row['image']}}" style="height:300px;width:100%"  alt="First Slide" class="d-block w-100"/>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="owl-carousel owl-theme full-width">
+                        @foreach($slider as $row)
+                        <div class="item">
+                            <img src="{{base_url('media/slider/').$row['image']}}" style="height:300px;width:100%" alt="image" />
+                        </div>
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
         </div>
-        <!--state overview start-->
-        <div class="row state-overview">
-            <div class="col-lg-3 col-sm-6">
-                <section class="card">
-                    <div class="symbol terques">
-                        <i class="fa fa-user"></i>
+    </div>
+    <div class="row">
+        <!-- Single Widget -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="text-primary">{{ $user }}</h5>
+                            <p class="mb-0">Total Pengurus</p>
+                        </div>
                     </div>
-                    <div class="value">
-                        <h1 class="count">
-                            {{ $user }}
-                        </h1>
-                        <p>Total Pengurus</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <section class="card">
-                    <div class="symbol red">
-                        <i class="fa fa-book"></i>
-                    </div>
-                    <div class="value">
-                        <h1 class=" count2">
-                            {{ $pending }}
-                        </h1>
-                        <p>Artikel butuh tindakan</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <section class="card">
-                    <div class="symbol yellow">
-                        <i class="fa fa-archive"></i>
-                    </div>
-                    <div class="value">
-                        <h1 class=" count3">
-                            {{ $size_doc }}
-                        </h1>
-                        <p>Total Ukuran Dokumen</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <section class="card">
-                    <div class="symbol blue">
-                        <i class="fa fa-archive"></i>
-                    </div>
-                    <div class="value">
-                        <h1 class=" count4">
-                            {{ $size_song }}
-                        </h1>
-                        <p>Total Ukuran Lagu</p>
-                    </div>
-                </section>
+                </div>
             </div>
         </div>
-        <!--state overview end-->
-        <div class="row">
-            <div class="col-lg-4">
-                <!--user info table start-->
-                <section class="card">
-                    <div class="card-body">
-                        <a href="#" class="task-thumb">
-                        <img alt="" class="rounded-circle" style="height:80px; width:80px; margin-top:10px" src="{{ base_url('media/photo_user/') }}@php echo $_SESSION['photo']; @endphp">
-                        </a>
-                        <div class="task-thumb-details">
-                            <h1><a href="#">@php echo $_SESSION['nama'] @endphp</a></h1>
-                            <p>@php echo $_SESSION['lev_user'] @endphp</p>
+        <!-- Single Widget -->
+
+        <!-- Single Widget -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="text-danger">{{ $pending }}</h5>
+                            <p class="mb-0">Artikel butuh tindakan</p>
                         </div>
                     </div>
-                    <table class="table table-hover personal-task">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <i class=" fa fa-book"></i>
-                                </td>
-                                @if($_SESSION['lev_user']=='Administrator')
-                                <td><a href="{{base_url('admin/profile.html')}}">Total Artikel</a></td>
-                                @elseif($_SESSION['lev_user']=='Pengurus')
-                                <td><a href="{{base_url('pengurus/profile.html')}}">Total Artikel</a></td>
-                                @endif
-                                <td> {{$jml_post}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-                <!--user info table end-->
+                </div>
             </div>
-            <div class="col-lg-8">
-                <!--work progress start-->
-                <section class="card">
-                    <div class="card-body progress-card">
-                        <div class="task-progress">
-                            <h1>Ranking Pengurus</h1>
-                            <p>Rangking di hitung berdasarkan jumlah terbanyak posting artikel</p>
+        </div>
+        <!-- Single Widget -->
+
+        <!-- Single Widget -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="text-warning">{{ $size_doc }}</h5>
+                            <p class="mb-0">Total Ukuran Dokumen</p>
                         </div>
                     </div>
-                    <table class="table table-hover personal-task">
+                </div>
+            </div>
+        </div>
+        <!-- Single Widget -->
+
+        <!-- Single Widget -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="text-success">{{ $size_song }}</h5>
+                            <p class="mb-0">Total Ukuran Lagu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xl-4">
+            <div class="card ">
+                <div class="card-body">
+                    <div class="member-content-area">
+                        <div class="member-contact-content d-flex align-items-center mb-4">
+                            <div class="contact-thumb">
+                                <img alt="" src="{{ base_url('media/photo_user/') }}@php echo $_SESSION['photo']; @endphp">
+                            </div>
+                            <div class="member-contact-info">
+                                <h5>@php echo $_SESSION['nama'] @endphp</h5>
+                                <span class="badge badge-success badge-pill">@php echo $_SESSION['lev_user'] @endphp</span>
+                            </div>
+                        </div>
+
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <div class="img-icon"><i class="fa fa-book"></i></div>
+                            </li>
+                            <li class="nav-item">
+                                <p>Total Artikel : {{$jml_post}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-8">
+            <div class="card ">
+                <div class="card-body">
+                    <h4 class="card-title mb-2">Rangking Pengurus</h4>
+                    <p class="text-muted font-14 mb-4">
+                        Rangking di hitung berdasarkan jumlah terbanyak posting artikel
+                    </p>
+                    <table id="no-config" class="table table-striped dt-responsive nowrap w-100">
                         <thead>
                             <tr>
-                                <th>Rank</th>
+                                <th>Ranking</th>
                                 <th>Nama</th>
                                 <th>Jumlah Artikel</th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -138,22 +131,13 @@
                                     <td>
                                         <span class="badge badge-pill badge-danger">{{ $row['jml'] }} Artikel</span>
                                     </td>
-                                    <td>
-                                        <div id="work-progress1"></div>
-                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                </section>
-                <!--work progress end-->
+                </div>
             </div>
         </div>
-    </section>
-</section>
-<script>
-    $('.carousel').carousel({
-        interval: 2000
-    })
-</script>
+    </div>
+</div>
 @endsection
