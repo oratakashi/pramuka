@@ -28,7 +28,7 @@
         $('#bulan-table').DataTable().clear().destroy();
         var t = $('#bulan-table').DataTable({
             "ajax": {
-                url: "<?php echo e(base_url('api/article/bulan/')); ?>"+month,
+                url: "{{ base_url('api/article/bulan/') }}"+month,
                 type: "get",
                 dataSrc: 'data'
             },
@@ -50,4 +50,4 @@
             } );
         } ).draw();
     }
-</script><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/summary/bulan_script.blade.php ENDPATH**/ ?>
+</script>

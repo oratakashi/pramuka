@@ -12,7 +12,7 @@
                         <span class="tools pull-right">
                             <a href="<?php echo e(base_url('admin/user.html')); ?>"><button class="btn btn-sm btn-danger">Kembali</button></a>
                         </span>
-                        <div class="row">
+                        <div class="row" style="margin-top:25px">
                             <div class="col-lg-3">
                                 <div class="member-content-area">
                                     <div class="member-contact-content d-flex align-items-center mb-4">
@@ -48,8 +48,28 @@
                                 </div>
                             </div>
                             <div class="col-lg-9">
-                                <h3>ID : <?php echo e($data_user['id_user']); ?></h3>
-                                
+                                <h4>ID : <?php echo e($data_user['id_user']); ?></h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><span>Nama </span>: <?php echo e($data_user['nama']); ?></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><span>Level User </span>: <?php echo e($data_user['lev_user']); ?></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><span>Email </span>: <?php echo e($data_user['email']); ?></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><span>No Hp</span>: <?php echo e($data_user['no_hp']); ?></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p><span>Alamat</span>: <?php echo e($data_user['alamat']); ?></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </h4>

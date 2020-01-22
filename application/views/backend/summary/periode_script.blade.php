@@ -50,7 +50,7 @@
         $('#periode-table').DataTable().clear().destroy();
         var t = $('#periode-table').DataTable({
             "ajax": {
-                url: "<?php echo e(base_url('api/article/periode/')); ?>"+start+"/"+end,
+                url: "{{ base_url('api/article/periode/') }}"+start+"/"+end,
                 type: "get",
                 dataSrc: 'data'
             },
@@ -72,4 +72,4 @@
             } );
         } ).draw();
     }
-</script><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/summary/periode_script.blade.php ENDPATH**/ ?>
+</script>

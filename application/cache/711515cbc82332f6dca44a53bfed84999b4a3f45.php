@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Ubah Produk - Pramuka Lumajang'); ?>
+<?php $__env->startSection('title', 'Ubah Produk -  Pramuka Lumajang'); ?>
 
 <?php $__env->startSection('container'); ?>
 <script>
@@ -23,66 +23,56 @@
         }
     }
 </script>
-<section id="main-content">
-          <section class="wrapper">
-              <!-- page start-->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <section class="card">
-                            <header class="card-header">
-                                <?php echo e("Ubah Produk"); ?> <a href="<?php echo e(base_url('admin/products.html')); ?>"><button class="btn btn-sm btn-danger">Batal</button></a>
-                                    <span class="tools pull-right">
-                                        <a href="javascript:;" class="fa fa-chevron-down"></a>
-                                    </span>
-                            </header>
-                            <form action="<?php echo e(base_url('admin/products/').$data['id_product']); ?>/update.aspx" method="post" enctype="multipart/form-data">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <aside class="profile-nav col-lg-3">
-                                            <section class="card">
-                                                <div class="">
-                                                    <center><a href="#">
-                                                        <img id="photo" src="<?php echo e(base_url('media/product/').$data['foto']); ?>" alt="" style="width:250px;height:250px">
-                                                    </a></center>
-                                                    <center><div class="form-group">
-                                                        <div class="myfileupload-buttonbar" style="margin-top:20px">
-                                                            <label class="btn btn-primary">
-                                                                <span>Upload Foto</span>
-                                                                <input id="file" type="file" name="photo" accept="image/*"  onchange="tampilkanPreview(this,'photo')" />
-                                                            </label>
-                                                        </div>
-                                                    </div></center>
-                                                </div>
-                                            </section>
-                                        </aside>
-                                        <aside class="profile-info col-lg-9">
-                                            <section class="card">
-                                                <div class="card-body bio-graph-info">
-                                                    <div class="form-group">
-                                                        <label for="">Nama Produk</label>
-                                                        <input type="text" name="nama" id="nama" class="form-control" value="<?php echo e($data['nm_product']); ?>">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="">Harga</label>
-                                                        <input type="text" name="harga" id="" class="form-control" value="<?php echo e($data['harga']); ?>">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="">Deskripsi</label>
-                                                        <textarea name="deskripsi" id="" cols="30" rows="10" class="form-control"><?php echo e($data['deskripsi']); ?></textarea>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="submit" value="Simpan" class="btn btn-primary col-md-12">
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        </aside>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-2"><?php echo e("Ubah Produk"); ?> <a href="<?php echo e(base_url('admin/products.html')); ?>"><button class="btn btn-sm btn-danger">Batal</button></a></h4>
+                    <form action="<?php echo e(base_url('admin/products/').$data['id_product']); ?>/update.aspx" method="post" enctype="multipart/form-data" style="margin-top:30px">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="">
+                                    <center>
+                                    <a class="user-avatar" href="#">
+                                        <img id="photo" class="thumb-md mb-2" src="<?php echo e(base_url('media/product/').$data['foto']); ?>" style="width:250px;height:250px" alt="">
+                                    </a>
+                                    </center>
+                                    <div class="form-group">
+                                        <center>
+                                        <div class="myfileupload-buttonbar" style="margin-top:20px">
+                                            <label class="btn btn-primary">
+                                                <span>Upload Foto</span>
+                                                <input id="file" type="file" name="photo" accept="image/*"  onchange="tampilkanPreview(this,'photo')" />
+                                            </label>
+                                        </div>
+                                        </center>
                                     </div>
                                 </div>
-                            </form>
-                        </section>
-                    </div>
-                </div>
-          </section>
-      </section>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label for="">Nama Produk</label>
+                                    <input type="text" name="nama" id="nama" class="form-control" value="<?php echo e($data['nm_product']); ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Harga</label>
+                                    <input type="text" name="harga" id="" class="form-control" value="<?php echo e($data['harga']); ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Deskripsi</label>
+                                    <textarea name="deskripsi" id="" cols="30" rows="10" class="form-control"><?php echo e($data['deskripsi']); ?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Simpan" class="btn btn-primary col-md-12">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div> <!-- end card body-->
+            </div> <!-- end card -->
+        </div><!-- end col-->
+    </div>
+</div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/products_update.blade.php ENDPATH**/ ?>

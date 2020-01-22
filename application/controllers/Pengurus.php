@@ -161,9 +161,10 @@
                     $id_pengurus = $this->uri->segment(3);
 
                     $data_pengurus = $this->PengurusModel->read_id($id_pengurus)->row_array();
-
-                    if(file_exists("media/pengurus/".$data_pengurus['photo'])){
-                        unlink("media/pengurus/".$data_pengurus['photo']);
+                    if($data_pengurus['photo']!='no-pict.png'){
+                        if(file_exists("media/pengurus/".$data_pengurus['photo'])){
+                            unlink("media/pengurus/".$data_pengurus['photo']);
+                        }
                     }
 
                     $this->PengurusModel->delete($id_pengurus);

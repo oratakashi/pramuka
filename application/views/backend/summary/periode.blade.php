@@ -4,7 +4,7 @@
             <div class="col-md-4">
                 <label for="">Tanggal Awal</label>
                 <div class="input-group date" id="start-datepicker">
-                    <input type="text" class="form-control" id="start" value="<?php echo e(date('d-m-Y')); ?>">
+                    <input type="text" class="form-control" id="start" value="{{ date('d-m-Y') }}">
                     <div class="input-group-append">
                         <button class="btn btn-success" type="button"><i class="fa fa-calendar f14"></i></button>
                     </div>
@@ -13,7 +13,7 @@
             <div class="col-md-4">
                 <label for="">Tanggal Akhir</label>
                 <div class="input-group date" id="end-datepicker">
-                    <input type="text" class="form-control" id="end" value="<?php echo e(date('d-m-Y')); ?>">
+                    <input type="text" class="form-control" id="end" value="{{ date('d-m-Y') }}">
                     <div class="input-group-append">
                         <button class="btn btn-success" type="button"><i class="fa fa-calendar f14"></i></button>
                     </div>
@@ -47,4 +47,3 @@
     </div>
     <p class="text-danger">Rangking di hitung berdasarkan jumlah terbanyak posting artikel dan dalam status aktif</p>
 </div>
-<?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/summary/periode.blade.php ENDPATH**/ ?>

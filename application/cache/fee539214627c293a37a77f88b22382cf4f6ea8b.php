@@ -3,7 +3,7 @@
         <br>
         <h3>Kelola Slider<a href="<?php echo e(base_url('admin/slider/create.html')); ?>"><button class="btn btn-sm btn-primary" style="margin-left:20px"><i class="fa fa-plus"></i> Tambah</button></a></h3>
         <hr>
-        <table  class="display table table-bordered table-striped" id="dynamic-table">
+        <table  class="display table table-bordered table-striped" id="no-config">
             <thead>
                 <tr>
                     <th>Gambar</th>

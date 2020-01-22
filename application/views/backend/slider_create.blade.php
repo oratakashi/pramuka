@@ -1,6 +1,8 @@
-<?php $__env->startSection('title', 'Tambah Slider -  Pramuka Lumajang'); ?>
+@extends('backend.layouts.master')
 
-<?php $__env->startSection('container'); ?>
+@section('title', 'Tambah Slider -  Pramuka Lumajang')
+
+@section('container')
 <script>
     function tampilkanPreview(gambar,idpreview){
         var gb = gambar.files;
@@ -28,12 +30,12 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-2"><?php echo e("Tambah Slider"); ?> <a href="<?php echo e(base_url('admin/slider.html')); ?>"><button class="btn btn-sm btn-danger">Batal</button></a></h4>
-                    <form action="<?php echo e(base_url('admin/slider/create.aspx')); ?>" method="post" enctype="multipart/form-data" style="margin-top:30px">
+                    <h4 class="card-title mb-2">{{ "Tambah Slider" }} <a href="{{ base_url('admin/slider.html') }}"><button class="btn btn-sm btn-danger">Batal</button></a></h4>
+                    <form action="{{ base_url('admin/slider/create.aspx') }}" method="post" enctype="multipart/form-data" style="margin-top:30px">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <center><img id="photo" src="<?php echo e(base_url('media/slider/no-image.jpg')); ?>" alt="" style="width:300px;height:150px"></center>
+                                    <center><img id="photo" src="{{base_url('media/slider/no-image.jpg')}}" alt="" style="width:300px;height:150px"></center>
                                 </div>
                                 <div class="form-group">
                                     <center><label for="">Pilih Gambar yang akan di upload</label>
@@ -61,5 +63,4 @@
         </div><!-- end col-->
     </div>
 </div>
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/slider_create.blade.php ENDPATH**/ ?>
+@endsection

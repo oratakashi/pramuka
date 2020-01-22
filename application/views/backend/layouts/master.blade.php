@@ -49,6 +49,10 @@
     <script src="{{base_url('assets/backend/')}}js/default-assets/datatables.select.min.js"></script>
     <script src="{{base_url('assets/backend/')}}js/default-assets/demo.datatable-init.js"></script>
 
+    <!-- Date Range -->
+    <link rel="stylesheet" type="text/css" href="{{ base_url('assets/backend/') }}assets/bootstrap-datepicker/css/datepicker.css" />
+    <script type="text/javascript" src="{{ base_url('assets/backend/') }}assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
     <!-- These plugins only need for the run this page -->
     <script src="{{base_url('assets/backend/')}}js/dropzone.min.js"></script>
     <script src="{{base_url('assets/backend/')}}js/default-assets/dropzone-custom.js"></script>

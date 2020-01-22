@@ -41,4 +41,4 @@
         </table>
     </div>
     <p class="text-danger">Rangking di hitung berdasarkan jumlah terbanyak posting artikel dan dalam status aktif</p>
-</div><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/summary/bulan.blade.php ENDPATH**/ ?>
+</div>
