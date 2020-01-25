@@ -67,7 +67,7 @@
                                         </div>
                                         <?php elseif($_SESSION['lev_user']=='Pengurus'): ?>
                                         <div class="btn-group">
-                                            <a href="<?php echo e(base_url('admin/article/').$artikel['id_artikel']); ?>.html"><button type="button" class="btn btn-sm btn-primary">Ubah</button></a>
+                                            <a href="<?php echo e(base_url('pengurus/article/').$artikel['id_artikel']); ?>.html"><button type="button" class="btn btn-sm btn-primary">Ubah</button></a>
                                             <?php if($artikel['status'] == 1){ ?>
                                                 <button type="button" class="btn btn-sm btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span class="sr-only">Toggle Dropdown</span>
@@ -78,7 +78,7 @@
                                                 </button>    
                                             <?php } ?>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="<?php echo e(base_url('admin/article/').$artikel['id_artikel']); ?>/delete.aspx">Hapus</a>
+                                                <a class="dropdown-item" href="<?php echo e(base_url('pengurus/article/').$artikel['id_artikel']); ?>/delete.aspx">Hapus</a>
                                             </div>
                                         </div>
                                         <?php endif; ?>

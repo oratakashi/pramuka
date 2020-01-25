@@ -11,6 +11,7 @@ class Dashboard extends CI_Controller {
         $this->load->model('DocumenModel'); 
         $this->load->model('SongModel');
         $this->load->model('SliderModel');        
+        $this->load->model('ProductModel');        
     }
     
 
@@ -35,6 +36,7 @@ class Dashboard extends CI_Controller {
                 $data_document = $this->DocumenModel->read()->result_array();
                 $data_lagu = $this->SongModel->read()->result_array();
                 $data_slider = $this->SliderModel->read()->result_array();
+                $data_product = $this->ProductModel->read_limit(0, 5)->result_array();
                 $jml_article = $this->ArticleModel->hitung_jml($this->session->userdata('id_user'))->row_array();
                 $data = array(
                     "slider"        => $data_slider,
@@ -43,6 +45,7 @@ class Dashboard extends CI_Controller {
                     'user'      => $data_user['jml'],
                     'pending'   => $data_artikel['jml'],
                     'jml_post'      => $jml_article['jml'],
+                    'product'   => $data_product,
                     'size_doc'  => $this->hitung_size($data_document),
                     'size_song' => $this->hitung_size($data_lagu)
                 );

@@ -1,7 +1,7 @@
 <div class="ecaps-sidemenu-area">
     <!-- Desktop Logo -->
     <div class="ecaps-logo">
-        <a href="index.html"><img class="desktop-logo" src="<?php echo e(base_url('assets/frontend/')); ?>images/LOGO-WEB-WHITE.png" style="height:35px" alt="Desktop Logo"> <img class="small-logo" src="<?php echo e(base_url('assets/frontend/')); ?>images/LOGO-WEB-WHITE.png" style="height:35px" alt="Mobile Logo"></a>
+        <a href="index.html"><img class="desktop-logo" src="<?php echo e(base_url('assets/frontend/')); ?>images/LOGO-WEB-WHITE.png" style="height:35px" alt="Desktop Logo"> <img class="small-logo" src="<?php echo e(base_url('assets/backend/')); ?>img/core-img/small-logo.png" alt="Mobile Logo"></a>
     </div>
 
     <!-- Side Nav -->

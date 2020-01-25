@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Toko - Pramuka Lumajang Tangguh'); ?>
+<?php $__env->startSection('title', 'Kedai - Pramuka Lumajang Tangguh'); ?>
 
 <?php
     $text = "Saya ingin membeli produk ".$product['nm_product']." apakah masih tersedia ?";
@@ -16,7 +16,7 @@
         <div class="small-12 columns">
             <ul class="breadcrumbs">
                 <li><a href="index.html">Beranda</a></li>
-                <li> Toko</li>
+                <li> Kedai</li>
                 <li><span class="show-for-sr">Current: </span> Detail</li>
             </ul><!-- Breadcrumbs /-->
         </div><!-- Bottom Row /-->
@@ -50,7 +50,7 @@
                 </div>
                 
                 <div class="add-cart-option">
-                    <a href="https://api.whatsapp.com/send?phone=6282301117118&text=<?php echo e($endcoded); ?>" class="button primary" target="_blank">Beli Sekarang</a> 
+                    <a href="https://api.whatsapp.com/send?phone=6285236464170&text=<?php echo e($endcoded); ?>" class="button primary" target="_blank">Beli Sekarang</a> 
                 </div><!-- add cart option -->
             
             </div><!-- Product Detail Ends -->
@@ -84,7 +84,7 @@
                             <img alt=""  class="front-image" src="<?php echo e(base_url('media/product/').$row['foto']); ?>">
                         </a>
                         <div class="add-to-cart-top">
-                                <a href="https://api.whatsapp.com/send?phone=6282301117118&text=<?php echo e($endcoded); ?>" class="button primary">Beli Sekarang</a>
+                                <a href="https://api.whatsapp.com/send?phone=6285236464170&text=<?php echo e($endcoded); ?>" class="button primary">Beli Sekarang</a>
                         </div>
                     </div>
                     <div class="product-info">

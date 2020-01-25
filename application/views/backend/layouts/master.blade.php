@@ -100,6 +100,8 @@
         
         @if($_SESSION['lev_user']=='Administrator')
             @include('backend.layouts.sidebar')
+        @elseif($_SESSION['lev_user']=='Pengurus')
+            @include('backend.pengurus.sidebar')
         @endif
         <!-- Page Content -->
         <div class="ecaps-page-content">

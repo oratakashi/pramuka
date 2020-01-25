@@ -9,13 +9,13 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-     <title><?php echo e($title); ?></title>
+     <title>{{ $title }}</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.png">
 
     <!-- Master Stylesheet [If you remove this CSS file, your file will be broken undoubtedly.] -->
-    <link rel="stylesheet" href="<?php echo e(base_url('assets/backend/')); ?>style.css">
+    <link rel="stylesheet" href="{{ base_url('assets/backend/') }}style.css">
 
 </head>
 
@@ -76,13 +76,13 @@
     ======================================= -->
 
     <!-- Must needed plugins to the run this Template -->
-    <script src="<?php echo e(base_url('assets/backend/')); ?>js/jquery.min.js"></script>
-    <script src="<?php echo e(base_url('assets/backend/')); ?>js/popper.min.js"></script>
-    <script src="<?php echo e(base_url('assets/backend/')); ?>js/bootstrap.min.js"></script>
-    <script src="<?php echo e(base_url('assets/backend/')); ?>js/bundle.js"></script>
+    <script src="{{ base_url('assets/backend/') }}js/jquery.min.js"></script>
+    <script src="{{ base_url('assets/backend/') }}js/popper.min.js"></script>
+    <script src="{{ base_url('assets/backend/') }}js/bootstrap.min.js"></script>
+    <script src="{{ base_url('assets/backend/') }}js/bundle.js"></script>
 
     <!-- Active JS -->
-    <script src="<?php echo e(base_url('assets/backend/')); ?>js/default-assets/active.js"></script>
+    <script src="{{ base_url('assets/backend/') }}js/default-assets/active.js"></script>
     <script>
         $('.form-signin').submit(function (e) { 
             e.preventDefault();
@@ -91,7 +91,7 @@
             $('button').html('Tunggu Sebentar...');
             $.ajax({
                 type: "post",
-                url: "<?php echo e(base_url('pengurus/validation.aspx')); ?>",
+                url: "{{ base_url('pengurus/validation.aspx') }}",
                 data: {
                     "id_user" : $('#id_user').val(),
                     "password" : $('#password').val(),
@@ -103,7 +103,7 @@
                         console.log(response);
                         $.ajax({
                             type: "post",
-                            url: "<?php echo e(base_url('pengurus/login.aspx')); ?>",
+                            url: "{{ base_url('pengurus/login.aspx') }}",
                             data: {
                                 'email'     : response.data.email,
                                 'id_user'   : response.data.id_user,
@@ -115,7 +115,7 @@
                             success: function (response) {
                                 if(response.success){
                                     // console.log(response);
-                                    window.location.replace('<?php echo e(base_url("pengurus/index.html")); ?>');
+                                    window.location.replace('{{ base_url("pengurus/index.html") }}');
                                 }else{
                                     $('button').attr('disabled', false);
                                     $('button').html('Sign in');
@@ -136,4 +136,4 @@
             });
         });
     </script>
-</html><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/pengurus/login.blade.php ENDPATH**/ ?>
+</html>

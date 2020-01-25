@@ -26,7 +26,12 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <h5 class="text-primary">{{ $user }}</h5>
+                            <div class="d-flex justify-content-between align-items-center mb-15">
+                                <h6 class="mb-0 text-primary">{{ $user }}</h6>
+                                @if($_SESSION['lev_user']=='Administrator')
+                                    <a href="{{base_url('admin/')}}user.html"><span class="badge badge-pill badge-primary">Detail</span></a>
+                                @endif
+                            </div>
                             <p class="mb-0">Total Pengurus</p>
                         </div>
                     </div>
@@ -41,7 +46,12 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <h5 class="text-danger">{{ $pending }}</h5>
+                            <div class="d-flex justify-content-between align-items-center mb-15">
+                                <h6 class="mb-0 text-danger">{{ $pending }}</h6>
+                                @if($_SESSION['lev_user']=='Administrator')
+                                    <a href="{{base_url('admin/article/')}}pending.html"><span class="badge badge-pill badge-danger">Detail</span></a>
+                                @endif
+                            </div>
                             <p class="mb-0">Artikel butuh tindakan</p>
                         </div>
                     </div>
@@ -56,7 +66,12 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <h5 class="text-warning">{{ $size_doc }}</h5>
+                            <div class="d-flex justify-content-between align-items-center mb-15">
+                                <h6 class="mb-0 text-warning">{{ $size_doc }}</h6>
+                                @if($_SESSION['lev_user']=='Administrator')
+                                    <a href="{{base_url('admin/')}}documents.html"><span class="badge badge-pill badge-warning">Detail</span></a>
+                                @endif
+                            </div>
                             <p class="mb-0">Total Ukuran Dokumen</p>
                         </div>
                     </div>
@@ -71,7 +86,12 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <h5 class="text-success">{{ $size_song }}</h5>
+                            <div class="d-flex justify-content-between align-items-center mb-15">
+                                <h6 class="mb-0 text-success">{{ $size_song }}</h6>
+                                @if($_SESSION['lev_user']=='Administrator')
+                                    <a href="{{base_url('admin/')}}song.html"><span class="badge badge-pill badge-success">Detail</span></a>
+                                @endif
+                            </div>
                             <p class="mb-0">Total Ukuran Lagu</p>
                         </div>
                     </div>
@@ -83,6 +103,7 @@
         <div class="col-md-6 col-xl-4">
             <div class="card ">
                 <div class="card-body">
+                    <h4 class="card-title">Selamat Datang Kembali</h4>
                     <div class="member-content-area">
                         <div class="member-contact-content d-flex align-items-center mb-4">
                             <div class="contact-thumb">
@@ -102,6 +123,30 @@
                                 <p>Total Artikel : {{$jml_post}}</p>
                             </li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card" hidden>
+                <div class="card-body">
+                    <h4 class="card-title">Produk Terbaru</h4>
+                    <div class="owl-carousel owl-theme full-width">
+                        @foreach($product as $row)
+                        <div class="item">
+                            <a href="{{ base_url('stores/').$row['id_product'].'/'.$row['slug'] }}.html"><img class="card-img" src="{{base_url('media/product/').$row['foto']}}" alt="Card image" style="height:180px;"></a>
+                            <a href="{{ base_url('stores/').$row['id_product'].'/'.$row['slug'] }}.html" target="_blank">
+                                <p class="mt-1 text-black" style="font-size:18px">
+                                    @php
+                                        if(strlen($row['nm_product'])>18){
+                                            echo substr($row['nm_product'], 0, 15)."...";
+                                        }else{
+                                            echo $row['nm_product'];
+                                        }
+                                    @endphp
+                                    <span class="badge badge-primary badge-pill pull-right mt-1" style="font-size:12px">{{"Rp " . number_format($row['harga'],2,',','.')}}</span>
+                                </p>
+                            </a>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

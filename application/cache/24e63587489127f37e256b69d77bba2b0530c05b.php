@@ -100,6 +100,8 @@
         
         <?php if($_SESSION['lev_user']=='Administrator'): ?>
             <?php echo $__env->make('backend.layouts.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php elseif($_SESSION['lev_user']=='Pengurus'): ?>
+            <?php echo $__env->make('backend.pengurus.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php endif; ?>
         <!-- Page Content -->
         <div class="ecaps-page-content">

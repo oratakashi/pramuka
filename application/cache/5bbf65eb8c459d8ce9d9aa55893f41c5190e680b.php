@@ -49,7 +49,7 @@
                                 <img alt=""  class="front-image" src="<?php echo e(base_url('media/product/').$row['foto']); ?>">
                             </a>
                             <div class="add-to-cart-top">
-                                    <a href='https://api.whatsapp.com/send?phone=6282301117118&text=<?php echo e($endcoded); ?>' target="_blank" class='button primary'>Beli Sekarang</a>
+                                    <a href='https://api.whatsapp.com/send?phone=6285236464170&text=<?php echo e($endcoded); ?>' target="_blank" class='button primary'>Beli Sekarang</a>
                             </div>
                         </div>
                         <div class="product-info">
