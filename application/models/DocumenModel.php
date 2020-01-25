@@ -7,7 +7,7 @@
         public function read()
         {
             $this->db->join('tb_user', 'tb_user.id_user = tb_dokumen.id_user', 'left');
-            $this->db->order_by('date_created', 'asc');
+            $this->db->order_by('tb_dokumen.date_created', 'desc');
             
             return $this->db->get('tb_dokumen');
         }

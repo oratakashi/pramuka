@@ -12,7 +12,7 @@
         public function read()
         {
             $this->db->join('tb_user', 'tb_lagu.id_user = tb_user.id_user', 'left');
-            $this->db->order_by('tb_lagu.date_created', 'asc');
+            $this->db->order_by('tb_lagu.date_created', 'desc');
             return $this->db->get('tb_lagu');
         }
 
