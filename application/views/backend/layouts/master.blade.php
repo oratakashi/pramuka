@@ -12,7 +12,7 @@
     <title>@yield('title')</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{{base_url('assets/backend/')}}img/core-img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{base_url('assets/frontend/')}}images/icon.png">
 
     <!-- These plugins only need for the run this page -->
     <link rel="stylesheet" href="{{base_url('assets/backend/')}}css/default-assets/datatables.bootstrap4.css">

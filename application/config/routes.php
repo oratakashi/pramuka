@@ -45,8 +45,14 @@ $route['admin/products/create.aspx'] = 'products/create';
 $route['admin/products/(:any)/delete.aspx'] = 'products/delete/$1';
 $route['admin/products/(:any)/update.aspx'] = 'products/update/$1';
 
-$route['admin/slider/create.aspx'] = 'slider/create';
-$route['admin/slider/(:any)/delete.aspx'] = 'slider/delete/$1';
+$route['admin/slider/create.aspx'] = 'slider/create_slider';
+$route['admin/slider/(:any)/delete.aspx'] = 'slider/delete_slider/$1';
+
+$route['admin/visi/create.aspx'] = 'slider/create_visi';
+$route['admin/visi/(:any)/deactivated.aspx'] = 'slider/visi_status/$1/0';
+$route['admin/visi/(:any)/activated.aspx'] = 'slider/visi_status/$1/1';
+$route['admin/visi/(:any)/delete.aspx'] = 'slider/visi_delete/$1';
+$route['admin/visi/(:any)/update.aspx'] = 'slider/visi_update/$1';
 
 $route['admin/password.aspx'] = 'User/password';
 $route['admin/settings.aspx'] = 'User/settings';
@@ -93,8 +99,12 @@ $route['admin/article/(:any)/views.html'] = 'Article/preview/$1';
 $route['admin/article/(:any).html'] = 'Article/view_update/$1';
 
 
+$route['admin/informasi.html'] = 'Slider/index';
 $route['admin/slider.html'] = 'Slider/index';
-$route['admin/slider/create.html'] = 'Slider/view_create';
+$route['admin/informasi/create.html'] = 'Slider/view_create_slider';
+$route['admin/visi/create.html'] = 'Slider/view_create_visi';
+$route['admin/visi/(:any).html'] = 'Slider/view_update_visi/$1';
+$route['admin/slider/create.html'] = 'Slider/view_create_slider';
 
 $route['admin/profile.html'] = 'User/profile';
 $route['admin/password.html'] = 'User/view_password';

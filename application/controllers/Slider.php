@@ -9,16 +9,22 @@
         {
             parent::__construct();
             $this->load->model('SliderModel');
+            $this->load->model('VisiModel');
         }
         
 
         public function index()
         {
             if(!empty($this->session->userdata('id_user'))){
+                if($this->uri->segment(2) == "slider.html"){
+                    redirect('admin/informasi.html','refresh');
+                }
                 $data_slider = $this->SliderModel->read()->result_array();
+                $data_visi = $this->VisiModel->read()->result_array();
                 $data = array(
-                    'content'   => 'slider',
-                    'data'      => $data_slider
+                    'content'       => 'slider',
+                    'data'          => $data_slider,
+                    'data_visi'     => $data_visi
                 );
                 view('backend/information', $data);
             }else{
@@ -26,13 +32,47 @@
             }
         }
 
-        public function view_create()
+        public function view_create_slider()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                if($this->uri->segment(2) == "slider"){
+                    redirect('admin/informasi/create.html','refresh');
+                }
+                $data = array(
+                    'content'   => 'slider'
+                );
+                view('backend/slider_create', $data);
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function view_create_visi()
         {
             if(!empty($this->session->userdata('id_user'))){
                 $data = array(
                     'content'   => 'slider'
                 );
-                view('backend/slider_create', $data);
+                view('backend/visi_create', $data);
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function view_update_visi()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                $url = explode('.', $this->uri->segment(3));
+                $id = $url[0];
+
+                $data_visi = $this->VisiModel->read_id($id)->row_array();
+                
+                $data = array(
+                    'content'       => 'slider',
+                    'data'     => $data_visi
+                );
+
+                view('backend/visi_edit', $data);
             }else{
                 redirect('admin/login.html','refresh');
             }
@@ -42,7 +82,7 @@
          * Action Section
          */
 
-        public function create()
+        public function create_slider()
         {
             if(!empty($this->session->userdata('id_user'))){
                 if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -77,7 +117,7 @@
             }
         }
 
-        public function delete()
+        public function delete_slider()
         {
             if(!empty($this->session->userdata('id_user'))){
                 if(!empty($this->uri->segment(4))){
@@ -92,6 +132,91 @@
                     $this->SliderModel->delete($id_slider);
 
                     redirect('admin/slider.html','refresh');                    
+                }
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function create_visi()
+        {
+            /**
+             * Jika Status 1 Maka Aktif Jika Status 0 Maka Tidak Aktif
+             * Default jika buat baru otomatis aktif
+             */
+            if(!empty($this->session->userdata('id_user'))){
+                if($_SERVER['REQUEST_METHOD']=='POST'){
+                    $data = array(
+                        "judul_visi" => $this->input->post('judul'),
+                        "isi_visi" => $this->input->post('isi'),
+                        "id_user" => $this->session->userdata('id_user'),
+                        "status" => 1,
+                    );
+                    $this->VisiModel->create($data);
+                    redirect('admin/informasi.html','refresh');
+                }else{
+                    redirect('admin/informasi.html','refresh');
+                }
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function visi_status()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                if(!empty($this->uri->segment(4))){
+                    $id = $this->uri->segment(3); 
+                    if ($this->uri->segment(4)=='activated.aspx') {
+                        // $status = 1;
+                        $data = array(
+                            "status" => '1'
+                        );
+                    } else {
+                        // $status = 0;
+                        $data = array(
+                            "status" => '0'
+                        );
+                    }
+                    $this->VisiModel->change_status($id, $data);
+                    redirect('admin/informasi.html','refresh');
+                }else{
+                    redirect('admin/informasi.html','refresh');
+                }
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function visi_delete()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                if(!empty($this->uri->segment(4))){
+                    $id = $this->uri->segment(3);
+
+                    $this->VisiModel->delete($id);
+
+                    redirect('admin/informasi.html','refresh');
+                }
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function visi_update()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                if(!empty($this->uri->segment(4))){
+                    $id = $this->uri->segment(3);
+
+                    $data = array(
+                        "judul_visi" => $this->input->post('judul'),
+                        "isi_visi" => $this->input->post('isi')
+                    );
+
+                    $this->VisiModel->update($id, $data);
+
+                    redirect('admin/informasi.html','refresh');
                 }
             }else{
                 redirect('admin/login.html','refresh');

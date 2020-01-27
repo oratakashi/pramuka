@@ -14,7 +14,6 @@
                     $this->db->where('tb_artikel.status != 2');
                     $this->db->where('tb_artikel.status != 0');
                     
-                    
                     $this->db->select('tb_artikel.*, tb_kategori.nm_kategori, tb_user.*, tb_kategori.slug as slug_kategori');
                     return $this->db->get('tb_artikel', $arguments[0], $arguments[1]);
                 }elseif(count($arguments)===3){
