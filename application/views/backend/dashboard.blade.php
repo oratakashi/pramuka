@@ -126,7 +126,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card" hidden>
+            <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Produk Terbaru</h4>
                     <div class="owl-carousel owl-theme full-width">
