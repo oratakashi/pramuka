@@ -12,6 +12,53 @@
             </tr>
         </thead>
         <tbody>
+            <?php $__currentLoopData = $data_misi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <tr>
+                    <td>
+                        <?php
+                            if(strlen($row['judul_misi'])>40){
+                                echo substr($row['judul_misi'], 0, 40)."...";
+                            }else{
+                                echo $row['judul_misi'];
+                            }
+                        ?>
+                    </td>
+                    <td>
+                        <?php echo e($row['nama']); ?>
+
+                    </td>
+                    <td>
+                        <?php if($row['status']==1): ?>
+                            <span class="badge badge-success">Aktif</span>
+                        <?php elseif($row['status']==0): ?>
+                            <span class="badge badge-danger">Tidak Aktif</span>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <?php if($row['status'] == 1){ ?>
+                                <a href="<?php echo e(base_url('admin/misi/').$row['id_misi']); ?>/deactivated.aspx"><button type="button" class="btn btn-sm btn-danger">Nonaktifkan</button></a>
+                            <?php } else if($row['status'] == 0) {?>
+                                <a href="<?php echo e(base_url('admin/misi/').$row['id_misi']); ?>/activated.aspx"><button type="button" class="btn btn-sm btn-success">Aktifkan</button></a>
+                            <?php } ?>
+                            <?php if($row['status'] == 1){ ?>
+                                <button type="button" class="btn btn-sm btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                            <?php } else if($row['status'] == 0) {?>
+                                <button type="button" class="btn btn-sm btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>    
+                            <?php } ?>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="<?php echo e(base_url('admin/misi/').$row['id_misi']); ?>.html">Ubah</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<?php echo e(base_url('admin/misi/').$row['id_misi']); ?>/delete.aspx">Hapus</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
 </div>

@@ -16,6 +16,8 @@ class Home extends CI_Controller {
         $this->load->model('SongModel');
         $this->load->model('InstagramModel');  
         $this->load->model('KecamatanModel');
+        $this->load->model('VisiModel');
+        $this->load->model('MisiModel');        
         
         $this->load->library('pagination');
     }
@@ -29,13 +31,17 @@ class Home extends CI_Controller {
         $data_instagram = $this->InstagramModel->read();
         $data_profile_ig = $this->InstagramModel->read_profile();
         $data_article = $this->ArticleModel->read_limit(6, 0)->result_array();
+        $data_visi = $this->VisiModel->read_aktif()->result_array();
+        $data_misi = $this->MisiModel->read_aktif()->result_array();
         $data = array(
             "slider"        => $data_slider,
             "kategori"      => $data_kategori,
             "pengurus"      => $data_pengurus,
             "instagram"     => $data_instagram['data'],
             "profile_ig"    => $data_profile_ig['data'],
-            "article"       => $data_article
+            "article"       => $data_article,
+            "visi"          => $data_visi,
+            "misi"          => $data_misi
         );
         view('frontend/home', $data);
         // print_r($this->db->last_query());

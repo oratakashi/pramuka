@@ -106,7 +106,48 @@
 
 </div>
 <!-- Blog Posts Ends /-->
-<div class="gallery-wrapper module">
+
+<!-- Visi Misi -->
+<div class="faq module">
+    <div class="section-title-wrapper">
+        <div class="section-title">
+            <h2>Visi & Misi</h2>
+            <p>Berikut Visi dan Misi Kami</p>
+        </div>
+    </div> <!-- Title Ends /-->
+    <div class="row">
+        <div class="columns medium-6 pull-left">
+            <h6>Visi</h6> 
+            <ul class="accordion" data-accordion>
+            @foreach($visi as $row)
+                <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title">{{$row['judul_visi']}}</a>
+                    <div class="accordion-content" data-tab-content>
+                        {{$row['isi_visi']}}
+                    </div>
+                </li>            
+            @endforeach
+            </ul> <!-- reasons accordion ends -->
+        </div>
+        <div class="columns medium-6">
+            <h6>Misi</h6>  
+            <ul class="accordion" data-accordion>
+            @foreach($misi as $row)
+                <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title">{{$row['judul_misi']}}</a>
+                    <div class="accordion-content" data-tab-content>
+                        {{$row['isi_misi']}}
+                    </div>
+                </li>            
+            @endforeach
+            </ul> <!-- reasons accordion ends -->
+        </div>
+    </div>
+</div>
+
+
+<!-- Instagram -->
+<div class="gallery-wrapper module grey-bg">
     <div class="section-title-wrapper">
         <div class="section-title">
             <h2>Instagram Kami</h2>

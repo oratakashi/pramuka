@@ -10,6 +10,7 @@
             parent::__construct();
             $this->load->model('SliderModel');
             $this->load->model('VisiModel');
+            $this->load->model('MisiModel');
         }
         
 
@@ -21,10 +22,12 @@
                 }
                 $data_slider = $this->SliderModel->read()->result_array();
                 $data_visi = $this->VisiModel->read()->result_array();
+                $data_misi = $this->MisiModel->read()->result_array();
                 $data = array(
                     'content'       => 'slider',
                     'data'          => $data_slider,
-                    'data_visi'     => $data_visi
+                    'data_visi'     => $data_visi,
+                    'data_misi'     => $data_misi
                 );
                 view('backend/information', $data);
             }else{
@@ -73,6 +76,37 @@
                 );
 
                 view('backend/visi_edit', $data);
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function view_create_misi()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                $data = array(
+                    'content'   => 'slider'
+                );
+                view('backend/misi_create', $data);
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function view_update_misi()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                $url = explode('.', $this->uri->segment(3));
+                $id = $url[0];
+
+                $data_misi = $this->MisiModel->read_id($id)->row_array();
+                
+                $data = array(
+                    'content'       => 'slider',
+                    'data'     => $data_misi
+                );
+
+                view('backend/misi_edit', $data);
             }else{
                 redirect('admin/login.html','refresh');
             }
@@ -215,6 +249,91 @@
                     );
 
                     $this->VisiModel->update($id, $data);
+
+                    redirect('admin/informasi.html','refresh');
+                }
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function create_misi()
+        {
+            /**
+             * Jika Status 1 Maka Aktif Jika Status 0 Maka Tidak Aktif
+             * Default jika buat baru otomatis aktif
+             */
+            if(!empty($this->session->userdata('id_user'))){
+                if($_SERVER['REQUEST_METHOD']=='POST'){
+                    $data = array(
+                        "judul_misi" => $this->input->post('judul'),
+                        "isi_misi" => $this->input->post('isi'),
+                        "id_user" => $this->session->userdata('id_user'),
+                        "status" => 1,
+                    );
+                    $this->MisiModel->create($data);
+                    redirect('admin/informasi.html','refresh');
+                }else{
+                    redirect('admin/informasi.html','refresh');
+                }
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function misi_status()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                if(!empty($this->uri->segment(4))){
+                    $id = $this->uri->segment(3); 
+                    if ($this->uri->segment(4)=='activated.aspx') {
+                        // $status = 1;
+                        $data = array(
+                            "status" => '1'
+                        );
+                    } else {
+                        // $status = 0;
+                        $data = array(
+                            "status" => '0'
+                        );
+                    }
+                    $this->MisiModel->change_status($id, $data);
+                    redirect('admin/informasi.html','refresh');
+                }else{
+                    redirect('admin/informasi.html','refresh');
+                }
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function misi_delete()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                if(!empty($this->uri->segment(4))){
+                    $id = $this->uri->segment(3);
+
+                    $this->MisiModel->delete($id);
+
+                    redirect('admin/informasi.html','refresh');
+                }
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function misi_update()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                if(!empty($this->uri->segment(4))){
+                    $id = $this->uri->segment(3);
+
+                    $data = array(
+                        "judul_misi" => $this->input->post('judul'),
+                        "isi_misi" => $this->input->post('isi')
+                    );
+
+                    $this->MisiModel->update($id, $data);
 
                     redirect('admin/informasi.html','refresh');
                 }

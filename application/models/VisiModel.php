@@ -15,6 +15,13 @@
             $this->db->order_by('tb_visi.date_created', 'desc');
             return $this->db->get('tb_visi');
         }
+        public function read_aktif()
+        {
+            $this->db->where('tb_visi.status', 1);
+            $this->db->join('tb_user', 'tb_visi.id_user = tb_user.id_user');
+            $this->db->order_by('tb_visi.date_created', 'desc');
+            return $this->db->get('tb_visi');
+        }
 
         public function read_id($id)
         {
