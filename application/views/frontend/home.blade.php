@@ -65,6 +65,44 @@
 @endif
 <!-- Banner Ends /-->
 
+<!-- Visi Misi -->
+<div class="faq module" style="margin-top:80px">
+    <div class="section-title-wrapper">
+        <div class="section-title">
+            <h2>Visi & Misi</h2>
+            <p>Berikut Visi dan Misi Kami</p>
+        </div>
+    </div> <!-- Title Ends /-->
+    <div class="row">
+        <div class="columns medium-6 pull-left">
+            <h6>Visi</h6> 
+            <ul class="accordion" data-accordion>
+            @foreach($visi as $row)
+                <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title">{{$row['judul_visi']}}</a>
+                    <div class="accordion-content" data-tab-content>
+                        <?= $row['isi_visi'] ?>
+                    </div>
+                </li>            
+            @endforeach
+            </ul> <!-- reasons accordion ends -->
+        </div>
+        <div class="columns medium-6">
+            <h6>Misi</h6>  
+            <ul class="accordion" data-accordion>
+            @foreach($misi as $row)
+                <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title">{{$row['judul_misi']}}</a>
+                    <div class="accordion-content" data-tab-content>
+                        <?= $row['isi_misi'] ?>
+                    </div>
+                </li>            
+            @endforeach
+            </ul> <!-- reasons accordion ends -->
+        </div>
+    </div>
+</div>
+
 <!-- Blog Posts -->
 <div class="blog-posts module grey-bg">
     <div class="section-title-wrapper">
@@ -87,7 +125,15 @@
                             </a>    
                         </div><!-- Thumb /-->
                         <div class="post-content">
-                            <h4><a href="{{ base_url('').$row['id_artikel'].'/'.$row['slug'] }}.html">{{ $row['judul'] }}</a></h4>
+                            <h4><a href="{{ base_url('').$row['id_artikel'].'/'.$row['slug'] }}.html">
+                                @php
+                                    if(strlen($row['judul'])>40){
+                                        echo substr(strtoupper($row['judul']), 0, 40)."...";
+                                    }else{
+                                        echo strtoupper($row['judul']);
+                                    }
+                                @endphp
+                            </a></h4>
                             <div class="post-meta">{{date('d F Y', strtotime($row['tgl_post']))}} | <a href="{{base_url('categories/').$row['slug_kategori']}}">{{ $row['nm_kategori'] }}</a> | <strong>Penulis:</strong> {{ $row['nama'] }}</div>
                             <a href="{{ base_url('').$row['id_artikel'].'/'.$row['slug'] }}.html" class="btn btn-primary">Lihat Selengkapnya</a>
                         </div><!-- post content /-->
@@ -106,44 +152,6 @@
 
 </div>
 <!-- Blog Posts Ends /-->
-
-<!-- Visi Misi -->
-<div class="faq module">
-    <div class="section-title-wrapper">
-        <div class="section-title">
-            <h2>Visi & Misi</h2>
-            <p>Berikut Visi dan Misi Kami</p>
-        </div>
-    </div> <!-- Title Ends /-->
-    <div class="row">
-        <div class="columns medium-6 pull-left">
-            <h6>Visi</h6> 
-            <ul class="accordion" data-accordion>
-            @foreach($visi as $row)
-                <li class="accordion-item" data-accordion-item>
-                    <a href="#" class="accordion-title">{{$row['judul_visi']}}</a>
-                    <div class="accordion-content" data-tab-content>
-                        {{$row['isi_visi']}}
-                    </div>
-                </li>            
-            @endforeach
-            </ul> <!-- reasons accordion ends -->
-        </div>
-        <div class="columns medium-6">
-            <h6>Misi</h6>  
-            <ul class="accordion" data-accordion>
-            @foreach($misi as $row)
-                <li class="accordion-item" data-accordion-item>
-                    <a href="#" class="accordion-title">{{$row['judul_misi']}}</a>
-                    <div class="accordion-content" data-tab-content>
-                        {{$row['isi_misi']}}
-                    </div>
-                </li>            
-            @endforeach
-            </ul> <!-- reasons accordion ends -->
-        </div>
-    </div>
-</div>
 
 
 <!-- Instagram -->
@@ -183,7 +191,7 @@
             @foreach($pengurus as $row)
             <div class="teacher">
                 <div class="teacher-thumb">
-                    <img src="{{base_url('media/pengurus/').$row['photo']}}" alt="photo" style="height:250px"/>
+                    <img src="{{base_url('media/pengurus/').$row['photo']}}" alt="photo" style="height:280px;width:280px"/>
                 </div><!-- Teacher thumb /-->
                 <div class="teacher-meta">
                     <h3><a href="#">

@@ -19,12 +19,16 @@
                         <li class="nav-item">
                             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#deskripsi" role="tab" aria-controls="all" aria-selected="false">Kelola Deskripsi Website</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#kwaran" role="tab" aria-controls="all" aria-selected="false">Kelola Kwarran</a>
+                        </li>
                     </ul>
                     <div class="tab-content">
                         <?php echo $__env->make('backend.information.slider', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         <?php echo $__env->make('backend.information.visi', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         <?php echo $__env->make('backend.information.misi', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         <?php echo $__env->make('backend.information.deskripsi', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        <?php echo $__env->make('backend.information.kwarran', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     </div>
                 </div> <!-- end card body-->
             </div> <!-- end card -->

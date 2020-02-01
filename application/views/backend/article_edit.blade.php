@@ -85,7 +85,7 @@
                                                                 </div>  
                                                                 <div class="form-group">
                                                                     <label for="">Isi Artikel</label> 
-                                                                    <textarea name="isi_artikel" class="richtext form-controls" id="" cols="100%" rows="200">{{ $artikel['judul'] }}</textarea>
+                                                                    <textarea name="isi_artikel" class="richtext form-controls" id="" cols="100%" rows="200">{{ $artikel['artikel'] }}</textarea>
                                                                 </div> 
                                                             </div>
                                                             <div class="col-md-12">

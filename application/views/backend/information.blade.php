@@ -21,12 +21,16 @@
                         <li class="nav-item">
                             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#deskripsi" role="tab" aria-controls="all" aria-selected="false">Kelola Deskripsi Website</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#kwaran" role="tab" aria-controls="all" aria-selected="false">Kelola Kwarran</a>
+                        </li>
                     </ul>
                     <div class="tab-content">
                         @include('backend.information.slider')
                         @include('backend.information.visi')
                         @include('backend.information.misi')
                         @include('backend.information.deskripsi')
+                        @include('backend.information.kwarran')
                     </div>
                 </div> <!-- end card body-->
             </div> <!-- end card -->

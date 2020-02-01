@@ -10,7 +10,7 @@
                     <form action="<?php echo e(base_url('admin/visi/').$data['id_visi']); ?>/update.aspx" method="post" enctype="multipart/form-data" style="margin-top:30px">
                         <div class="row">
                             <div class="col-md-4">
-                                
+                                <img src="<?php echo e(base_url('assets/backend/img/visi.svg')); ?>" alt="" style="margin-top:150px">
                             </div>
                             <div class="col-md-8">
                                 <div class="form-group">

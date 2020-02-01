@@ -11,6 +11,7 @@
             $this->load->model('SliderModel');
             $this->load->model('VisiModel');
             $this->load->model('MisiModel');
+            $this->load->model('KecamatanModel');
         }
         
 
@@ -23,11 +24,13 @@
                 $data_slider = $this->SliderModel->read()->result_array();
                 $data_visi = $this->VisiModel->read()->result_array();
                 $data_misi = $this->MisiModel->read()->result_array();
+                $data_kecamatan = $this->KecamatanModel->read()->result_array();
                 $data = array(
-                    'content'       => 'slider',
-                    'data'          => $data_slider,
-                    'data_visi'     => $data_visi,
-                    'data_misi'     => $data_misi
+                    'content'           => 'slider',
+                    'data'              => $data_slider,
+                    'data_visi'         => $data_visi,
+                    'data_misi'         => $data_misi,
+                    'data_kecamatan'    => $data_kecamatan
                 );
                 view('backend/information', $data);
             }else{
@@ -107,6 +110,25 @@
                 );
 
                 view('backend/misi_edit', $data);
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function view_update_kwarran()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                $url = explode('.', $this->uri->segment(3));
+                $id = $url[0];
+
+                $data_kecamatan = $this->KecamatanModel->read($id)->row_array();
+
+                $data = array(
+                    'content'       => 'slider',
+                    'data'     => $data_kecamatan
+                );
+
+                view('backend/kwarran_edit', $data);
             }else{
                 redirect('admin/login.html','refresh');
             }
@@ -334,6 +356,27 @@
                     );
 
                     $this->MisiModel->update($id, $data);
+
+                    redirect('admin/informasi.html','refresh');
+                }
+            }else{
+                redirect('admin/login.html','refresh');
+            }
+        }
+
+        public function kwarran_update()
+        {
+            if(!empty($this->session->userdata('id_user'))){
+                if(!empty($this->uri->segment(4))){
+                    $id = $this->uri->segment(3);
+
+                    $data = array(
+                        "nama_kecamatan" => $this->input->post('nama'),
+                        "gugusdepan" => $this->input->post('gugusdepan'),
+                        "anggota" => $this->input->post('anggota')
+                    );
+
+                    $this->KecamatanModel->update($id, $data);
 
                     redirect('admin/informasi.html','refresh');
                 }

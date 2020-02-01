@@ -60,6 +60,8 @@ $route['admin/misi/(:any)/activated.aspx'] = 'slider/misi_status/$1/1';
 $route['admin/misi/(:any)/delete.aspx'] = 'slider/misi_delete/$1';
 $route['admin/misi/(:any)/update.aspx'] = 'slider/misi_update/$1';
 
+$route['admin/kwarran/(:any)/update.aspx'] = 'slider/kwarran_update/$1';
+
 $route['admin/password.aspx'] = 'User/password';
 $route['admin/settings.aspx'] = 'User/settings';
 
@@ -112,6 +114,7 @@ $route['admin/visi/create.html'] = 'Slider/view_create_visi';
 $route['admin/visi/(:any).html'] = 'Slider/view_update_visi/$1';
 $route['admin/misi/create.html'] = 'Slider/view_create_misi';
 $route['admin/misi/(:any).html'] = 'Slider/view_update_misi/$1';
+$route['admin/kwarran/(:any).html'] = 'Slider/view_update_kwarran/$1';
 $route['admin/slider/create.html'] = 'Slider/view_create_slider';
 
 $route['admin/profile.html'] = 'User/profile';

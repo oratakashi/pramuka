@@ -64,6 +64,44 @@
 <?php endif; ?>
 <!-- Banner Ends /-->
 
+<!-- Visi Misi -->
+<div class="faq module" style="margin-top:80px">
+    <div class="section-title-wrapper">
+        <div class="section-title">
+            <h2>Visi & Misi</h2>
+            <p>Berikut Visi dan Misi Kami</p>
+        </div>
+    </div> <!-- Title Ends /-->
+    <div class="row">
+        <div class="columns medium-6 pull-left">
+            <h6>Visi</h6> 
+            <ul class="accordion" data-accordion>
+            <?php $__currentLoopData = $visi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title"><?php echo e($row['judul_visi']); ?></a>
+                    <div class="accordion-content" data-tab-content>
+                        <?= $row['isi_visi'] ?>
+                    </div>
+                </li>            
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </ul> <!-- reasons accordion ends -->
+        </div>
+        <div class="columns medium-6">
+            <h6>Misi</h6>  
+            <ul class="accordion" data-accordion>
+            <?php $__currentLoopData = $misi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title"><?php echo e($row['judul_misi']); ?></a>
+                    <div class="accordion-content" data-tab-content>
+                        <?= $row['isi_misi'] ?>
+                    </div>
+                </li>            
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </ul> <!-- reasons accordion ends -->
+        </div>
+    </div>
+</div>
+
 <!-- Blog Posts -->
 <div class="blog-posts module grey-bg">
     <div class="section-title-wrapper">
@@ -86,7 +124,15 @@
                             </a>    
                         </div><!-- Thumb /-->
                         <div class="post-content">
-                            <h4><a href="<?php echo e(base_url('').$row['id_artikel'].'/'.$row['slug']); ?>.html"><?php echo e($row['judul']); ?></a></h4>
+                            <h4><a href="<?php echo e(base_url('').$row['id_artikel'].'/'.$row['slug']); ?>.html">
+                                <?php
+                                    if(strlen($row['judul'])>40){
+                                        echo substr(strtoupper($row['judul']), 0, 40)."...";
+                                    }else{
+                                        echo strtoupper($row['judul']);
+                                    }
+                                ?>
+                            </a></h4>
                             <div class="post-meta"><?php echo e(date('d F Y', strtotime($row['tgl_post']))); ?> | <a href="<?php echo e(base_url('categories/').$row['slug_kategori']); ?>"><?php echo e($row['nm_kategori']); ?></a> | <strong>Penulis:</strong> <?php echo e($row['nama']); ?></div>
                             <a href="<?php echo e(base_url('').$row['id_artikel'].'/'.$row['slug']); ?>.html" class="btn btn-primary">Lihat Selengkapnya</a>
                         </div><!-- post content /-->
@@ -105,46 +151,6 @@
 
 </div>
 <!-- Blog Posts Ends /-->
-
-<!-- Visi Misi -->
-<div class="faq module">
-    <div class="section-title-wrapper">
-        <div class="section-title">
-            <h2>Visi & Misi</h2>
-            <p>Berikut Visi dan Misi Kami</p>
-        </div>
-    </div> <!-- Title Ends /-->
-    <div class="row">
-        <div class="columns medium-6 pull-left">
-            <h6>Visi</h6> 
-            <ul class="accordion" data-accordion>
-            <?php $__currentLoopData = $visi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <li class="accordion-item" data-accordion-item>
-                    <a href="#" class="accordion-title"><?php echo e($row['judul_visi']); ?></a>
-                    <div class="accordion-content" data-tab-content>
-                        <?php echo e($row['isi_visi']); ?>
-
-                    </div>
-                </li>            
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </ul> <!-- reasons accordion ends -->
-        </div>
-        <div class="columns medium-6">
-            <h6>Misi</h6>  
-            <ul class="accordion" data-accordion>
-            <?php $__currentLoopData = $misi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <li class="accordion-item" data-accordion-item>
-                    <a href="#" class="accordion-title"><?php echo e($row['judul_misi']); ?></a>
-                    <div class="accordion-content" data-tab-content>
-                        <?php echo e($row['isi_misi']); ?>
-
-                    </div>
-                </li>            
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </ul> <!-- reasons accordion ends -->
-        </div>
-    </div>
-</div>
 
 
 <!-- Instagram -->
@@ -184,7 +190,7 @@
             <?php $__currentLoopData = $pengurus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="teacher">
                 <div class="teacher-thumb">
-                    <img src="<?php echo e(base_url('media/pengurus/').$row['photo']); ?>" alt="photo" style="height:250px"/>
+                    <img src="<?php echo e(base_url('media/pengurus/').$row['photo']); ?>" alt="photo" style="height:280px;width:280px"/>
                 </div><!-- Teacher thumb /-->
                 <div class="teacher-meta">
                     <h3><a href="#">

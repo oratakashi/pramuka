@@ -42,11 +42,15 @@
         public function view_update()
         {
             if(!empty($this->session->userdata('id_user'))){
-                $data_product = $this->ProductModel->read()->row_array();
+                $id_product = explode(".", $this->uri->segment(3));
+                $id_product = $id_product[0];
+
+                $data_product = $this->ProductModel->read_id($id_product)->row_array();
                 $data = array(
                     'content'   => 'products',
                     'data'      => $data_product
                 );
+
                 view('backend/products_update', $data);
             }else{
                 redirect('admin/login.html','refresh');

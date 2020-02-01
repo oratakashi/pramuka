@@ -1,6 +1,8 @@
-<?php $__env->startSection('title', 'Ubah Pengguna -  Pramuka Lumajang'); ?>
+@extends('backend.layouts.master')
 
-<?php $__env->startSection('container'); ?>
+@section('title', 'Ubah Pengguna -  Pramuka Lumajang')
+
+@section('container')
 <script>
     function tampilkanPreview(gambar,idpreview){
         var gb = gambar.files;
@@ -28,14 +30,14 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-2"><?php echo e("Ubah Pengguna"); ?> <a href="<?php echo e(base_url('admin/user.html')); ?>"><button class="btn btn-sm btn-danger">Batal</button></a></h4>
-                    <form action="<?php echo e(base_url('admin/user/update.aspx')); ?>" method="post" enctype="multipart/form-data" style="margin-top:30px">
+                    <h4 class="card-title mb-2">{{ "Ubah Pengguna" }} <a href="{{ base_url('admin/user.html') }}"><button class="btn btn-sm btn-danger">Batal</button></a></h4>
+                    <form action="{{ base_url('admin/user/update.aspx') }}" method="post" enctype="multipart/form-data" style="margin-top:30px">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="">
                                     <center>
                                     <a class="user-avatar" href="#">
-                                        <img id="photo" class="thumb-md mb-2 rounded-circle" src="<?php echo e(base_url('media/photo_user/').$user['photo']); ?>" style="width:150px;height:150px" alt="">
+                                        <img id="photo" class="thumb-md mb-2 rounded-circle" src="{{base_url('media/photo_user/').$user['photo']}}" style="width:150px;height:150px" alt="">
                                     </a>
                                     </center>
                                     <div class="form-group">
@@ -57,8 +59,8 @@
                                             <label>Tipe : </label>
                                             <select name="lev_user" id="lev_user" class="form-control" disabled>
                                                 <option value="">Pilih Jenis Pengguna</option>
-                                                <option value="Administrator" <?php if($user['lev_user']=='Administrator'){echo "selected";} ?>>Administrator</option>
-                                                <option value="Pengurus" <?php if($user['lev_user']=='Pengurus'){echo "selected";} ?>>Pengurus</option>
+                                                <option value="Administrator" @php if($user['lev_user']=='Administrator'){echo "selected";} @endphp>Administrator</option>
+                                                <option value="Pengurus" @php if($user['lev_user']=='Pengurus'){echo "selected";} @endphp>Pengurus</option>
                                             </select>
                                         </div>
                                     </div>
@@ -66,9 +68,9 @@
                                         <label for="">Kecamatan</label>
                                         <select name="kecataman" id="kecamatan" class="form-control" disabled>
                                             <option value="">Pilih Kecamatan</option>
-                                            <?php $__currentLoopData = $data_kec; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <option value="<?php echo e($data['id_kecamatan']); ?>" <?php if($id_kecamatan==$data['id_kecamatan']){echo "selected";} ?>><?php echo e($data['nama_kecamatan']); ?></option>
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            @foreach ($data_kec as $data)
+                                                <option value="{{ $data['id_kecamatan'] }}" @php if($id_kecamatan==$data['id_kecamatan']){echo "selected";} @endphp>{{ $data['nama_kecamatan'] }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -76,29 +78,29 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="">ID Pengguna</label>
-                                            <input type="text" required name="id_user" readonly id="id_user" class="form-control" value="<?php echo e($user['id_user']); ?>">
+                                            <input type="text" required name="id_user" readonly id="id_user" class="form-control" value="{{ $user['id_user'] }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="">No Hp</label>
-                                            <input type="text" required name="no_hp" id="" class="form-control" value="<?php echo e($user['no_hp']); ?>">
+                                            <input type="text" required name="no_hp" id="" class="form-control" value="{{ $user['no_hp'] }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="">Password</label>
-                                            <input type="password" name="password" id="" class="form-control" value="<?php echo e($user['password']); ?>">
+                                            <input type="password" name="password" id="" class="form-control" value="{{ $user['password'] }}">
                                         </div>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="">Nama Pengguna</label>
-                                            <input type="text" required name="nama" id="" class="form-control" value="<?php echo e($user['nama']); ?>">
+                                            <input type="text" required name="nama" id="" class="form-control" value="{{ $user['nama'] }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="">Email</label>
-                                            <input type="text" required name="email" id="email" class="form-control" value="<?php echo e($user['email']); ?>">
+                                            <input type="text" required name="email" id="email" class="form-control" value="{{ $user['email'] }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="">Alamat</label>
-                                            <input type="text" name="alamat" id="" class="form-control" value="<?php echo e($user['alamat']); ?>">
+                                            <input type="text" name="alamat" id="" class="form-control" value="{{ $user['alamat'] }}">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -115,15 +117,15 @@
 </div>
 <script>
     $(document).ready(function () {
-        <?php if($user['lev_user']=='Administrator'): ?>
+        @if ($user['lev_user']=='Administrator')
             $('#parent_kecamatan').fadeOut();
-        <?php endif; ?>
+        @endif
         $('#lev_user').change(function (e) { 
             e.preventDefault();
             if($('#lev_user').val()=='Administrator'){
                 $.ajax({
                     type: "post",
-                    url: "<?php echo e(base_url('admin/user/getId.aspx')); ?>",
+                    url: "{{ base_url('admin/user/getId.aspx') }}",
                     beforeSend: function() {
                         $('input').attr('disabled', true);
                         $('input').attr('placeholder', "Memuat...");
@@ -155,7 +157,7 @@
             if($('#kecamatan').val()!=''){
                 $.ajax({
                     type: "post",
-                    url: "<?php echo e(base_url('admin/user/getId.aspx')); ?>",
+                    url: "{{ base_url('admin/user/getId.aspx') }}",
                     beforeSend: function() {
                         $('input').attr('disabled', true);
                         $('input').attr('placeholder', "Memuat...");
@@ -178,5 +180,4 @@
         });
     });
 </script>
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/pramuka/application/views/backend/user_edit.blade.php ENDPATH**/ ?>
+@endsection
