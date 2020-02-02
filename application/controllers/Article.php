@@ -288,6 +288,7 @@
                             "judul" => $this->input->post('judul'),
                             "artikel" => $this->input->post('isi_artikel'), 
                             "slug" => slug($this->input->post('judul')),
+                            "tgl_post" => 'CURRENT_TIMESTAMP',
                             "foto_header" => $photo
                         ); 
 
